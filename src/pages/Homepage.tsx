@@ -54,62 +54,121 @@ const Homepage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-blue-900 to-blue-700 text-white">
-        <div className="container mx-auto px-4 py-20 md:py-32">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Designs for Every Space
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-blue-100">
-              Premium quality furniture with factory-direct pricing. Transform your home with our
-              custom-made furniture, repair, and polish services.
+      {/* Hero Section - Premium Urban Ladder Style */}
+      <section className="relative bg-gradient-to-br from-[#1a0e0e] via-[#2d1414] to-[#1a0e0e] text-white overflow-hidden min-h-[85vh] flex items-center">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-red-900/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-orange-800/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="container mx-auto px-4 py-20 relative z-10">
+          <div className="max-w-5xl mx-auto text-center">
+            {/* Premium Badge */}
+            <div className="mb-8 inline-block">
+              <span className="text-orange-400 text-sm md:text-base font-light tracking-[0.3em] uppercase border border-orange-400/30 px-6 py-2 rounded-full backdrop-blur-sm">
+                Premium Collection 2026
+              </span>
+            </div>
+            
+            {/* Elegant Script Title */}
+            <div className="mb-8">
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif italic mb-4 tracking-wide leading-none">
+                <span className="block">Designs</span>
+              </h1>
+              <p className="text-xl md:text-2xl lg:text-3xl font-light tracking-[0.2em] uppercase text-gray-400">
+                for every
+              </p>
+              <h2 className="text-6xl md:text-8xl lg:text-9xl font-serif italic mt-4 tracking-wide leading-none bg-gradient-to-r from-orange-400 via-red-400 to-orange-300 bg-clip-text text-transparent">
+                <span className="block">desire</span>
+              </h2>
+            </div>
+            
+            <p className="text-base md:text-lg mb-12 text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
+              Handcrafted excellence meets contemporary design. Experience luxury furniture 
+              with factory-direct pricing and bespoke customization.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16">
               <Link
                 to="/category/sofa-sets"
-                className="bg-white text-blue-900 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center"
+                className="group relative bg-white text-gray-900 px-12 py-4 rounded-sm font-medium tracking-wider hover:bg-gray-100 transition-all duration-300 text-center min-w-[220px] overflow-hidden shadow-2xl hover:shadow-orange-500/20"
               >
-                Shop Now
+                <span className="relative z-10 text-sm uppercase">Shop Now</span>
               </Link>
               <Link
                 to="/custom-furniture"
-                className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors text-center"
+                className="group relative bg-transparent border border-white/30 text-white px-12 py-4 rounded-sm font-medium tracking-wider hover:bg-white/10 hover:border-orange-400 transition-all duration-300 text-center min-w-[220px] backdrop-blur-sm"
               >
-                Custom Furniture
+                <span className="text-sm uppercase">Custom Furniture</span>
               </Link>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-8 border-t border-white/10">
+              <div className="text-center group cursor-default">
+                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">15+</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest">Years</div>
+              </div>
+              <div className="text-center group cursor-default">
+                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">5K+</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest">Customers</div>
+              </div>
+              <div className="text-center group cursor-default">
+                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">100%</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest">Quality</div>
+              </div>
+              <div className="text-center group cursor-default">
+                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">Free</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest">Delivery</div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-gray-50 to-transparent"></div>
+        
+        {/* Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-16 bg-white">
+      {/* Categories Section - Urban Ladder Style */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            Shop by Category
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-3">
+              Shop by Category
+            </h2>
+            <p className="text-gray-600">Explore our curated furniture collections</p>
+          </div>
+          
+          {/* Circular Category Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
             {categories.map((category) => (
               <Link
                 key={category.id}
                 to={`/category/${category.slug}`}
-                className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow"
+                className="group flex flex-col items-center"
               >
-                <div className="aspect-square overflow-hidden">
-                  <LazyImage
-                    src={category.imageUrl}
-                    alt={category.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                  <div className="p-4 w-full">
-                    <h3 className="text-white text-lg font-semibold">{category.name}</h3>
-                    <p className="text-white/80 text-sm">{category.productCount} Products</p>
+                {/* Circular Image Container */}
+                <div className="relative w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden bg-gradient-to-br from-orange-50 to-red-50 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
+                  <div className="absolute inset-0 bg-white/80 group-hover:bg-white/60 transition-colors"></div>
+                  <div className="absolute inset-0 flex items-center justify-center p-6">
+                    <LazyImage
+                      src={category.imageUrl}
+                      alt={category.name}
+                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
+                  {/* Hover Ring Effect */}
+                  <div className="absolute inset-0 rounded-full border-4 border-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
+                
+                {/* Category Name */}
+                <h3 className="text-center text-sm md:text-base font-medium text-gray-800 group-hover:text-orange-600 transition-colors">
+                  {category.name}
+                </h3>
+                <p className="text-xs text-gray-500 mt-1">{category.productCount} items</p>
               </Link>
             ))}
           </div>
