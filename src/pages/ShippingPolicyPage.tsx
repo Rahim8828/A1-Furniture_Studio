@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Truck, Package, Clock, Home, MapPin, Map, Globe, Wrench } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const ShippingPolicyPage: React.FC = () => {
@@ -26,13 +27,13 @@ const ShippingPolicyPage: React.FC = () => {
         <section className="bg-[#fdf8f0] rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: '🚚', title: 'Free Delivery', desc: 'On orders above ₹9,999' },
-              { icon: '📦', title: 'Safe Packaging', desc: 'Multi-layer protection' },
-              { icon: '⏰', title: '7–14 Days', desc: 'Standard delivery time' },
-              { icon: '🏠', title: 'Room Placement', desc: 'We set it up for you' },
+              { icon: <Truck className="w-7 h-7 text-[#c17d3c]" />, title: 'Free Delivery', desc: 'On orders above ₹9,999' },
+              { icon: <Package className="w-7 h-7 text-[#c17d3c]" />, title: 'Safe Packaging', desc: 'Multi-layer protection' },
+              { icon: <Clock className="w-7 h-7 text-[#c17d3c]" />, title: '7–14 Days', desc: 'Standard delivery time' },
+              { icon: <Home className="w-7 h-7 text-[#c17d3c]" />, title: 'Room Placement', desc: 'We set it up for you' },
             ].map((item) => (
               <div key={item.title} className="text-center">
-                <span className="text-3xl block mb-2">{item.icon}</span>
+                <span className="flex justify-center mb-2">{item.icon}</span>
                 <h3 className="font-semibold text-gray-900">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
@@ -46,7 +47,7 @@ const ShippingPolicyPage: React.FC = () => {
           <div className="bg-white rounded-xl shadow-card p-6 space-y-4">
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
               <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">📍</span>
+                <MapPin className="w-5 h-5 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Mumbai Metropolitan Region</h3>
@@ -55,7 +56,7 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
               <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🗺️</span>
+                <Map className="w-5 h-5 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Maharashtra (Rest of State)</h3>
@@ -64,7 +65,7 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
               <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🇮🇳</span>
+                <Globe className="w-5 h-5 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Pan-India Delivery</h3>
@@ -73,7 +74,7 @@ const ShippingPolicyPage: React.FC = () => {
             </div>
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🔧</span>
+                <Wrench className="w-5 h-5 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Assembly & Installation</h3>

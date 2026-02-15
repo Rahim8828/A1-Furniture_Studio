@@ -177,10 +177,10 @@ const SearchResults = () => {
               </p>
               <div className="text-left bg-gray-50 rounded-lg p-4 mb-5">
                 <p className="text-xs font-semibold text-gray-700 mb-2">Suggestions:</p>
-                <ul className="text-xs text-gray-500 space-y-1">
-                  <li>• Check your spelling</li>
-                  <li>• Try more general keywords</li>
-                  <li>• Browse our popular categories</li>
+                <ul className="text-xs text-gray-500 space-y-1 list-disc list-inside">
+                  <li>Check your spelling</li>
+                  <li>Try more general keywords</li>
+                  <li>Browse our popular categories</li>
                 </ul>
               </div>
               <button

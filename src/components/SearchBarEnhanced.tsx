@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { TrendingUp } from 'lucide-react';
 import type { FormEvent } from 'react';
 import { productService } from '../services/ProductService';
 import type { Product } from '../models/types';
@@ -254,8 +255,8 @@ const SearchBarEnhanced = ({
           {/* Trending Searches (shown when input is empty/focused) */}
           {query.trim().length < 2 && (
             <div>
-              <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider bg-gray-50">
-                🔥 Trending Searches
+              <div className="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider bg-gray-50 flex items-center gap-1.5">
+                <TrendingUp className="w-3.5 h-3.5" /> Trending Searches
               </div>
               {trendingSearches.map((term) => (
                 <button

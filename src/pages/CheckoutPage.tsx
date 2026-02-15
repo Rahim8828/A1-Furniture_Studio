@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { MapPin, ArrowRight, ArrowLeft, Banknote, CreditCard, Lock, Truck, RotateCcw } from 'lucide-react';
 import LazyImage from '../components/LazyImage';
 import { cartService } from '../services/CartService';
 import { checkoutService } from '../services/CheckoutService';
@@ -246,7 +247,7 @@ const CheckoutPage = () => {
               {/* Delivery address */}
               <div className="text-left mb-8 bg-gray-50 rounded-xl p-6">
                 <h3 className="text-sm font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span>📍</span> Delivery Address
+                  <MapPin className="w-4 h-4" /> Delivery Address
                 </h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   {confirmedOrder.deliveryAddress.fullName}<br />
@@ -414,7 +415,7 @@ const CheckoutPage = () => {
                   onClick={() => setCurrentStep(2)}
                   className="w-full sm:w-auto bg-[#c17d3c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors text-sm"
                 >
-                  Continue to Payment →
+                  Continue to Payment <ArrowRight className="w-4 h-4 inline ml-1" />
                 </button>
               </>
             )}
@@ -455,13 +456,13 @@ const CheckoutPage = () => {
                     onClick={() => setCurrentStep(1)}
                     className="px-6 py-3 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
                   >
-                    ← Back
+                    <ArrowLeft className="w-4 h-4 inline mr-1" /> Back
                   </button>
                   <button
                     onClick={() => setCurrentStep(3)}
                     className="bg-[#c17d3c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors text-sm"
                   >
-                    Review Order →
+                    Review Order <ArrowRight className="w-4 h-4 inline ml-1" />
                   </button>
                 </div>
               </>
@@ -492,7 +493,7 @@ const CheckoutPage = () => {
                     <button onClick={() => setCurrentStep(2)} className="text-[#c17d3c] text-sm font-medium hover:underline">Edit</button>
                   </div>
                   <p className="text-sm text-gray-700 font-medium">
-                    {paymentMethod === 'COD' ? '💵 Cash on Delivery' : '💳 Online Payment'}
+                    {paymentMethod === 'COD' ? <><Banknote className="w-4 h-4 inline mr-1" /> Cash on Delivery</> : <><CreditCard className="w-4 h-4 inline mr-1" /> Online Payment</>}
                   </p>
                 </div>
 
@@ -507,7 +508,7 @@ const CheckoutPage = () => {
                     onClick={() => setCurrentStep(2)}
                     className="px-6 py-3 border border-gray-300 rounded-lg text-sm font-semibold text-gray-700 hover:bg-gray-50 transition-colors"
                   >
-                    ← Back
+                    <ArrowLeft className="w-4 h-4 inline mr-1" /> Back
                   </button>
                   <button
                     onClick={handleSubmitOrder}
@@ -581,12 +582,12 @@ const CheckoutPage = () => {
               <hr className="border-gray-200" />
               <div className="space-y-2">
                 {[
-                  { icon: '🔒', text: 'Secure checkout' },
-                  { icon: '🚚', text: '7-day delivery guarantee' },
-                  { icon: '↩️', text: 'Easy returns & exchanges' },
+                  { icon: <Lock className="w-4 h-4" />, text: 'Secure checkout' },
+                  { icon: <Truck className="w-4 h-4" />, text: '7-day delivery guarantee' },
+                  { icon: <RotateCcw className="w-4 h-4" />, text: 'Easy returns & exchanges' },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2 text-xs text-gray-500">
-                    <span>{item.icon}</span>
+                    <span className="flex-shrink-0">{item.icon}</span>
                     <span>{item.text}</span>
                   </div>
                 ))}

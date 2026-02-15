@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Shield, Wrench, ClipboardList, CheckCircle, XCircle, Lightbulb } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const WarrantyPage: React.FC = () => {
@@ -26,12 +27,12 @@ const WarrantyPage: React.FC = () => {
         <section className="bg-[#fdf8f0] rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: '🛡️', title: '5-Year Warranty', desc: 'On all solid wood furniture' },
-              { icon: '🔧', title: 'Free Repairs', desc: 'Manufacturing defects covered' },
-              { icon: '📋', title: 'Easy Claims', desc: 'Simple warranty claim process' },
+              { icon: <Shield className="w-7 h-7 text-[#c17d3c]" />, title: '5-Year Warranty', desc: 'On all solid wood furniture' },
+              { icon: <Wrench className="w-7 h-7 text-[#c17d3c]" />, title: 'Free Repairs', desc: 'Manufacturing defects covered' },
+              { icon: <ClipboardList className="w-7 h-7 text-[#c17d3c]" />, title: 'Easy Claims', desc: 'Simple warranty claim process' },
             ].map((item) => (
               <div key={item.title} className="text-center">
-                <span className="text-3xl block mb-2">{item.icon}</span>
+                <span className="flex justify-center mb-2">{item.icon}</span>
                 <h3 className="font-semibold text-gray-900">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
@@ -80,7 +81,7 @@ const WarrantyPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white rounded-xl shadow-card p-6">
               <h3 className="font-semibold text-green-700 mb-3 flex items-center gap-2">
-                <span>✅</span> Covered Under Warranty
+                <CheckCircle className="w-5 h-5 text-green-600" /> Covered Under Warranty
               </h3>
               <ul className="space-y-2">
                 {[
@@ -100,7 +101,7 @@ const WarrantyPage: React.FC = () => {
             </div>
             <div className="bg-white rounded-xl shadow-card p-6">
               <h3 className="font-semibold text-red-700 mb-3 flex items-center gap-2">
-                <span>❌</span> Not Covered
+                <XCircle className="w-5 h-5 text-red-500" /> Not Covered
               </h3>
               <ul className="space-y-2">
                 {[
@@ -158,7 +159,7 @@ const WarrantyPage: React.FC = () => {
                 'Use furniture polish every 3–6 months',
               ].map((tip, i) => (
                 <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span className="text-[#c17d3c]">💡</span>
+                  <Lightbulb className="w-4 h-4 text-[#c17d3c] flex-shrink-0" />
                   {tip}
                 </div>
               ))}

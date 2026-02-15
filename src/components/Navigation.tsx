@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Sparkles, Wrench } from 'lucide-react';
 import AnnouncementBar from './AnnouncementBar';
 import SearchBarEnhanced from './SearchBarEnhanced';
 import MegaMenu from './MegaMenu';
@@ -258,13 +259,13 @@ const Navigation = ({
                 to="/custom-furniture"
                 className="text-sm font-semibold text-[#c17d3c] hover:text-[#a86830] px-3 h-11 flex items-center gap-1 transition-colors"
               >
-                ✨ Custom Furniture
+                <Sparkles className="w-4 h-4" /> Custom Furniture
               </Link>
               <Link
                 to="/repair-polish"
                 className="text-sm font-medium text-gray-600 hover:text-[#c17d3c] px-3 h-11 flex items-center gap-1 transition-colors"
               >
-                🔧 Repair & Polish
+                <Wrench className="w-4 h-4" /> Repair & Polish
               </Link>
             </div>
           </div>

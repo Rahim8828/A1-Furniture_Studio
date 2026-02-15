@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { ShoppingCart, Truck, RefreshCw, Armchair, Shield } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 interface FAQItem {
@@ -9,14 +10,14 @@ interface FAQItem {
 
 interface FAQCategory {
   title: string;
-  icon: string;
+  icon: React.ReactNode;
   items: FAQItem[];
 }
 
 const faqData: FAQCategory[] = [
   {
     title: 'Orders & Payment',
-    icon: '🛒',
+    icon: <ShoppingCart className="w-5 h-5" />,
     items: [
       {
         question: 'What payment methods do you accept?',
@@ -38,7 +39,7 @@ const faqData: FAQCategory[] = [
   },
   {
     title: 'Delivery & Shipping',
-    icon: '🚚',
+    icon: <Truck className="w-5 h-5" />,
     items: [
       {
         question: 'How long does delivery take?',
@@ -60,7 +61,7 @@ const faqData: FAQCategory[] = [
   },
   {
     title: 'Returns & Refunds',
-    icon: '🔄',
+    icon: <RefreshCw className="w-5 h-5" />,
     items: [
       {
         question: 'What is your return policy?',
@@ -82,7 +83,7 @@ const faqData: FAQCategory[] = [
   },
   {
     title: 'Products & Quality',
-    icon: '🪑',
+    icon: <Armchair className="w-5 h-5" />,
     items: [
       {
         question: 'What materials do you use?',
@@ -104,7 +105,7 @@ const faqData: FAQCategory[] = [
   },
   {
     title: 'Warranty & Care',
-    icon: '🛡️',
+    icon: <Shield className="w-5 h-5" />,
     items: [
       {
         question: 'What warranty do you offer?',

@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { Wrench, Sparkles, Palette, UserCog, Star, Truck, CheckCircle, Phone, MessageCircle, Mail } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 interface QuoteFormData {
@@ -107,7 +108,7 @@ export default function RepairPolishPage() {
       {/* Services Overview */}
       <div className="grid md:grid-cols-3 gap-6 mb-12">
         <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="text-4xl mb-4">🔧</div>
+          <Wrench className="w-10 h-10 text-[#c17d3c] mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 mb-3">Repair Services</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>• Structural repairs and reinforcement</li>
@@ -120,7 +121,7 @@ export default function RepairPolishPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="text-4xl mb-4">✨</div>
+          <Sparkles className="w-10 h-10 text-[#c17d3c] mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 mb-3">Polish Services</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>• Complete refinishing</li>
@@ -133,7 +134,7 @@ export default function RepairPolishPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
-          <div className="text-4xl mb-4">🎨</div>
+          <Palette className="w-10 h-10 text-[#c17d3c] mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 mb-3">Restoration</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>• Antique furniture restoration</li>
@@ -461,28 +462,28 @@ export default function RepairPolishPage() {
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="text-3xl mb-3">👨‍🔧</div>
+            <div className="text-3xl mb-3"><UserCog className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Expert Craftsmen</h3>
             <p className="text-sm text-gray-600">
               20+ years of experience in furniture repair and restoration
             </p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-3">⭐</div>
+            <div className="text-3xl mb-3"><Star className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Premium Quality</h3>
             <p className="text-sm text-gray-600">
               Only the finest materials and finishes for lasting results
             </p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-3">🚚</div>
+            <div className="text-3xl mb-3"><Truck className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Pickup & Delivery</h3>
             <p className="text-sm text-gray-600">
               Free pickup and delivery within Mumbai for your convenience
             </p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-3">✅</div>
+            <div className="text-3xl mb-3"><CheckCircle className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Satisfaction Guaranteed</h3>
             <p className="text-sm text-gray-600">
               6-month warranty on all repair and polish work
@@ -498,11 +499,11 @@ export default function RepairPolishPage() {
         </h3>
         <div className="flex flex-wrap justify-center gap-6 text-gray-700">
           <a href="tel:+919876543210" className="flex items-center hover:text-[#c17d3c]">
-            <span className="mr-2">📞</span>
+            <Phone className="w-4 h-4 mr-2" />
             <span>+91 98765 43210</span>
           </a>
           <a href="mailto:service@a1furniture.com" className="flex items-center hover:text-[#c17d3c]">
-            <span className="mr-2">✉️</span>
+            <Mail className="w-4 h-4 mr-2" />
             <span>service@a1furniture.com</span>
           </a>
           <a
@@ -511,7 +512,7 @@ export default function RepairPolishPage() {
             rel="noopener noreferrer"
             className="flex items-center hover:text-[#c17d3c]"
           >
-            <span className="mr-2">💬</span>
+            <MessageCircle className="w-4 h-4 mr-2" />
             <span>WhatsApp Us</span>
           </a>
         </div>

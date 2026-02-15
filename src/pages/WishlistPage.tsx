@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 import { wishlistService } from '../services/WishlistService';
 import { cartService } from '../services/CartService';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -158,7 +159,7 @@ const WishlistPage = () => {
             to="/"
             className="inline-flex items-center gap-1 text-[#c17d3c] hover:text-[#a86830] font-medium transition-colors text-sm"
           >
-            ← Continue Shopping
+            <ArrowLeft className="w-4 h-4 inline mr-1" /> Continue Shopping
           </Link>
         </div>
       </div>

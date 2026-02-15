@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { BadgeCheck, Truck, Lock, RotateCcw, Shield } from 'lucide-react';
 import LazyImage from '../components/LazyImage';
 import { cartService } from '../services/CartService';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -153,7 +154,7 @@ const CartPage = () => {
             {/* Savings banner */}
             {totalSavings > 0 && (
               <div className="bg-green-50 border border-green-200 rounded-xl px-5 py-3.5 flex items-center gap-3">
-                <span className="text-green-600 text-lg">🎉</span>
+                <BadgeCheck className="w-5 h-5 text-green-600" />
                 <p className="text-sm text-green-700 font-medium">You are saving <span className="font-bold">₹{totalSavings.toLocaleString()}</span> on this order!</p>
               </div>
             )}
@@ -310,13 +311,13 @@ const CartPage = () => {
               <hr className="border-gray-200" />
               <div className="space-y-2.5">
                 {[
-                  { icon: '🚚', text: 'Free delivery across Mumbai' },
-                  { icon: '🔒', text: 'Secure checkout with multiple payment options' },
-                  { icon: '↩️', text: '7-day easy returns & exchanges' },
-                  { icon: '🛡️', text: 'Manufacturer warranty on all products' },
+                  { icon: <Truck className="w-4 h-4 text-gray-500" />, text: 'Free delivery across Mumbai' },
+                  { icon: <Lock className="w-4 h-4 text-gray-500" />, text: 'Secure checkout with multiple payment options' },
+                  { icon: <RotateCcw className="w-4 h-4 text-gray-500" />, text: '7-day easy returns & exchanges' },
+                  { icon: <Shield className="w-4 h-4 text-gray-500" />, text: 'Manufacturer warranty on all products' },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-2.5 text-xs text-gray-500">
-                    <span className="text-sm">{item.icon}</span>
+                    <span className="flex-shrink-0">{item.icon}</span>
                     <span>{item.text}</span>
                   </div>
                 ))}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Target, IndianRupee, Sparkles, Truck, Wrench, Handshake } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const AboutPage: React.FC = () => {
@@ -52,7 +53,7 @@ const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
               <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🎯</span>
+                <Target className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Quality First</h3>
               <p className="text-gray-600">
@@ -63,7 +64,7 @@ const AboutPage: React.FC = () => {
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
               <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">💰</span>
+                <IndianRupee className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Factory Direct Pricing</h3>
               <p className="text-gray-600">
@@ -74,7 +75,7 @@ const AboutPage: React.FC = () => {
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
               <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">✨</span>
+                <Sparkles className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Solutions</h3>
               <p className="text-gray-600">
@@ -85,7 +86,7 @@ const AboutPage: React.FC = () => {
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
               <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🚚</span>
+                <Truck className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Reliable Delivery</h3>
               <p className="text-gray-600">
@@ -96,7 +97,7 @@ const AboutPage: React.FC = () => {
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
               <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🔧</span>
+                <Wrench className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Complete Care</h3>
               <p className="text-gray-600">
@@ -107,7 +108,7 @@ const AboutPage: React.FC = () => {
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
               <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <span className="text-2xl">🤝</span>
+                <Handshake className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Customer Trust</h3>
               <p className="text-gray-600">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { TreePine, Scissors, Sparkles, Truck, Wrench, RotateCcw, Shield, Check } from 'lucide-react';
 import LazyImage from '../components/LazyImage';
 import SkeletonProductDetail from '../components/SkeletonProductDetail';
 import { productService } from '../services/ProductService';
@@ -266,19 +267,19 @@ export default function ProductDetail() {
             <div className="grid grid-cols-3 gap-3">
               {product.materials.woodType && (
                 <div className="bg-amber-50 rounded-lg p-3 text-center">
-                  <span className="text-xl">🪵</span>
+                  <TreePine className="w-5 h-5 text-amber-700 mx-auto" />
                   <p className="text-xs font-semibold text-gray-800 mt-1">{product.materials.woodType}</p>
                 </div>
               )}
               {product.materials.fabric && (
                 <div className="bg-[#fdf8f0] rounded-lg p-3 text-center">
-                  <span className="text-xl">🧵</span>
+                  <Scissors className="w-5 h-5 text-[#c17d3c] mx-auto" />
                   <p className="text-xs font-semibold text-gray-800 mt-1">{product.materials.fabric}</p>
                 </div>
               )}
               {product.materials.polish && (
                 <div className="bg-orange-50 rounded-lg p-3 text-center">
-                  <span className="text-xl">✨</span>
+                  <Sparkles className="w-5 h-5 text-orange-600 mx-auto" />
                   <p className="text-xs font-semibold text-gray-800 mt-1">{product.materials.polish}</p>
                 </div>
               )}
@@ -341,7 +342,7 @@ export default function ProductDetail() {
                       : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 }`}
               >
-                {addedToCart ? '✓ Added to Cart!' : 'Add to Cart'}
+                {addedToCart ? <><Check className="w-4 h-4 inline mr-1" />Added to Cart!</> : 'Add to Cart'}
               </button>
               <button
                 onClick={handleBuyNow}
@@ -372,13 +373,13 @@ export default function ProductDetail() {
             {/* Service Highlights */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: '🚚', text: 'Free Delivery in Mumbai' },
-                { icon: '🔧', text: 'Free Assembly' },
-                { icon: '↩️', text: '7-day Easy Returns' },
-                { icon: '🛡️', text: 'Warranty Included' },
+                { icon: <Truck className="w-4 h-4 text-[#c17d3c]" />, text: 'Free Delivery in Mumbai' },
+                { icon: <Wrench className="w-4 h-4 text-[#c17d3c]" />, text: 'Free Assembly' },
+                { icon: <RotateCcw className="w-4 h-4 text-[#c17d3c]" />, text: '7-day Easy Returns' },
+                { icon: <Shield className="w-4 h-4 text-[#c17d3c]" />, text: 'Warranty Included' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2.5">
-                  <span className="text-base">{item.icon}</span>
+                  <span className="flex-shrink-0">{item.icon}</span>
                   <span className="text-xs text-gray-600 font-medium">{item.text}</span>
                 </div>
               ))}
@@ -464,14 +465,14 @@ export default function ProductDetail() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <span>🚚</span> Delivery Information
+                    <Truck className="w-5 h-5 text-[#c17d3c]" /> Delivery Information
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{product.deliveryInfo}</p>
                 </div>
                 <hr className="border-gray-200" />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <span>🛡️</span> Warranty
+                    <Shield className="w-5 h-5 text-[#c17d3c]" /> Warranty
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{product.warrantyInfo}</p>
                 </div>

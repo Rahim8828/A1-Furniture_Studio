@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { megaMenuData } from './MegaMenu';
+import { Building2, Phone, Sparkles, Wrench, MapPin } from 'lucide-react';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -176,10 +177,10 @@ const MobileDrawer = ({
               More
             </p>
             {[
-              { label: 'About Us', path: '/about', icon: '🏢' },
-              { label: 'Contact Us', path: '/contact', icon: '📞' },
-              { label: 'Custom Furniture', path: '/custom-furniture', icon: '✨' },
-              { label: 'Repair & Polish', path: '/repair-polish', icon: '🔧' },
+              { label: 'About Us', path: '/about', icon: <Building2 className="w-4 h-4" /> },
+              { label: 'Contact Us', path: '/contact', icon: <Phone className="w-4 h-4" /> },
+              { label: 'Custom Furniture', path: '/custom-furniture', icon: <Sparkles className="w-4 h-4" /> },
+              { label: 'Repair & Polish', path: '/repair-polish', icon: <Wrench className="w-4 h-4" /> },
             ].map((item) => (
               <Link
                 key={item.path}
@@ -195,7 +196,7 @@ const MobileDrawer = ({
 
           {/* Pincode Check */}
           <div className="mx-5 my-4 p-4 bg-gray-50 rounded-lg">
-            <p className="text-xs font-semibold text-gray-500 mb-2">📍 Check Delivery</p>
+            <p className="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1"><MapPin className="w-3.5 h-3.5" /> Check Delivery</p>
             <div className="flex gap-2">
               <input
                 type="text"

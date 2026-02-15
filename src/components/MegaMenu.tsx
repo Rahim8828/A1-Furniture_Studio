@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Sofa, BedDouble, UtensilsCrossed, Archive, Briefcase, Sparkles, Wrench, ArrowRight } from 'lucide-react';
 
 export interface MegaMenuCategory {
   label: string;
   path: string;
-  icon?: string;
+  icon?: React.ReactNode;
   subcategories?: { label: string; path: string }[];
   featured?: { label: string; path: string; imageUrl: string }[];
   highlight?: string;
@@ -14,7 +15,7 @@ const megaMenuData: MegaMenuCategory[] = [
   {
     label: 'Sofas & Seating',
     path: '/category/sofa-sets',
-    icon: '🛋️',
+    icon: <Sofa className="w-5 h-5" />,
     subcategories: [
       { label: 'L-Shape Sofas', path: '/category/sofa-sets?sub=l-shape' },
       { label: '3-Seater Sofas', path: '/category/sofa-sets?sub=3-seater' },
@@ -40,7 +41,7 @@ const megaMenuData: MegaMenuCategory[] = [
   {
     label: 'Beds',
     path: '/category/beds-mattresses',
-    icon: '🛏️',
+    icon: <BedDouble className="w-5 h-5" />,
     subcategories: [
       { label: 'King Size Beds', path: '/category/beds-mattresses?sub=king' },
       { label: 'Queen Size Beds', path: '/category/beds-mattresses?sub=queen' },
@@ -61,7 +62,7 @@ const megaMenuData: MegaMenuCategory[] = [
   {
     label: 'Dining',
     path: '/category/dining-tables',
-    icon: '🍽️',
+    icon: <UtensilsCrossed className="w-5 h-5" />,
     subcategories: [
       { label: '4-Seater Dining Sets', path: '/category/dining-tables?sub=4-seater' },
       { label: '6-Seater Dining Sets', path: '/category/dining-tables?sub=6-seater' },
@@ -81,7 +82,7 @@ const megaMenuData: MegaMenuCategory[] = [
   {
     label: 'Storage',
     path: '/category/wardrobes-storage',
-    icon: '🗄️',
+    icon: <Archive className="w-5 h-5" />,
     subcategories: [
       { label: 'Wardrobes', path: '/category/wardrobes-storage?sub=wardrobes' },
       { label: 'Chest of Drawers', path: '/category/wardrobes-storage?sub=drawers' },
@@ -94,7 +95,7 @@ const megaMenuData: MegaMenuCategory[] = [
   {
     label: 'Office',
     path: '/category/office-furniture',
-    icon: '💼',
+    icon: <Briefcase className="w-5 h-5" />,
     subcategories: [
       { label: 'Office Desks', path: '/category/office-furniture?sub=desks' },
       { label: 'Office Chairs', path: '/category/office-furniture?sub=chairs' },
@@ -106,7 +107,7 @@ const megaMenuData: MegaMenuCategory[] = [
   {
     label: 'Custom Furniture',
     path: '/custom-furniture',
-    icon: '✨',
+    icon: <Sparkles className="w-5 h-5" />,
     subcategories: [
       { label: 'Custom Sofas', path: '/custom-furniture?type=sofa' },
       { label: 'Custom Beds', path: '/custom-furniture?type=bed' },
@@ -119,7 +120,7 @@ const megaMenuData: MegaMenuCategory[] = [
   {
     label: 'Repair & Polish',
     path: '/repair-polish',
-    icon: '🔧',
+    icon: <Wrench className="w-5 h-5" />,
     subcategories: [
       { label: 'Sofa Repair', path: '/repair-polish?type=sofa-repair' },
       { label: 'Chair Repair', path: '/repair-polish?type=chair-repair' },
@@ -171,7 +172,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                     : 'text-gray-700 hover:bg-white hover:text-[#c17d3c]'
                 }`}
               >
-                <span className="text-lg">{cat.icon}</span>
+                <span className="text-lg flex items-center">{cat.icon}</span>
                 <span className="flex-1">{cat.label}</span>
                 {cat.highlight && (
                   <span className="text-[10px] bg-red-100 text-red-600 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">
@@ -205,7 +206,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                 onClick={onClose}
                 className="text-lg font-semibold text-gray-900 hover:text-[#c17d3c] transition-colors"
               >
-                All {activeItem.label} →
+                All {activeItem.label} <ArrowRight className="w-4 h-4 inline ml-1" />
               </Link>
             </div>
 

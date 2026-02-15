@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { Phone, Mail, MessageCircle } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 interface InquiryFormData {
@@ -321,11 +322,11 @@ export default function CustomFurniturePage() {
         </h3>
         <div className="flex flex-wrap justify-center gap-6 text-gray-700">
           <a href="tel:+919876543210" className="flex items-center hover:text-[#c17d3c]">
-            <span className="mr-2">📞</span>
+            <Phone className="w-4 h-4 mr-2" />
             <span>+91 98765 43210</span>
           </a>
           <a href="mailto:custom@a1furniture.com" className="flex items-center hover:text-[#c17d3c]">
-            <span className="mr-2">✉️</span>
+            <Mail className="w-4 h-4 mr-2" />
             <span>custom@a1furniture.com</span>
           </a>
           <a
@@ -334,7 +335,7 @@ export default function CustomFurniturePage() {
             rel="noopener noreferrer"
             className="flex items-center hover:text-[#c17d3c]"
           >
-            <span className="mr-2">💬</span>
+            <MessageCircle className="w-4 h-4 mr-2" />
             <span>WhatsApp Us</span>
           </a>
         </div>

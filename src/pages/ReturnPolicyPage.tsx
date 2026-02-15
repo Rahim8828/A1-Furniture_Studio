@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { RefreshCw, CreditCard, Phone, CheckCircle, XCircle, Landmark } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const ReturnPolicyPage: React.FC = () => {
@@ -26,12 +27,12 @@ const ReturnPolicyPage: React.FC = () => {
         <section className="bg-[#fdf8f0] rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: '🔄', title: '7-Day Returns', desc: 'Easy returns within 7 days of delivery' },
-              { icon: '💳', title: 'Full Refund', desc: 'Get 100% refund on eligible returns' },
-              { icon: '📞', title: 'Free Pickup', desc: 'We pick up from your doorstep' },
+              { icon: <RefreshCw className="w-7 h-7 text-[#c17d3c]" />, title: '7-Day Returns', desc: 'Easy returns within 7 days of delivery' },
+              { icon: <CreditCard className="w-7 h-7 text-[#c17d3c]" />, title: 'Full Refund', desc: 'Get 100% refund on eligible returns' },
+              { icon: <Phone className="w-7 h-7 text-[#c17d3c]" />, title: 'Free Pickup', desc: 'We pick up from your doorstep' },
             ].map((item) => (
               <div key={item.title} className="text-center">
-                <span className="text-3xl block mb-2">{item.icon}</span>
+                <span className="flex justify-center mb-2">{item.icon}</span>
                 <h3 className="font-semibold text-gray-900">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
               </div>
@@ -49,7 +50,7 @@ const ReturnPolicyPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="font-semibold text-green-700 mb-3 flex items-center gap-2">
-                  <span>✅</span> Eligible for Return
+                  <CheckCircle className="w-5 h-5 text-green-600" /> Eligible for Return
                 </h3>
                 <ul className="space-y-2">
                   {[
@@ -68,7 +69,7 @@ const ReturnPolicyPage: React.FC = () => {
               </div>
               <div>
                 <h3 className="font-semibold text-red-700 mb-3 flex items-center gap-2">
-                  <span>❌</span> Not Eligible for Return
+                  <XCircle className="w-5 h-5 text-red-500" /> Not Eligible for Return
                 </h3>
                 <ul className="space-y-2">
                   {[
@@ -119,7 +120,7 @@ const ReturnPolicyPage: React.FC = () => {
           <div className="bg-white rounded-xl shadow-card p-6 space-y-4">
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
               <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">💳</span>
+                <CreditCard className="w-5 h-5 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Online Payments</h3>
@@ -128,7 +129,7 @@ const ReturnPolicyPage: React.FC = () => {
             </div>
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
               <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🏦</span>
+                <Landmark className="w-5 h-5 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Cash on Delivery</h3>
@@ -137,7 +138,7 @@ const ReturnPolicyPage: React.FC = () => {
             </div>
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">🔄</span>
+                <RefreshCw className="w-5 h-5 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Exchanges</h3>

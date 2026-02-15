@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin, MessageCircle, Clock, CheckCircle, Map, ArrowRight } from 'lucide-react';
 import { usePageMeta } from '../hooks/usePageMeta';
 
 const ContactPage: React.FC = () => {
@@ -65,7 +66,7 @@ const ContactPage: React.FC = () => {
             {/* Phone */}
             <div className="flex items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <span className="text-2xl">📞</span>
+                <Phone className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
@@ -82,7 +83,7 @@ const ContactPage: React.FC = () => {
             {/* Email */}
             <div className="flex items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <span className="text-2xl">✉️</span>
+                <Mail className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
@@ -99,7 +100,7 @@ const ContactPage: React.FC = () => {
             {/* Address */}
             <div className="flex items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <span className="text-2xl">📍</span>
+                <MapPin className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
@@ -115,7 +116,7 @@ const ContactPage: React.FC = () => {
             {/* WhatsApp */}
             <div className="flex items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <span className="text-2xl">💬</span>
+                <MessageCircle className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">WhatsApp</h3>
@@ -133,7 +134,7 @@ const ContactPage: React.FC = () => {
             {/* Business Hours */}
             <div className="flex items-start">
               <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <span className="text-2xl">🕐</span>
+                <Clock className="w-6 h-6 text-[#c17d3c]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Business Hours</h3>
@@ -155,7 +156,7 @@ const ContactPage: React.FC = () => {
           
           {submitted ? (
             <div className="bg-green-50 border border-green-200 rounded-xl p-6 text-center">
-              <div className="text-4xl mb-3">✅</div>
+              <CheckCircle className="w-10 h-10 text-green-600 mx-auto mb-3" />
               <h3 className="text-xl font-semibold text-green-800 mb-2">Message Sent!</h3>
               <p className="text-green-700">
                 Thank you for contacting us. We'll get back to you within 24 hours.
@@ -265,7 +266,7 @@ const ContactPage: React.FC = () => {
         <div className="bg-gray-100 rounded-xl overflow-hidden" style={{ height: '400px' }}>
           <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#fdf8f0] to-[#f5ebe0]">
             <div className="text-center">
-              <div className="text-6xl mb-4">🗺️</div>
+              <Map className="w-16 h-16 text-[#c17d3c] mx-auto mb-4" />
               <p className="text-gray-700 font-medium">A1 Furniture Studio</p>
               <p className="text-gray-600">123 Furniture Lane, Andheri West, Mumbai</p>
               <a
@@ -274,7 +275,7 @@ const ContactPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="inline-block mt-4 text-[#c17d3c] hover:underline font-medium"
               >
-                Open in Google Maps →
+                Open in Google Maps <ArrowRight className="w-4 h-4 inline ml-1" />
               </a>
             </div>
           </div>
@@ -292,7 +293,7 @@ const ContactPage: React.FC = () => {
             href="tel:+919876543210"
             className="bg-[#2d1b0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1a0e08] transition-colors"
           >
-            📞 Call Now
+            <Phone className="w-4 h-4 inline mr-1" /> Call Now
           </a>
           <a
             href="https://wa.me/919876543210?text=Hello%20A1%20Furniture%20Studio"
@@ -300,7 +301,7 @@ const ContactPage: React.FC = () => {
             rel="noopener noreferrer"
             className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors"
           >
-            💬 WhatsApp Chat
+            <MessageCircle className="w-4 h-4 inline mr-1" /> WhatsApp Chat
           </a>
         </div>
       </section>

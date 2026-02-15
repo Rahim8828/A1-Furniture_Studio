@@ -85,12 +85,12 @@ describe('CheckoutPage', () => {
 
   // Helper to navigate to a specific step
   const goToStep2 = () => {
-    fireEvent.click(screen.getByText('Continue to Payment →'));
+    fireEvent.click(screen.getByText(/Continue to Payment/));
   };
 
   const goToStep3 = () => {
     goToStep2();
-    fireEvent.click(screen.getByText('Review Order →'));
+    fireEvent.click(screen.getByText(/Review Order/));
   };
 
   it('should display order summary with items and total', () => {
