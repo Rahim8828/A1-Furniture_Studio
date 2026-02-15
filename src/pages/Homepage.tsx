@@ -255,16 +255,17 @@ const Homepage = () => {
 
       {/* ═══ SECTION 3: SHOP BY CATEGORY (Circle Icons) ═══ */}
       <section className="py-12 md:py-16 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader title="Shop by Category" subtitle="Explore our curated furniture collections" />
-          <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
-            {shopByCategory.map((cat) => (
+          {/* Row 1: First 6 items */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-y-8 gap-x-2 sm:gap-x-4">
+            {shopByCategory.slice(0, 6).map((cat) => (
               <Link
                 key={cat.name}
                 to={cat.link}
-                className="group flex flex-col items-center gap-3 w-[100px] sm:w-[120px] md:w-[140px]"
+                className="group flex flex-col items-center gap-3"
               >
-                <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px] rounded-full bg-[#F5EFE6] overflow-hidden flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
+                <div className="w-[100px] h-[100px] sm:w-[130px] sm:h-[130px] md:w-[150px] md:h-[150px] lg:w-[170px] lg:h-[170px] rounded-full bg-[#F5EFE6] overflow-hidden flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
                   {cat.isNew ? (
                     <div className="w-full h-full bg-gradient-to-br from-[#4A2F24] to-[#3A2119] flex items-center justify-center">
                       <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-[#C6A75E]" />
@@ -276,6 +277,27 @@ const Homepage = () => {
                       className="w-[80%] h-[80%] object-contain"
                     />
                   )}
+                </div>
+                <span className="text-xs sm:text-sm font-medium text-gray-800 text-center leading-tight group-hover:text-[#C6A75E] transition-colors">
+                  {cat.name}
+                </span>
+              </Link>
+            ))}
+          </div>
+          {/* Row 2: Remaining 5 items, centered */}
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-y-8 gap-x-2 sm:gap-x-4 mt-8 max-w-[1000px] mx-auto">
+            {shopByCategory.slice(6).map((cat) => (
+              <Link
+                key={cat.name}
+                to={cat.link}
+                className="group flex flex-col items-center gap-3"
+              >
+                <div className="w-[100px] h-[100px] sm:w-[130px] sm:h-[130px] md:w-[150px] md:h-[150px] lg:w-[170px] lg:h-[170px] rounded-full bg-[#F5EFE6] overflow-hidden flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
+                  <img
+                    src={cat.image}
+                    alt={cat.name}
+                    className="w-[80%] h-[80%] object-contain"
+                  />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-gray-800 text-center leading-tight group-hover:text-[#C6A75E] transition-colors">
                   {cat.name}
