@@ -19,7 +19,7 @@ const heroBanners = [
     description: 'Handmade solid-wood furniture with factory-direct pricing. Free delivery across Mumbai.',
     cta: 'Shop Collection',
     ctaLink: '/category/sofa-sets',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&h=900&fit=crop',
+    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1920&h=1080&fit=crop&crop=center',
     bgColor: 'from-black/70 via-black/40 to-transparent',
     tag: 'Bestsellers',
   },
@@ -30,7 +30,7 @@ const heroBanners = [
     description: 'Get bespoke furniture built to your exact specifications. Free 3D design consultation.',
     cta: 'Start Customizing',
     ctaLink: '/custom-furniture',
-    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=1600&h=900&fit=crop',
+    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=1920&h=1080&fit=crop&crop=center',
     bgColor: 'from-black/70 via-black/40 to-transparent',
     tag: 'New Service',
   },
@@ -41,7 +41,7 @@ const heroBanners = [
     description: 'Transform your bedroom with our premium bed sets, wardrobes & dressers.',
     cta: 'Shop Bedroom',
     ctaLink: '/category/beds',
-    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1600&h=900&fit=crop',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1920&h=1080&fit=crop&crop=center',
     bgColor: 'from-black/70 via-black/40 to-transparent',
     tag: 'Limited Offer',
   },
@@ -152,7 +152,7 @@ const Homepage = () => {
     <div className="min-h-screen bg-white">
       {/* ═══ SECTION 1: HERO BANNER CAROUSEL ═══ */}
       <section
-        className="relative w-full h-[420px] sm:h-[480px] md:h-[520px] lg:h-[560px] overflow-hidden"
+        className="relative w-full h-[50vh] sm:h-[55vh] md:h-[65vh] lg:h-[75vh] xl:h-[80vh] min-h-[400px] max-h-[700px] overflow-hidden"
         onMouseEnter={() => setBannerPaused(true)}
         onMouseLeave={() => setBannerPaused(false)}
       >
@@ -163,7 +163,7 @@ const Homepage = () => {
               index === currentBanner ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
-            <img src={banner.image} alt={banner.title} className="w-full h-full object-cover" />
+            <img src={banner.image} alt={banner.title} className="w-full h-full object-cover object-center" />
             <div className={`absolute inset-0 bg-gradient-to-r ${banner.bgColor}`} />
             <div className="absolute inset-0 flex items-center z-20">
               <div className="container mx-auto px-4 sm:px-8">
