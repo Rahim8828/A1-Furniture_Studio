@@ -57,9 +57,9 @@ const rooms = [
 
 // ─── Budget Range Data ──────────────────────────────────────────────
 const budgetRanges = [
-  { label: 'Under ₹10K', range: 'Budget Friendly', link: '/category/sofa-sets', color: 'from-emerald-500 to-emerald-700' },
+  { label: 'Under ₹10K', range: 'Budget Friendly', link: '/category/sofa-sets', color: 'from-[#D4BC7E] to-[#C6A75E]' },
   { label: '₹10K – ₹25K', range: 'Best Value', link: '/category/sofa-sets', color: 'from-[#C6A75E] to-[#B0914A]' },
-  { label: '₹25K – ₹50K', range: 'Premium', link: '/category/sofa-sets', color: 'from-purple-500 to-purple-700' },
+  { label: '₹25K – ₹50K', range: 'Premium', link: '/category/sofa-sets', color: 'from-[#B0914A] to-[#4A2F24]' },
   { label: '₹50K+', range: 'Luxury', link: '/category/sofa-sets', color: 'from-[#4A2F24] to-[#3A2119]' },
 ];
 
@@ -212,7 +212,7 @@ const Homepage = () => {
       {/* ═══ SECTION 2: TRUST/SERVICE STRIP ═══ */}
       <section className="bg-[#F5EFE6] border-y border-[#E5DCD0]">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#e8d8c4]">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#E5DCD0]">
             {[
               { icon: <Truck className="w-6 h-6 text-[#C6A75E]" />, title: 'Free Delivery', desc: 'Across Mumbai' },
               { icon: <Wrench className="w-6 h-6 text-[#C6A75E]" />, title: 'Expert Assembly', desc: 'Free Installation' },
@@ -273,10 +273,10 @@ const Homepage = () => {
             </Link>
             <Link to="/repair-polish" className="group relative overflow-hidden rounded-xl h-48 md:h-56 block">
               <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=700&h=350&fit=crop" alt="Repair & Polish" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1a2332]/90 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#4A2F24]/90 to-transparent" />
               <div className="absolute inset-0 flex items-center p-6 md:p-8">
                 <div>
-                  <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">Services</span>
+                  <span className="text-[#C6A75E] text-xs font-bold uppercase tracking-widest">Services</span>
                   <h3 className="text-white text-2xl md:text-3xl font-bold mt-1 mb-2">Repair & Polish</h3>
                   <p className="text-white/70 text-sm mb-4 max-w-xs">Restore your beloved furniture. Starting at ₹2,999.</p>
                   <span className="inline-flex items-center gap-1 text-white text-sm font-semibold group-hover:gap-2 transition-all">
@@ -387,7 +387,7 @@ const Homepage = () => {
               <div key={t.name} className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow border border-gray-100">
                 <div className="flex gap-0.5 mb-3">
                   {[...Array(5)].map((_, i) => (
-                    <svg key={i} className={`w-4 h-4 ${i < t.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                    <svg key={i} className={`w-4 h-4 ${i < t.rating ? 'text-[#C6A75E]' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}

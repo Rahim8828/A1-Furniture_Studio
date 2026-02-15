@@ -266,8 +266,8 @@ export default function ProductDetail() {
             {/* Materials Quick Highlights */}
             <div className="grid grid-cols-3 gap-3">
               {product.materials.woodType && (
-                <div className="bg-amber-50 rounded-lg p-3 text-center">
-                  <TreePine className="w-5 h-5 text-amber-700 mx-auto" />
+                <div className="bg-[#F5EFE6] rounded-lg p-3 text-center">
+                  <TreePine className="w-5 h-5 text-[#C6A75E] mx-auto" />
                   <p className="text-xs font-semibold text-gray-800 mt-1">{product.materials.woodType}</p>
                 </div>
               )}
@@ -279,7 +279,7 @@ export default function ProductDetail() {
               )}
               {product.materials.polish && (
                 <div className="bg-[#F5EFE6] rounded-lg p-3 text-center">
-                  <Sparkles className="w-5 h-5 text-orange-600 mx-auto" />
+                  <Sparkles className="w-5 h-5 text-[#C6A75E] mx-auto" />
                   <p className="text-xs font-semibold text-gray-800 mt-1">{product.materials.polish}</p>
                 </div>
               )}
@@ -419,7 +419,7 @@ export default function ProductDetail() {
                 <h3 className="text-lg font-semibold text-gray-900 mt-6 mb-3">Materials</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {product.materials.woodType && (
-                    <div className="bg-amber-50 rounded-lg p-4">
+                    <div className="bg-[#F5EFE6] rounded-lg p-4">
                       <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Wood Type</p>
                       <p className="font-semibold text-gray-800">{product.materials.woodType}</p>
                     </div>

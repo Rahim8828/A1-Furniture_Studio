@@ -79,7 +79,7 @@ const AnnouncementBar = () => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'bg-orange-400 w-4' : 'bg-white/30'
+              index === currentIndex ? 'bg-[#C6A75E] w-4' : 'bg-white/30'
             }`}
             aria-label={`Go to announcement ${index + 1}`}
           />
