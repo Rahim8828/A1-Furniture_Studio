@@ -3,12 +3,24 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Truck, Wrench, Shield, RotateCcw, IndianRupee, Sparkles, TreePine, ArrowRight } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import LazyImage from '../components/LazyImage';
+
+// ─── Category Asset Imports ─────────────────────────────────────────
+import sofaImg from '../assets/Sofa.webp';
+import sofaCumbedImg from '../assets/Sofa Cumbed.webp';
+import reclinerImg from '../assets/Recliner.webp';
+import bedImg from '../assets/Bed.webp';
+import wardrobeImg from '../assets/Wardrobe.webp';
+import diningSetImg from '../assets/Dining Set.webp';
+import tvUnitImg from '../assets/TV Unit.webp';
+import tableImg from '../assets/Table.webp';
+import chairsImg from '../assets/Chairs.webp';
+import loungeChairsImg from '../assets/Lounge Chairs.webp';
 import SkeletonCard from '../components/SkeletonCard';
 import { productService } from '../services/ProductService';
 import { cartService } from '../services/CartService';
 import { wishlistService } from '../services/WishlistService';
 import { usePageMeta } from '../hooks/usePageMeta';
-import type { Product, Category } from '../models/types';
+import type { Product } from '../models/types';
 
 // ─── Hero Banner Data ───────────────────────────────────────────────
 const heroBanners = [
@@ -55,6 +67,21 @@ const rooms = [
   { name: 'Home Office', image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=500&h=660&fit=crop', items: '45+ Products', link: '/category/office-furniture' },
 ];
 
+// ─── Shop by Category Circle Data ───────────────────────────────────
+const shopByCategory = [
+  { name: 'New Arrivals', image: '', link: '/category/sofa-sets', isNew: true },
+  { name: 'Sofas', image: sofaImg, link: '/category/sofa-sets' },
+  { name: 'Sofa Cum Beds', image: sofaCumbedImg, link: '/category/sofa-sets' },
+  { name: 'Recliners', image: reclinerImg, link: '/category/sofa-sets' },
+  { name: 'Beds', image: bedImg, link: '/category/beds-mattresses' },
+  { name: 'Wardrobes', image: wardrobeImg, link: '/category/wardrobes-storage' },
+  { name: 'Dining Table Sets', image: diningSetImg, link: '/category/dining-tables' },
+  { name: 'TV Units', image: tvUnitImg, link: '/category/sofa-sets' },
+  { name: 'Tables', image: tableImg, link: '/category/sofa-sets' },
+  { name: 'Chairs', image: chairsImg, link: '/category/sofa-sets' },
+  { name: 'Lounge Chairs', image: loungeChairsImg, link: '/category/sofa-sets' },
+];
+
 // ─── Budget Range Data ──────────────────────────────────────────────
 const budgetRanges = [
   { label: 'Under ₹10K', range: 'Budget Friendly', link: '/category/sofa-sets', color: 'from-[#D4BC7E] to-[#C6A75E]' },
@@ -74,7 +101,6 @@ const testimonials = [
 const Homepage = () => {
   const navigate = useNavigate();
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentBanner, setCurrentBanner] = useState(0);
   const [bannerPaused, setBannerPaused] = useState(false);
@@ -84,12 +110,8 @@ const Homepage = () => {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const [products, cats] = await Promise.all([
-          productService.getFeaturedProducts(8),
-          productService.getAllCategories(),
-        ]);
+        const products = await productService.getFeaturedProducts(8);
         setFeaturedProducts(products);
-        setCategories(cats);
       } catch (error) {
         console.error('Error loading homepage data:', error);
       } finally {
@@ -231,22 +253,33 @@ const Homepage = () => {
         </div>
       </section>
 
-      {/* ═══ SECTION 3: SHOP BY CATEGORY ═══ */}
+      {/* ═══ SECTION 3: SHOP BY CATEGORY (Circle Icons) ═══ */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
           <SectionHeader title="Shop by Category" subtitle="Explore our curated furniture collections" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
-            {categories.map((category) => (
-              <Link key={category.id} to={`/category/${category.slug}`} className="group relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] block">
-                <LazyImage src={category.imageUrl} alt={category.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="text-white font-semibold text-sm md:text-base mb-0.5">{category.name}</h3>
-                  <p className="text-white/70 text-xs">{category.productCount} Products</p>
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-10 max-w-6xl mx-auto">
+            {shopByCategory.map((cat) => (
+              <Link
+                key={cat.name}
+                to={cat.link}
+                className="group flex flex-col items-center gap-3 w-[100px] sm:w-[120px] md:w-[140px]"
+              >
+                <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-[140px] md:h-[140px] rounded-full bg-[#F5EFE6] overflow-hidden flex items-center justify-center group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
+                  {cat.isNew ? (
+                    <div className="w-full h-full bg-gradient-to-br from-[#4A2F24] to-[#3A2119] flex items-center justify-center">
+                      <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-[#C6A75E]" />
+                    </div>
+                  ) : (
+                    <img
+                      src={cat.image}
+                      alt={cat.name}
+                      className="w-[80%] h-[80%] object-contain"
+                    />
+                  )}
                 </div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span className="bg-white text-gray-900 text-xs font-semibold px-4 py-2 rounded-lg shadow-lg flex items-center gap-1">Explore <ArrowRight className="w-3.5 h-3.5" /></span>
-                </div>
+                <span className="text-xs sm:text-sm font-medium text-gray-800 text-center leading-tight group-hover:text-[#C6A75E] transition-colors">
+                  {cat.name}
+                </span>
               </Link>
             ))}
           </div>
