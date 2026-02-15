@@ -23,7 +23,7 @@ export interface PageMeta {
   ogImage?: string;
 }
 
-export type PageType = 'HOME' | 'PRODUCT' | 'CATEGORY' | 'ABOUT' | 'CONTACT' | 'CART' | 'WISHLIST' | 'CHECKOUT' | 'CUSTOM_FURNITURE' | 'REPAIR_POLISH' | 'SEARCH';
+export type PageType = 'HOME' | 'PRODUCT' | 'CATEGORY' | 'ABOUT' | 'CONTACT' | 'CART' | 'WISHLIST' | 'CHECKOUT' | 'CUSTOM_FURNITURE' | 'REPAIR_POLISH' | 'SEARCH' | 'SHIPPING_POLICY' | 'RETURN_POLICY' | 'WARRANTY' | 'FAQ' | 'LOGIN' | 'REGISTER' | 'NOT_FOUND';
 
 export interface SitemapEntry {
   url: string;
@@ -178,6 +178,62 @@ export class SEOService {
       case 'SEARCH':
         return this.generateSearchMeta(data);
 
+      case 'SHIPPING_POLICY':
+        return {
+          title: 'Shipping Policy - A1 Furniture Studio | Free Delivery in Mumbai',
+          description: 'Learn about A1 Furniture Studio shipping and delivery policy. Free delivery across Mumbai, pan-India shipping available. Safe packaging and room placement included.',
+          keywords: ['shipping policy', 'furniture delivery Mumbai', 'free delivery', 'furniture shipping'],
+          canonicalUrl: `${this.baseUrl}/shipping-policy`
+        };
+
+      case 'RETURN_POLICY':
+        return {
+          title: 'Return & Refund Policy - A1 Furniture Studio',
+          description: 'Easy 7-day returns on damaged or defective products. Free pickup, full refund on eligible returns. Read our complete return and refund policy.',
+          keywords: ['return policy', 'refund policy', 'furniture returns', 'exchange policy'],
+          canonicalUrl: `${this.baseUrl}/return-policy`
+        };
+
+      case 'WARRANTY':
+        return {
+          title: 'Warranty Information - A1 Furniture Studio | Up to 5-Year Warranty',
+          description: 'Up to 5-year warranty on solid wood furniture. Learn about coverage, claim process, and furniture care tips. Manufacturing defects fully covered.',
+          keywords: ['furniture warranty', 'warranty claim', 'furniture guarantee', 'warranty coverage'],
+          canonicalUrl: `${this.baseUrl}/warranty`
+        };
+
+      case 'FAQ':
+        return {
+          title: 'FAQ - A1 Furniture Studio | Frequently Asked Questions',
+          description: 'Find answers to common questions about orders, delivery, returns, warranty, and custom furniture at A1 Furniture Studio.',
+          keywords: ['FAQ', 'frequently asked questions', 'furniture help', 'customer support'],
+          canonicalUrl: `${this.baseUrl}/faq`
+        };
+
+      case 'LOGIN':
+        return {
+          title: 'Login - A1 Furniture Studio',
+          description: 'Sign in to your A1 Furniture Studio account to track orders, manage wishlist, and more.',
+          keywords: ['login', 'sign in', 'account'],
+          canonicalUrl: `${this.baseUrl}/login`
+        };
+
+      case 'REGISTER':
+        return {
+          title: 'Create Account - A1 Furniture Studio',
+          description: 'Create your A1 Furniture Studio account to shop premium furniture, track orders, and save your favorites.',
+          keywords: ['register', 'sign up', 'create account'],
+          canonicalUrl: `${this.baseUrl}/register`
+        };
+
+      case 'NOT_FOUND':
+        return {
+          title: 'Page Not Found - A1 Furniture Studio',
+          description: 'The page you are looking for does not exist.',
+          keywords: ['404', 'page not found'],
+          canonicalUrl: this.baseUrl
+        };
+
       default:
         return {
           title: 'A1 Furniture Studio - Premium Furniture in Mumbai',
@@ -207,7 +263,11 @@ export class SEOService {
       { path: '/about', priority: 0.8, frequency: 'monthly' as const },
       { path: '/contact', priority: 0.8, frequency: 'monthly' as const },
       { path: '/custom-furniture', priority: 0.9, frequency: 'weekly' as const },
-      { path: '/repair-polish', priority: 0.9, frequency: 'weekly' as const }
+      { path: '/repair-polish', priority: 0.9, frequency: 'weekly' as const },
+      { path: '/shipping-policy', priority: 0.5, frequency: 'monthly' as const },
+      { path: '/return-policy', priority: 0.5, frequency: 'monthly' as const },
+      { path: '/warranty', priority: 0.5, frequency: 'monthly' as const },
+      { path: '/faq', priority: 0.6, frequency: 'monthly' as const },
     ];
 
     staticPages.forEach(page => {

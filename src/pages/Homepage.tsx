@@ -1,17 +1,84 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import ProductCard from '../components/ProductCard';
 import LazyImage from '../components/LazyImage';
+import SkeletonCard from '../components/SkeletonCard';
 import { productService } from '../services/ProductService';
 import { cartService } from '../services/CartService';
 import { wishlistService } from '../services/WishlistService';
+import { usePageMeta } from '../hooks/usePageMeta';
 import type { Product, Category } from '../models/types';
+
+// ─── Hero Banner Data ───────────────────────────────────────────────
+const heroBanners = [
+  {
+    id: 1,
+    title: 'Crafted for Comfort',
+    subtitle: 'Premium Collection 2025',
+    description: 'Handmade solid-wood furniture with factory-direct pricing. Free delivery across Mumbai.',
+    cta: 'Shop Collection',
+    ctaLink: '/category/sofa-sets',
+    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&h=900&fit=crop',
+    bgColor: 'from-black/70 via-black/40 to-transparent',
+    tag: 'Bestsellers',
+  },
+  {
+    id: 2,
+    title: 'Design Your Dream Home',
+    subtitle: 'Custom Furniture Studio',
+    description: 'Get bespoke furniture built to your exact specifications. Free 3D design consultation.',
+    cta: 'Start Customizing',
+    ctaLink: '/custom-furniture',
+    image: 'https://images.unsplash.com/photo-1618220179428-22790b461013?w=1600&h=900&fit=crop',
+    bgColor: 'from-black/70 via-black/40 to-transparent',
+    tag: 'New Service',
+  },
+  {
+    id: 3,
+    title: 'Bedroom Makeover Sale',
+    subtitle: 'Up to 40% Off',
+    description: 'Transform your bedroom with our premium bed sets, wardrobes & dressers.',
+    cta: 'Shop Bedroom',
+    ctaLink: '/category/beds',
+    image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1600&h=900&fit=crop',
+    bgColor: 'from-black/70 via-black/40 to-transparent',
+    tag: 'Limited Offer',
+  },
+];
+
+// ─── Shop by Room Data ──────────────────────────────────────────────
+const rooms = [
+  { name: 'Living Room', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&h=660&fit=crop', items: '120+ Products', link: '/category/sofa-sets' },
+  { name: 'Bedroom', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=500&h=660&fit=crop', items: '80+ Products', link: '/category/beds' },
+  { name: 'Dining Room', image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=500&h=660&fit=crop', items: '60+ Products', link: '/category/dining-tables' },
+  { name: 'Home Office', image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=500&h=660&fit=crop', items: '45+ Products', link: '/category/office-furniture' },
+];
+
+// ─── Budget Range Data ──────────────────────────────────────────────
+const budgetRanges = [
+  { label: 'Under ₹10K', range: 'Budget Friendly', link: '/category/sofa-sets', color: 'from-emerald-500 to-emerald-700' },
+  { label: '₹10K – ₹25K', range: 'Best Value', link: '/category/sofa-sets', color: 'from-[#c17d3c] to-[#a86830]' },
+  { label: '₹25K – ₹50K', range: 'Premium', link: '/category/sofa-sets', color: 'from-purple-500 to-purple-700' },
+  { label: '₹50K+', range: 'Luxury', link: '/category/sofa-sets', color: 'from-[#2d1b0e] to-[#1a0e08]' },
+];
+
+// ─── Testimonial Data ───────────────────────────────────────────────
+const testimonials = [
+  { name: 'Priya Sharma', location: 'Andheri, Mumbai', text: 'The custom sofa we ordered fits perfectly in our living room. Excellent quality and the delivery was on time!', rating: 5, avatar: 'PS', product: 'Custom L-Shape Sofa' },
+  { name: 'Rajesh Patel', location: 'Bandra, Mumbai', text: 'Got my old dining table repaired and polished. It looks brand new! Amazing craftsmanship and attention to detail.', rating: 5, avatar: 'RP', product: 'Table Repair & Polish' },
+  { name: 'Amit Desai', location: 'Powai, Mumbai', text: 'Furnished our entire office with A1 Furniture. Professional service, timely delivery, and great quality.', rating: 4, avatar: 'AD', product: 'Office Furniture Set' },
+  { name: 'Sneha Kapoor', location: 'Juhu, Mumbai', text: 'The Sheesham wood bed set is gorgeous! Solid build quality and the finish is beautiful. Highly recommend!', rating: 5, avatar: 'SK', product: 'Sheesham King Bed' },
+];
 
 const Homepage = () => {
   const navigate = useNavigate();
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentBanner, setCurrentBanner] = useState(0);
+  const [bannerPaused, setBannerPaused] = useState(false);
+
+  usePageMeta('HOME');
 
   useEffect(() => {
     const loadData = async () => {
@@ -32,505 +99,345 @@ const Homepage = () => {
     loadData();
   }, []);
 
-  const handleAddToCart = (productId: string) => {
+  // Auto-rotate banners
+  useEffect(() => {
+    if (bannerPaused) return;
+    const timer = setInterval(() => {
+      setCurrentBanner((prev) => (prev + 1) % heroBanners.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [bannerPaused]);
+
+  const handleAddToCart = useCallback((productId: string) => {
     cartService.addItem(productId, 1);
-  };
+  }, []);
 
-  const handleAddToWishlist = (productId: string) => {
+  const handleAddToWishlist = useCallback((productId: string) => {
     wishlistService.addItem(productId);
-  };
+  }, []);
 
-  const handleProductClick = (productId: string) => {
+  const handleProductClick = useCallback((productId: string) => {
     navigate(`/product/${productId}`);
-  };
+  }, [navigate]);
+
+  const goToBanner = (index: number) => setCurrentBanner(index);
+  const nextBanner = () => setCurrentBanner((prev) => (prev + 1) % heroBanners.length);
+  const prevBanner = () => setCurrentBanner((prev) => (prev - 1 + heroBanners.length) % heroBanners.length);
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl text-gray-600">Loading...</div>
+      <div className="min-h-screen bg-gray-50">
+        <div className="w-full h-[500px] bg-gray-200 animate-pulse" />
+        <div className="container mx-auto px-4 py-12">
+          <div className="h-8 bg-gray-200 rounded w-64 mx-auto mb-8 animate-pulse" />
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="h-40 bg-gray-200 rounded-xl animate-pulse" />
+            ))}
+          </div>
+        </div>
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[...Array(4)].map((_, i) => (
+              <SkeletonCard key={i} />
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section - Premium Urban Ladder Style */}
-      <section className="relative bg-gradient-to-br from-[#1a0e0e] via-[#2d1414] to-[#1a0e0e] text-white overflow-hidden min-h-[85vh] flex items-center">
-        {/* Decorative Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-red-900/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-20 w-96 h-96 bg-orange-800/10 rounded-full blur-3xl"></div>
-        </div>
-        
-        {/* Content */}
-        <div className="container mx-auto px-4 py-20 relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            {/* Premium Badge */}
-            <div className="mb-8 inline-block">
-              <span className="text-orange-400 text-sm md:text-base font-light tracking-[0.3em] uppercase border border-orange-400/30 px-6 py-2 rounded-full backdrop-blur-sm">
-                Premium Collection 2026
-              </span>
-            </div>
-            
-            {/* Elegant Script Title */}
-            <div className="mb-8">
-              <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif italic mb-4 tracking-wide leading-none">
-                <span className="block">Designs</span>
-              </h1>
-              <p className="text-xl md:text-2xl lg:text-3xl font-light tracking-[0.2em] uppercase text-gray-400">
-                for every
-              </p>
-              <h2 className="text-6xl md:text-8xl lg:text-9xl font-serif italic mt-4 tracking-wide leading-none bg-gradient-to-r from-orange-400 via-red-400 to-orange-300 bg-clip-text text-transparent">
-                <span className="block">desire</span>
-              </h2>
-            </div>
-            
-            <p className="text-base md:text-lg mb-12 text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
-              Handcrafted excellence meets contemporary design. Experience luxury furniture 
-              with factory-direct pricing and bespoke customization.
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-16">
-              <Link
-                to="/category/sofa-sets"
-                className="group relative bg-white text-gray-900 px-12 py-4 rounded-sm font-medium tracking-wider hover:bg-gray-100 transition-all duration-300 text-center min-w-[220px] overflow-hidden shadow-2xl hover:shadow-orange-500/20"
-              >
-                <span className="relative z-10 text-sm uppercase">Shop Now</span>
-              </Link>
-              <Link
-                to="/custom-furniture"
-                className="group relative bg-transparent border border-white/30 text-white px-12 py-4 rounded-sm font-medium tracking-wider hover:bg-white/10 hover:border-orange-400 transition-all duration-300 text-center min-w-[220px] backdrop-blur-sm"
-              >
-                <span className="text-sm uppercase">Custom Furniture</span>
-              </Link>
-            </div>
-            
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto pt-8 border-t border-white/10">
-              <div className="text-center group cursor-default">
-                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">15+</div>
-                <div className="text-xs text-gray-500 uppercase tracking-widest">Years</div>
-              </div>
-              <div className="text-center group cursor-default">
-                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">5K+</div>
-                <div className="text-xs text-gray-500 uppercase tracking-widest">Customers</div>
-              </div>
-              <div className="text-center group cursor-default">
-                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">100%</div>
-                <div className="text-xs text-gray-500 uppercase tracking-widest">Quality</div>
-              </div>
-              <div className="text-center group cursor-default">
-                <div className="text-4xl md:text-5xl font-light text-orange-400 mb-2 group-hover:scale-110 transition-transform">Free</div>
-                <div className="text-xs text-gray-500 uppercase tracking-widest">Delivery</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Bottom Fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent"></div>
-      </section>
-
-      {/* Categories Section - Urban Ladder Style */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif text-gray-900 mb-3">
-              Shop by Category
-            </h2>
-            <p className="text-gray-600">Explore our curated furniture collections</p>
-          </div>
-          
-          {/* Circular Category Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto">
-            {categories.map((category) => (
-              <Link
-                key={category.id}
-                to={`/category/${category.slug}`}
-                className="group flex flex-col items-center"
-              >
-                {/* Circular Image Container */}
-                <div className="relative w-32 h-32 md:w-40 md:h-40 mb-4 rounded-full overflow-hidden bg-gradient-to-br from-orange-50 to-red-50 shadow-lg group-hover:shadow-2xl transition-all duration-300 group-hover:scale-105">
-                  <div className="absolute inset-0 bg-white/80 group-hover:bg-white/60 transition-colors"></div>
-                  <div className="absolute inset-0 flex items-center justify-center p-6">
-                    <LazyImage
-                      src={category.imageUrl}
-                      alt={category.name}
-                      className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  {/* Hover Ring Effect */}
-                  <div className="absolute inset-0 rounded-full border-4 border-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div className="min-h-screen bg-white">
+      {/* ═══ SECTION 1: HERO BANNER CAROUSEL ═══ */}
+      <section
+        className="relative w-full h-[420px] sm:h-[480px] md:h-[520px] lg:h-[560px] overflow-hidden"
+        onMouseEnter={() => setBannerPaused(true)}
+        onMouseLeave={() => setBannerPaused(false)}
+      >
+        {heroBanners.map((banner, index) => (
+          <div
+            key={banner.id}
+            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+              index === currentBanner ? 'opacity-100 z-10' : 'opacity-0 z-0'
+            }`}
+          >
+            <img src={banner.image} alt={banner.title} className="w-full h-full object-cover" />
+            <div className={`absolute inset-0 bg-gradient-to-r ${banner.bgColor}`} />
+            <div className="absolute inset-0 flex items-center z-20">
+              <div className="container mx-auto px-4 sm:px-8">
+                <div className="max-w-xl">
+                  {banner.tag && (
+                    <span className="inline-block bg-[#c17d3c] text-white text-xs font-bold px-3 py-1 rounded mb-4 uppercase tracking-wider">
+                      {banner.tag}
+                    </span>
+                  )}
+                  <p className="text-white/70 text-sm sm:text-base font-medium tracking-widest uppercase mb-2">
+                    {banner.subtitle}
+                  </p>
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                    {banner.title}
+                  </h1>
+                  <p className="text-white/80 text-sm sm:text-base mb-6 max-w-md leading-relaxed">
+                    {banner.description}
+                  </p>
+                  <Link
+                    to={banner.ctaLink}
+                    className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm hover:bg-[#c17d3c] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group"
+                  >
+                    {banner.cta}
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
-                
-                {/* Category Name */}
-                <h3 className="text-center text-sm md:text-base font-medium text-gray-800 group-hover:text-orange-600 transition-colors">
-                  {category.name}
-                </h3>
-                <p className="text-xs text-gray-500 mt-1">{category.productCount} items</p>
+              </div>
+            </div>
+          </div>
+        ))}
+        <button onClick={prevBanner} className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center transition-all" aria-label="Previous banner">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button onClick={nextBanner} className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white w-10 h-10 rounded-full flex items-center justify-center transition-all" aria-label="Next banner">
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+        </button>
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex gap-2">
+          {heroBanners.map((_, index) => (
+            <button key={index} onClick={() => goToBanner(index)} className={`h-2 rounded-full transition-all duration-300 ${index === currentBanner ? 'bg-white w-8' : 'bg-white/40 w-2 hover:bg-white/60'}`} aria-label={`Go to slide ${index + 1}`} />
+          ))}
+        </div>
+      </section>
+
+      {/* ═══ SECTION 2: TRUST/SERVICE STRIP ═══ */}
+      <section className="bg-[#fdf8f0] border-y border-[#f0e6d6]">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#e8d8c4]">
+            {[
+              { icon: '🚚', title: 'Free Delivery', desc: 'Across Mumbai' },
+              { icon: '🔧', title: 'Expert Assembly', desc: 'Free Installation' },
+              { icon: '🛡️', title: '5-Year Warranty', desc: 'On all furniture' },
+              { icon: '↩️', title: 'Easy Returns', desc: '7-day return policy' },
+            ].map((item) => (
+              <div key={item.title} className="flex items-center gap-3 py-4 px-4 md:px-6 justify-center">
+                <span className="text-2xl">{item.icon}</span>
+                <div>
+                  <p className="text-sm font-semibold text-gray-800">{item.title}</p>
+                  <p className="text-xs text-gray-500">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 3: SHOP BY CATEGORY ═══ */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <SectionHeader title="Shop by Category" subtitle="Explore our curated furniture collections" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto">
+            {categories.map((category) => (
+              <Link key={category.id} to={`/category/${category.slug}`} className="group relative overflow-hidden rounded-xl bg-gray-100 aspect-[4/3] block">
+                <LazyImage src={category.imageUrl} alt={category.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h3 className="text-white font-semibold text-sm md:text-base mb-0.5">{category.name}</h3>
+                  <p className="text-white/70 text-xs">{category.productCount} Products</p>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="bg-white text-gray-900 text-xs font-semibold px-4 py-2 rounded-lg shadow-lg">Explore →</span>
+                </div>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Products Section */}
-      <section className="py-16 bg-gray-50">
+      {/* ═══ SECTION 4: PROMOTIONAL DEAL BANNERS ═══ */}
+      <section className="py-6 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            Featured Products
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onAddToCart={handleAddToCart}
-                onAddToWishlist={handleAddToWishlist}
-                onProductClick={handleProductClick}
-              />
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Link
-              to="/category/sofa-sets"
-              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              View All Products
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link to="/custom-furniture" className="group relative overflow-hidden rounded-xl h-48 md:h-56 block">
+              <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=700&h=350&fit=crop" alt="Custom Furniture" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#2d1b0e]/90 to-transparent" />
+              <div className="absolute inset-0 flex items-center p-6 md:p-8">
+                <div>
+                  <span className="text-[#c17d3c] text-xs font-bold uppercase tracking-widest">Bespoke</span>
+                  <h3 className="text-white text-2xl md:text-3xl font-bold mt-1 mb-2">Custom Furniture</h3>
+                  <p className="text-white/70 text-sm mb-4 max-w-xs">Design your dream piece. Free consultation & 3D preview.</p>
+                  <span className="inline-flex items-center gap-1 text-white text-sm font-semibold group-hover:gap-2 transition-all">
+                    Get Started <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  </span>
+                </div>
+              </div>
+            </Link>
+            <Link to="/repair-polish" className="group relative overflow-hidden rounded-xl h-48 md:h-56 block">
+              <img src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=700&h=350&fit=crop" alt="Repair & Polish" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1a2332]/90 to-transparent" />
+              <div className="absolute inset-0 flex items-center p-6 md:p-8">
+                <div>
+                  <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">Services</span>
+                  <h3 className="text-white text-2xl md:text-3xl font-bold mt-1 mb-2">Repair & Polish</h3>
+                  <p className="text-white/70 text-sm mb-4 max-w-xs">Restore your beloved furniture. Starting at ₹2,999.</p>
+                  <span className="inline-flex items-center gap-1 text-white text-sm font-semibold group-hover:gap-2 transition-all">
+                    Book Now <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  </span>
+                </div>
+              </div>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="py-16 bg-white">
+      {/* ═══ SECTION 5: TRENDING PRODUCTS ═══ */}
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            Why Choose A1 Furniture Studio
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Factory Direct Pricing</h3>
-              <p className="text-gray-600">
-                Get the best prices by buying directly from our factory. No middlemen, just quality
-                furniture at honest prices.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Custom-Made Furniture</h3>
-              <p className="text-gray-600">
-                Design your dream furniture. We create bespoke pieces tailored to your exact
-                specifications and space.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Premium Polish & Finish</h3>
-              <p className="text-gray-600">
-                Professional polishing services to restore and protect your furniture. Expert
-                craftsmanship guaranteed.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Free Delivery (Mumbai)</h3>
-              <p className="text-gray-600">
-                Enjoy free delivery across Mumbai. We handle everything from delivery to assembly
-                with care.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Trusted Local Brand</h3>
-              <p className="text-gray-600">
-                Serving Mumbai since 2010. Thousands of satisfied customers trust us for quality
-                and service.
-              </p>
-            </div>
+          <SectionHeader title="Trending Now" subtitle="Our most loved pieces this season" ctaText="View All" ctaLink="/category/sofa-sets" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            {featuredProducts.slice(0, 8).map((product) => (
+              <ProductCard key={product.id} product={product} onAddToCart={handleAddToCart} onAddToWishlist={handleAddToWishlist} onProductClick={handleProductClick} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      {/* ═══ SECTION 6: SHOP BY ROOM ═══ */}
+      <section className="py-12 md:py-16 bg-[#fdf8f0]">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            Our Services
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Custom Manufacturing</h3>
-              <p className="text-gray-600 mb-4">
-                Bring your vision to life with our custom furniture manufacturing. From concept to
-                creation, we make it happen.
-              </p>
-              <Link
-                to="/custom-furniture"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                Learn More →
+          <SectionHeader title="Shop by Room" subtitle="Find the perfect furniture for every space in your home" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {rooms.map((room) => (
+              <Link key={room.name} to={room.link} className="group relative overflow-hidden rounded-2xl aspect-[3/4] block shadow-md hover:shadow-xl transition-shadow">
+                <LazyImage src={room.image} alt={room.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-white/60 text-xs font-medium uppercase tracking-widest mb-1">{room.items}</p>
+                  <h3 className="text-white text-xl font-bold mb-3">{room.name}</h3>
+                  <span className="inline-flex items-center gap-1 text-white/80 text-sm font-medium group-hover:text-white group-hover:gap-2 transition-all">
+                    Explore <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                  </span>
+                </div>
               </Link>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                  />
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Repair Services</h3>
-              <p className="text-gray-600 mb-4">
-                Expert repair services for all types of furniture. We restore your beloved pieces
-                to their former glory.
-              </p>
-              <Link
-                to="/repair-polish"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                Learn More →
-              </Link>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Polish Services</h3>
-              <p className="text-gray-600 mb-4">
-                Professional polishing to restore shine and protect your wooden furniture. Premium
-                finishes available.
-              </p>
-              <Link
-                to="/repair-polish"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                Learn More →
-              </Link>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <svg
-                  className="w-6 h-6 text-blue-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-gray-800">Office Solutions</h3>
-              <p className="text-gray-600 mb-4">
-                Complete office furniture solutions for businesses. Ergonomic designs for
-                productive workspaces.
-              </p>
-              <Link
-                to="/category/office-furniture"
-                className="text-blue-600 hover:text-blue-700 font-semibold"
-              >
-                Learn More →
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Customer Testimonials Section */}
-      <section className="py-16 bg-white">
+      {/* ═══ SECTION 7: SHOP BY BUDGET ═══ */}
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
-            What Our Customers Say
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, index) => (
-                  <svg
-                    key={index}
-                    className="w-5 h-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-4">
-                "Excellent quality furniture at unbeatable prices! The custom sofa we ordered fits
-                perfectly in our living room. Highly recommend A1 Furniture Studio."
-              </p>
-              <p className="font-semibold text-gray-800">- Priya Sharma, Mumbai</p>
-            </div>
+          <SectionHeader title="Shop by Budget" subtitle="Quality furniture for every price range" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {budgetRanges.map((budget) => (
+              <Link key={budget.label} to={budget.link} className={`group relative overflow-hidden rounded-xl p-6 bg-gradient-to-br ${budget.color} text-white text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}>
+                <p className="text-lg md:text-xl font-bold mb-1">{budget.label}</p>
+                <p className="text-xs text-white/70">{budget.range}</p>
+                <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-xs font-semibold border border-white/40 px-3 py-1 rounded-full">Shop Now →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, index) => (
-                  <svg
-                    key={index}
-                    className="w-5 h-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-gray-700 mb-4">
-                "The repair and polish service brought my old dining table back to life. Amazing
-                craftsmanship and attention to detail. Thank you!"
-              </p>
-              <p className="font-semibold text-gray-800">- Rajesh Patel, Andheri</p>
-            </div>
+      {/* ═══ SECTION 8: NEW ARRIVALS ═══ */}
+      <section className="py-12 md:py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <SectionHeader title="New Arrivals" subtitle="Fresh designs just added to our collection" ctaText="See All New" ctaLink="/category/sofa-sets" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {featuredProducts.slice(0, 4).map((product) => (
+              <ProductCard key={`new-${product.id}`} product={product} onAddToCart={handleAddToCart} onAddToWishlist={handleAddToWishlist} onProductClick={handleProductClick} />
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-gray-50 p-6 rounded-lg shadow-md">
-              <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, index) => (
-                  <svg
-                    key={index}
-                    className="w-5 h-5 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
+      {/* ═══ SECTION 9: WHY CHOOSE US ═══ */}
+      <section className="py-12 md:py-16 bg-[#2d1b0e] text-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">Why Choose A1 Furniture Studio</h2>
+            <p className="text-white/60 max-w-xl mx-auto">Trusted by 5,000+ happy customers across Mumbai since 2010</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: '💰', title: 'Factory Direct', desc: 'No middlemen, honest pricing' },
+              { icon: '✨', title: 'Custom Made', desc: 'Built to your specifications' },
+              { icon: '🪵', title: 'Premium Wood', desc: 'Sheesham, Teak & Mango' },
+              { icon: '🚚', title: 'Free Delivery', desc: 'Across Mumbai city' },
+              { icon: '🛡️', title: '5-Year Warranty', desc: 'Quality guaranteed' },
+            ].map((item) => (
+              <div key={item.title} className="text-center group">
+                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#c17d3c]/30 transition-colors text-3xl">{item.icon}</div>
+                <h3 className="font-semibold mb-1 text-sm md:text-base">{item.title}</h3>
+                <p className="text-white/50 text-xs">{item.desc}</p>
               </div>
-              <p className="text-gray-700 mb-4">
-                "Furnished our entire office with A1 Furniture Studio. Professional service, timely
-                delivery, and great quality. Very satisfied!"
-              </p>
-              <p className="font-semibold text-gray-800">- Amit Desai, Bandra</p>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 10: TESTIMONIALS ═══ */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <SectionHeader title="What Our Customers Say" subtitle="Real stories from real customers" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {testimonials.map((t) => (
+              <div key={t.name} className="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-shadow border border-gray-100">
+                <div className="flex gap-0.5 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className={`w-4 h-4 ${i < t.rating ? 'text-yellow-400' : 'text-gray-300'}`} fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">"{t.text}"</p>
+                <div className="text-xs text-[#c17d3c] font-medium mb-3">Purchased: {t.product}</div>
+                <div className="flex items-center gap-3 pt-3 border-t border-gray-200">
+                  <div className="w-9 h-9 rounded-full bg-[#c17d3c] flex items-center justify-center text-white text-xs font-bold">{t.avatar}</div>
+                  <div>
+                    <p className="font-semibold text-gray-800 text-sm">{t.name}</p>
+                    <p className="text-xs text-gray-400">{t.location}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 11: NEWSLETTER ═══ */}
+      <section className="py-12 md:py-16 bg-gradient-to-r from-[#c17d3c] to-[#e09b5a]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-2xl mx-auto text-center text-white">
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Get Exclusive Offers & Updates</h2>
+            <p className="text-white/80 text-sm mb-6">Subscribe for 10% off your first order, new arrivals, and special deals</p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <input type="email" placeholder="Enter your email address" className="flex-1 px-4 py-3 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-gray-400" required />
+              <button type="submit" className="bg-[#2d1b0e] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1a0e08] transition-colors whitespace-nowrap">Subscribe</button>
+            </form>
+            <p className="text-white/50 text-xs mt-3">No spam, unsubscribe anytime. We respect your privacy.</p>
           </div>
         </div>
       </section>
     </div>
   );
 };
+
+// ─── Reusable Section Header ────────────────────────────────────────
+const SectionHeader = ({ title, subtitle, ctaText, ctaLink }: { title: string; subtitle?: string; ctaText?: string; ctaLink?: string }) => (
+  <div className="flex items-end justify-between mb-8 md:mb-10">
+    <div>
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1">{title}</h2>
+      {subtitle && <p className="text-gray-500 text-sm">{subtitle}</p>}
+    </div>
+    {ctaText && ctaLink && (
+      <Link to={ctaLink} className="hidden sm:inline-flex items-center gap-1 text-[#c17d3c] font-semibold text-sm hover:text-[#a86830] transition-colors whitespace-nowrap group">
+        {ctaText}
+        <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+      </Link>
+    )}
+  </div>
+);
 
 export default Homepage;

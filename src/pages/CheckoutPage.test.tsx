@@ -83,6 +83,16 @@ describe('CheckoutPage', () => {
     );
   };
 
+  // Helper to navigate to a specific step
+  const goToStep2 = () => {
+    fireEvent.click(screen.getByText('Continue to Payment →'));
+  };
+
+  const goToStep3 = () => {
+    goToStep2();
+    fireEvent.click(screen.getByText('Review Order →'));
+  };
+
   it('should display order summary with items and total', () => {
     renderCheckoutPage();
 
@@ -114,6 +124,7 @@ describe('CheckoutPage', () => {
 
   it('should display payment method selection with COD and Online Payment', () => {
     renderCheckoutPage();
+    goToStep2();
 
     expect(screen.getByText('Payment Method')).toBeInTheDocument();
     expect(screen.getByText('Cash on Delivery (COD)')).toBeInTheDocument();
@@ -122,6 +133,7 @@ describe('CheckoutPage', () => {
 
   it('should have COD selected by default', () => {
     renderCheckoutPage();
+    goToStep2();
 
     const codRadio = screen.getByRole('radio', { name: /Cash on Delivery/i });
     expect(codRadio).toBeChecked();
@@ -129,6 +141,7 @@ describe('CheckoutPage', () => {
 
   it('should allow selecting online payment method', () => {
     renderCheckoutPage();
+    goToStep2();
 
     const onlineRadio = screen.getByRole('radio', { name: /Online Payment/i });
     fireEvent.click(onlineRadio);
@@ -138,16 +151,19 @@ describe('CheckoutPage', () => {
 
   it('should display Place Order button', () => {
     renderCheckoutPage();
+    goToStep3();
 
     expect(screen.getByRole('button', { name: /Place Order/i })).toBeInTheDocument();
   });
 
   it('should show validation errors when submitting with empty fields', async () => {
     renderCheckoutPage();
+    goToStep3();
 
     const placeOrderButton = screen.getByRole('button', { name: /Place Order/i });
     fireEvent.click(placeOrderButton);
 
+    // Validation failure navigates back to step 1 and shows errors
     await waitFor(() => {
       expect(screen.getByText('Full name is required')).toBeInTheDocument();
       expect(screen.getByText('Address is required')).toBeInTheDocument();
@@ -164,6 +180,8 @@ describe('CheckoutPage', () => {
     const pincodeInput = screen.getByLabelText(/Pincode/);
     fireEvent.change(pincodeInput, { target: { value: '123' } });
 
+    goToStep3();
+
     const placeOrderButton = screen.getByRole('button', { name: /Place Order/i });
     fireEvent.click(placeOrderButton);
 
@@ -177,6 +195,8 @@ describe('CheckoutPage', () => {
 
     const emailInput = screen.getByLabelText(/Email Address/);
     fireEvent.change(emailInput, { target: { value: 'invalid-email' } });
+
+    goToStep3();
 
     const placeOrderButton = screen.getByRole('button', { name: /Place Order/i });
     fireEvent.click(placeOrderButton);
@@ -225,7 +245,7 @@ describe('CheckoutPage', () => {
 
     renderCheckoutPage();
 
-    // Fill in the form
+    // Fill in the form (step 1)
     fireEvent.change(screen.getByLabelText(/Full Name/), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText(/Address Line 1/), { target: { value: '123 Main St' } });
     fireEvent.change(screen.getByLabelText(/City/), { target: { value: 'Mumbai' } });
@@ -235,6 +255,8 @@ describe('CheckoutPage', () => {
     fireEvent.change(screen.getByLabelText(/Email Address/), { target: { value: 'john@example.com' } });
     fireEvent.change(screen.getByLabelText(/Contact Phone/), { target: { value: '9876543210' } });
 
+    // Navigate to step 3 and place order
+    goToStep3();
     const placeOrderButton = screen.getByRole('button', { name: /Place Order/i });
     fireEvent.click(placeOrderButton);
 
@@ -339,7 +361,7 @@ describe('CheckoutPage', () => {
 
     renderCheckoutPage();
 
-    // Fill and submit form
+    // Fill and submit form (step 1)
     fireEvent.change(screen.getByLabelText(/Full Name/), { target: { value: 'John Doe' } });
     fireEvent.change(screen.getByLabelText(/Address Line 1/), { target: { value: '123 Main St' } });
     fireEvent.change(screen.getByLabelText(/City/), { target: { value: 'Mumbai' } });
@@ -349,6 +371,8 @@ describe('CheckoutPage', () => {
     fireEvent.change(screen.getByLabelText(/Email Address/), { target: { value: 'john@example.com' } });
     fireEvent.change(screen.getByLabelText(/Contact Phone/), { target: { value: '9876543210' } });
 
+    // Navigate to step 3 and place order
+    goToStep3();
     fireEvent.click(screen.getByRole('button', { name: /Place Order/i }));
 
     await waitFor(() => {
@@ -447,7 +471,7 @@ describe('CheckoutPage', () => {
 
       renderCheckoutPage();
 
-      // Fill in the form
+      // Fill in the form (step 1)
       fireEvent.change(screen.getByLabelText(/Full Name/), { target: { value: 'Jane Smith' } });
       fireEvent.change(screen.getByLabelText(/Address Line 1/), { target: { value: '456 Oak Ave' } });
       fireEvent.change(screen.getByLabelText(/City/), { target: { value: 'Mumbai' } });
@@ -457,6 +481,8 @@ describe('CheckoutPage', () => {
       fireEvent.change(screen.getByLabelText(/Email Address/), { target: { value: 'jane@example.com' } });
       fireEvent.change(screen.getByLabelText(/Contact Phone/), { target: { value: '9876543211' } });
 
+      // Navigate to step 3 and place order
+      goToStep3();
       const placeOrderButton = screen.getByRole('button', { name: /Place Order/i });
       fireEvent.click(placeOrderButton);
 
@@ -507,7 +533,7 @@ describe('CheckoutPage', () => {
 
       renderCheckoutPage();
 
-      // Fill in the form
+      // Fill in the form (step 1)
       fireEvent.change(screen.getByLabelText(/Full Name/), { target: { value: 'John Doe' } });
       fireEvent.change(screen.getByLabelText(/Address Line 1/), { target: { value: '123 Main St' } });
       fireEvent.change(screen.getByLabelText(/City/), { target: { value: 'Mumbai' } });
@@ -517,6 +543,8 @@ describe('CheckoutPage', () => {
       fireEvent.change(screen.getByLabelText(/Email Address/), { target: { value: 'john@example.com' } });
       fireEvent.change(screen.getByLabelText(/Contact Phone/), { target: { value: '9876543210' } });
 
+      // Navigate to step 3 and place order
+      goToStep3();
       const placeOrderButton = screen.getByRole('button', { name: /Place Order/i });
       fireEvent.click(placeOrderButton);
 

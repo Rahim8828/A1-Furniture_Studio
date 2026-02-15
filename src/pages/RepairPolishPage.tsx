@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 interface QuoteFormData {
   name: string;
@@ -9,6 +10,7 @@ interface QuoteFormData {
 }
 
 export default function RepairPolishPage() {
+  usePageMeta('REPAIR_POLISH');
   const [formData, setFormData] = useState<QuoteFormData>({
     name: '',
     email: '',
@@ -92,7 +94,7 @@ export default function RepairPolishPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-8 mb-8">
+      <div className="bg-gradient-to-r from-[#fdf8f0] to-[#f5ebe0] rounded-xl p-8 mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Furniture Repair & Polish Services
         </h1>
@@ -342,7 +344,7 @@ export default function RepairPolishPage() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.name ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Enter your full name"
@@ -362,7 +364,7 @@ export default function RepairPolishPage() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.email ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="your.email@example.com"
@@ -382,7 +384,7 @@ export default function RepairPolishPage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.phone ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="10-digit mobile number"
@@ -401,7 +403,7 @@ export default function RepairPolishPage() {
                 name="serviceType"
                 value={formData.serviceType}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.serviceType ? 'border-red-500' : 'border-gray-300'
                 }`}
               >
@@ -428,7 +430,7 @@ export default function RepairPolishPage() {
                 value={formData.furnitureDetails}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.furnitureDetails ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Please describe:&#10;- Type of furniture (sofa, table, chair, etc.)&#10;- Current condition and issues&#10;- Approximate age&#10;- Material (wood, fabric, leather, etc.)&#10;- Any specific concerns or requirements"
@@ -440,7 +442,7 @@ export default function RepairPolishPage() {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="w-full bg-[#c17d3c] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
             >
               Request Quote
             </button>
@@ -495,11 +497,11 @@ export default function RepairPolishPage() {
           Need Immediate Assistance?
         </h3>
         <div className="flex flex-wrap justify-center gap-6 text-gray-700">
-          <a href="tel:+919876543210" className="flex items-center hover:text-blue-600">
+          <a href="tel:+919876543210" className="flex items-center hover:text-[#c17d3c]">
             <span className="mr-2">📞</span>
             <span>+91 98765 43210</span>
           </a>
-          <a href="mailto:service@a1furniture.com" className="flex items-center hover:text-blue-600">
+          <a href="mailto:service@a1furniture.com" className="flex items-center hover:text-[#c17d3c]">
             <span className="mr-2">✉️</span>
             <span>service@a1furniture.com</span>
           </a>
@@ -507,7 +509,7 @@ export default function RepairPolishPage() {
             href="https://wa.me/919876543210?text=I need furniture repair/polish service"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center hover:text-blue-600"
+            className="flex items-center hover:text-[#c17d3c]"
           >
             <span className="mr-2">💬</span>
             <span>WhatsApp Us</span>

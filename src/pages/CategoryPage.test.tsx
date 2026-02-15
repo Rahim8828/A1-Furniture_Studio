@@ -83,7 +83,9 @@ describe('CategoryPage', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText('Sofa Sets')).toBeInTheDocument();
+      // Category name appears in both breadcrumb and heading
+      const elements = screen.getAllByText('Sofa Sets');
+      expect(elements.length).toBeGreaterThanOrEqual(1);
     });
 
     // Verify it's a heading element
@@ -106,8 +108,8 @@ describe('CategoryPage', () => {
       expect(screen.getByText('3-Seater Fabric Sofa')).toBeInTheDocument();
     });
 
-    // Verify product count is displayed
-    expect(screen.getByText('2 products available')).toBeInTheDocument();
+    // Verify filtered product count is displayed
+    expect(screen.getByText(/2 of 2/)).toBeInTheDocument();
   });
 
   it('handles empty category state', async () => {
@@ -121,16 +123,13 @@ describe('CategoryPage', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText('No Products Available')).toBeInTheDocument();
+      expect(screen.getByText('No Products Found')).toBeInTheDocument();
     });
 
-    expect(
-      screen.getByText('This category is currently empty. Check back soon for new products!')
-    ).toBeInTheDocument();
     expect(screen.getByText('Browse Other Categories')).toBeInTheDocument();
   });
 
-  it('displays loading state initially', () => {
+  it('displays loading skeleton initially', () => {
     vi.mocked(productService.getAllCategories).mockImplementation(
       () => new Promise(() => {}) // Never resolves
     );
@@ -144,7 +143,9 @@ describe('CategoryPage', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    // Skeleton loading cards should be present (animate-pulse elements)
+    const skeletons = document.querySelectorAll('.animate-pulse');
+    expect(skeletons.length).toBeGreaterThan(0);
   });
 
   it('handles category not found', async () => {
@@ -163,7 +164,7 @@ describe('CategoryPage', () => {
     });
 
     expect(
-      screen.getByText("The category you're looking for doesn't exist.")
+      screen.getByText("The category you're looking for doesn't exist or may have been removed.")
     ).toBeInTheDocument();
   });
 });

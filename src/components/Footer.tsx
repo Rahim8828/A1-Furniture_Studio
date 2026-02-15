@@ -65,7 +65,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-[#2d1b0e] text-gray-300">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -208,7 +208,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media & WhatsApp */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-white/10 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center space-x-4 mb-4 md:mb-0">
               <span className="text-sm">Follow Us:</span>
@@ -238,7 +238,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+        <div className="border-t border-white/10 mt-8 pt-8 text-center text-sm">
           <p>
             &copy; {currentYear} A1 Furniture Studio. All rights reserved. | Trusted Local Brand
             Since 2010

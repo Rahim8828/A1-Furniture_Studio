@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from 'react';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 interface InquiryFormData {
   name: string;
@@ -8,6 +9,7 @@ interface InquiryFormData {
 }
 
 export default function CustomFurniturePage() {
+  usePageMeta('CUSTOM_FURNITURE');
   const [formData, setFormData] = useState<InquiryFormData>({
     name: '',
     email: '',
@@ -85,7 +87,7 @@ export default function CustomFurniturePage() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg p-8 mb-8">
+      <div className="bg-gradient-to-r from-[#fdf8f0] to-[#f5ebe0] rounded-lg p-8 mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Custom Furniture Services
         </h1>
@@ -103,23 +105,23 @@ export default function CustomFurniturePage() {
           </h2>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">✓</span>
+              <span className="text-[#c17d3c] mr-2">✓</span>
               <span>Perfect fit for your space and dimensions</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">✓</span>
+              <span className="text-[#c17d3c] mr-2">✓</span>
               <span>Choose your preferred materials, finishes, and colors</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">✓</span>
+              <span className="text-[#c17d3c] mr-2">✓</span>
               <span>Unique designs that reflect your personal style</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">✓</span>
+              <span className="text-[#c17d3c] mr-2">✓</span>
               <span>Premium quality craftsmanship</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">✓</span>
+              <span className="text-[#c17d3c] mr-2">✓</span>
               <span>Factory-direct pricing with no middlemen</span>
             </li>
           </ul>
@@ -131,23 +133,23 @@ export default function CustomFurniturePage() {
           </h2>
           <ul className="space-y-3 text-gray-700">
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">•</span>
+              <span className="text-[#c17d3c] mr-2">•</span>
               <span><strong>Living Room:</strong> Sofas, TV units, coffee tables, display cabinets</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">•</span>
+              <span className="text-[#c17d3c] mr-2">•</span>
               <span><strong>Bedroom:</strong> Beds, wardrobes, dressing tables, side tables</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">•</span>
+              <span className="text-[#c17d3c] mr-2">•</span>
               <span><strong>Dining:</strong> Dining tables, chairs, buffet units, bar cabinets</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">•</span>
+              <span className="text-[#c17d3c] mr-2">•</span>
               <span><strong>Office:</strong> Desks, bookshelves, conference tables, storage</span>
             </li>
             <li className="flex items-start">
-              <span className="text-amber-600 mr-2">•</span>
+              <span className="text-[#c17d3c] mr-2">•</span>
               <span><strong>Commercial:</strong> Restaurant furniture, hotel furniture, retail displays</span>
             </li>
           </ul>
@@ -161,8 +163,8 @@ export default function CustomFurniturePage() {
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-              <span className="text-2xl font-bold text-amber-600">1</span>
+            <div className="bg-[#c17d3c]/15 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+              <span className="text-2xl font-bold text-[#c17d3c]">1</span>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Consultation</h3>
             <p className="text-sm text-gray-600">
@@ -170,8 +172,8 @@ export default function CustomFurniturePage() {
             </p>
           </div>
           <div className="text-center">
-            <div className="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-              <span className="text-2xl font-bold text-amber-600">2</span>
+            <div className="bg-[#c17d3c]/15 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+              <span className="text-2xl font-bold text-[#c17d3c]">2</span>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Design</h3>
             <p className="text-sm text-gray-600">
@@ -179,8 +181,8 @@ export default function CustomFurniturePage() {
             </p>
           </div>
           <div className="text-center">
-            <div className="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-              <span className="text-2xl font-bold text-amber-600">3</span>
+            <div className="bg-[#c17d3c]/15 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+              <span className="text-2xl font-bold text-[#c17d3c]">3</span>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Manufacturing</h3>
             <p className="text-sm text-gray-600">
@@ -188,8 +190,8 @@ export default function CustomFurniturePage() {
             </p>
           </div>
           <div className="text-center">
-            <div className="bg-amber-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
-              <span className="text-2xl font-bold text-amber-600">4</span>
+            <div className="bg-[#c17d3c]/15 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-3">
+              <span className="text-2xl font-bold text-[#c17d3c]">4</span>
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Delivery</h3>
             <p className="text-sm text-gray-600">
@@ -228,7 +230,7 @@ export default function CustomFurniturePage() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.name ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Enter your full name"
@@ -248,7 +250,7 @@ export default function CustomFurniturePage() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.email ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="your.email@example.com"
@@ -268,7 +270,7 @@ export default function CustomFurniturePage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.phone ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="10-digit mobile number"
@@ -288,7 +290,7 @@ export default function CustomFurniturePage() {
                 value={formData.requirements}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
                   errors.requirements ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Please describe your custom furniture requirements including:&#10;- Type of furniture needed&#10;- Dimensions and space measurements&#10;- Preferred materials and finishes&#10;- Design style and color preferences&#10;- Budget range&#10;- Timeline"
@@ -300,7 +302,7 @@ export default function CustomFurniturePage() {
 
             <button
               type="submit"
-              className="w-full bg-amber-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-amber-700 transition-colors"
+              className="w-full bg-[#c17d3c] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
             >
               Submit Inquiry
             </button>
@@ -318,11 +320,11 @@ export default function CustomFurniturePage() {
           Have Questions? Contact Us Directly
         </h3>
         <div className="flex flex-wrap justify-center gap-6 text-gray-700">
-          <a href="tel:+919876543210" className="flex items-center hover:text-amber-600">
+          <a href="tel:+919876543210" className="flex items-center hover:text-[#c17d3c]">
             <span className="mr-2">📞</span>
             <span>+91 98765 43210</span>
           </a>
-          <a href="mailto:custom@a1furniture.com" className="flex items-center hover:text-amber-600">
+          <a href="mailto:custom@a1furniture.com" className="flex items-center hover:text-[#c17d3c]">
             <span className="mr-2">✉️</span>
             <span>custom@a1furniture.com</span>
           </a>
@@ -330,7 +332,7 @@ export default function CustomFurniturePage() {
             href="https://wa.me/919876543210?text=I'm interested in custom furniture"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center hover:text-amber-600"
+            className="flex items-center hover:text-[#c17d3c]"
           >
             <span className="mr-2">💬</span>
             <span>WhatsApp Us</span>

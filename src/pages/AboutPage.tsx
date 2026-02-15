@@ -1,8 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { usePageMeta } from '../hooks/usePageMeta';
 
 const AboutPage: React.FC = () => {
+  usePageMeta('ABOUT');
   return (
     <div className="container mx-auto px-4 py-8">
+      {/* Breadcrumb */}
+      <nav className="text-sm text-gray-500 mb-8">
+        <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+        <span className="mx-2">/</span>
+        <span className="text-gray-800 font-medium">About Us</span>
+      </nav>
+
       {/* Hero Section */}
       <section className="mb-12 text-center">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">About A1 Furniture Studio</h1>
@@ -36,12 +46,14 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="mb-12 bg-gray-50 py-12 -mx-4 px-4">
+      <section className="mb-12 bg-[#fdf8f0] py-12 -mx-4 px-4 rounded-2xl">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-blue-600 text-4xl mb-4">🎯</div>
+            <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
+              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
+                <span className="text-2xl">🎯</span>
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Quality First</h3>
               <p className="text-gray-600">
                 We use only premium materials and employ skilled craftsmen to ensure every piece 
@@ -49,8 +61,10 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-blue-600 text-4xl mb-4">💰</div>
+            <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
+              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
+                <span className="text-2xl">💰</span>
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Factory Direct Pricing</h3>
               <p className="text-gray-600">
                 By eliminating middlemen, we pass the savings directly to you, offering premium 
@@ -58,8 +72,10 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-blue-600 text-4xl mb-4">✨</div>
+            <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
+              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
+                <span className="text-2xl">✨</span>
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Solutions</h3>
               <p className="text-gray-600">
                 Every space is unique. We offer custom-made furniture designed to fit your specific 
@@ -67,8 +83,10 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-blue-600 text-4xl mb-4">🚚</div>
+            <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
+              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
+                <span className="text-2xl">🚚</span>
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Reliable Delivery</h3>
               <p className="text-gray-600">
                 Free delivery across Mumbai and reliable shipping to other locations, ensuring your 
@@ -76,8 +94,10 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-blue-600 text-4xl mb-4">🔧</div>
+            <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
+              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
+                <span className="text-2xl">🔧</span>
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Complete Care</h3>
               <p className="text-gray-600">
                 Beyond sales, we offer repair, polish, and maintenance services to keep your 
@@ -85,8 +105,10 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="text-blue-600 text-4xl mb-4">🤝</div>
+            <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
+              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
+                <span className="text-2xl">🤝</span>
+              </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Customer Trust</h3>
               <p className="text-gray-600">
                 We've built lasting relationships with our customers through transparency, 
@@ -102,7 +124,7 @@ const AboutPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">What We Offer</h2>
           <div className="space-y-6">
-            <div className="border-l-4 border-blue-600 pl-6">
+            <div className="border-l-4 border-[#c17d3c] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Furniture Collection</h3>
               <p className="text-gray-700">
                 Browse our extensive catalog featuring sofas, beds, dining tables, wardrobes, and 
@@ -110,7 +132,7 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="border-l-4 border-blue-600 pl-6">
+            <div className="border-l-4 border-[#c17d3c] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Custom Manufacturing</h3>
               <p className="text-gray-700">
                 Work with our design team to create bespoke furniture pieces that perfectly match 
@@ -118,7 +140,7 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="border-l-4 border-blue-600 pl-6">
+            <div className="border-l-4 border-[#c17d3c] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Repair & Polish Services</h3>
               <p className="text-gray-700">
                 Restore and rejuvenate your existing furniture with our professional repair and 
@@ -126,7 +148,7 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="border-l-4 border-blue-600 pl-6">
+            <div className="border-l-4 border-[#c17d3c] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Office Solutions</h3>
               <p className="text-gray-700">
                 Complete office furniture solutions for businesses of all sizes, from startups to 
@@ -138,22 +160,22 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="text-center bg-blue-600 text-white py-12 -mx-4 px-4">
+      <section className="text-center bg-[#2d1b0e] text-white py-12 -mx-4 px-4 rounded-2xl">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
-          <p className="text-xl mb-8">
+          <p className="text-xl mb-8 text-white/80">
             Explore our collection or get in touch to discuss your custom furniture needs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              className="bg-[#c17d3c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
             >
               Browse Collection
             </a>
             <a
               href="/contact"
-              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              className="bg-transparent border-2 border-white/50 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#2d1b0e] transition-colors"
             >
               Contact Us
             </a>

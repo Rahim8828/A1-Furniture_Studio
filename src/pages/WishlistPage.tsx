@@ -2,12 +2,15 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { wishlistService } from '../services/WishlistService';
 import { cartService } from '../services/CartService';
+import { usePageMeta } from '../hooks/usePageMeta';
 import type { Product } from '../models/types';
 import ProductCard from '../components/ProductCard';
 
 const WishlistPage = () => {
   const navigate = useNavigate();
   const [wishlistItems, setWishlistItems] = useState<Product[]>([]);
+
+  usePageMeta('WISHLIST');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -58,8 +61,8 @@ const WishlistPage = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="text-xl text-gray-600">Loading wishlist...</div>
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <div className="w-10 h-10 border-4 border-gray-200 border-t-[#c17d3c] rounded-full animate-spin" />
       </div>
     );
   }
@@ -67,31 +70,29 @@ const WishlistPage = () => {
   // Empty wishlist state
   if (wishlistItems.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50 py-12">
+      <div className="min-h-[60vh] bg-gray-50 py-12">
         <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-white rounded-lg shadow-md p-12">
-              <svg
-                className="w-24 h-24 text-gray-300 mx-auto mb-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                />
-              </svg>
-              <h2 className="text-3xl font-bold text-gray-800 mb-4">Your Wishlist is Empty</h2>
-              <p className="text-gray-600 mb-8">
-                Save your favorite furniture items here for easy access later. Start browsing to
-                add items to your wishlist!
+          {/* Breadcrumb */}
+          <nav className="text-sm text-gray-500 mb-8">
+            <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+            <span className="mx-2">/</span>
+            <span className="text-gray-800 font-medium">Wishlist</span>
+          </nav>
+
+          <div className="max-w-lg mx-auto text-center">
+            <div className="bg-white rounded-2xl shadow-card p-12">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#c17d3c]/10 flex items-center justify-center">
+                <svg className="w-10 h-10 text-[#c17d3c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-3">Your Wishlist is Empty</h2>
+              <p className="text-gray-500 mb-8 text-sm leading-relaxed">
+                Save your favorite furniture items here for easy access later. Start browsing to add items to your wishlist!
               </p>
               <Link
                 to="/"
-                className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                className="inline-block bg-[#c17d3c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors text-sm"
               >
                 Continue Shopping
               </Link>
@@ -103,19 +104,28 @@ const WishlistPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 py-8 lg:py-12">
       <div className="container mx-auto px-4">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">My Wishlist</h1>
-          <p className="text-gray-600">
-            {wishlistItems.length} {wishlistItems.length === 1 ? 'item' : 'items'} saved
-          </p>
+        {/* Breadcrumb */}
+        <nav className="text-sm text-gray-500 mb-6">
+          <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+          <span className="mx-2">/</span>
+          <span className="text-gray-800 font-medium">Wishlist</span>
+        </nav>
+
+        <div className="flex items-baseline justify-between mb-8">
+          <div>
+            <h1 className="text-2xl md:text-3xl font-bold text-gray-900">My Wishlist</h1>
+            <p className="text-gray-500 text-sm mt-1">
+              {wishlistItems.length} {wishlistItems.length === 1 ? 'item' : 'items'} saved
+            </p>
+          </div>
         </div>
 
         {/* Wishlist Items Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {wishlistItems.map((product) => (
-            <div key={product.id} className="relative">
+            <div key={product.id} className="relative group">
               <ProductCard
                 product={product}
                 onAddToCart={handleAddToCart}
@@ -123,17 +133,17 @@ const WishlistPage = () => {
                 onProductClick={handleProductClick}
               />
               
-              {/* Action Buttons Overlay */}
+              {/* Action Buttons */}
               <div className="mt-3 flex gap-2">
                 <button
                   onClick={() => handleMoveToCart(product.id)}
-                  className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                  className="flex-1 bg-[#2d1b0e] text-white py-2.5 px-4 rounded-lg font-semibold hover:bg-[#1a0e08] transition-colors text-sm"
                 >
                   Move to Cart
                 </button>
                 <button
                   onClick={() => handleRemoveItem(product.id)}
-                  className="px-4 py-2 border border-red-600 text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-colors"
+                  className="px-4 py-2.5 border border-red-300 text-red-600 rounded-lg font-semibold hover:bg-red-50 transition-colors text-sm"
                 >
                   Remove
                 </button>
@@ -142,11 +152,11 @@ const WishlistPage = () => {
           ))}
         </div>
 
-        {/* Continue Shopping Link */}
+        {/* Continue Shopping */}
         <div className="mt-12 text-center">
           <Link
             to="/"
-            className="inline-block text-blue-600 hover:text-blue-700 font-medium transition-colors"
+            className="inline-flex items-center gap-1 text-[#c17d3c] hover:text-[#a86830] font-medium transition-colors text-sm"
           >
             ← Continue Shopping
           </Link>

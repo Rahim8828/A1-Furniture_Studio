@@ -56,7 +56,9 @@ describe('WishlistPage', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Loading wishlist...')).toBeInTheDocument();
+    // Loading spinner is shown (has animate-spin class)
+    const spinner = document.querySelector('.animate-spin');
+    expect(spinner).toBeInTheDocument();
   });
 
   it('displays empty wishlist message when wishlist is empty', async () => {

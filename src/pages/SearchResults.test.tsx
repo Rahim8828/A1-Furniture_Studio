@@ -60,7 +60,7 @@ describe('SearchResults', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText('Search Results for "sofa"')).toBeInTheDocument();
+      expect(screen.getByText('Results for "sofa"')).toBeInTheDocument();
       expect(screen.getByText('2 products found')).toBeInTheDocument();
     });
   });
@@ -92,10 +92,12 @@ describe('SearchResults', () => {
     await waitFor(() => {
       expect(screen.getByText('No Results Found')).toBeInTheDocument();
       expect(screen.getByText(/We couldn't find any products matching "nonexistent"/)).toBeInTheDocument();
-      expect(screen.getByText(/Check your spelling/)).toBeInTheDocument();
-      expect(screen.getByText(/Try more general keywords/)).toBeInTheDocument();
-      expect(screen.getByText(/Browse our popular categories/)).toBeInTheDocument();
     });
+
+    // Suggestions are in the suggestions box
+    expect(screen.getByText(/Check your spelling/)).toBeInTheDocument();
+    expect(screen.getByText(/Try more general keywords/)).toBeInTheDocument();
+    expect(screen.getByText(/Browse our popular categories/)).toBeInTheDocument();
   });
 
   it('displays correct singular result count', async () => {
@@ -121,7 +123,7 @@ describe('SearchResults', () => {
 
     await waitFor(() => {
       expect(screen.getByText('Search Products')).toBeInTheDocument();
-      expect(screen.getByText('Enter a search term to find products.')).toBeInTheDocument();
+      expect(screen.getByText('Enter a search term to find furniture, décor, and more.')).toBeInTheDocument();
     });
   });
 });

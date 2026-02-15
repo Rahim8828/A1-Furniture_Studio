@@ -36,7 +36,6 @@ describe('ProductCard Component', () => {
   it('renders product image with lazy loading', () => {
     render(<ProductCard {...defaultProps} />);
     const image = screen.getByAltText('Modern Sofa');
-    // LazyImage starts with placeholder, then loads actual image
     expect(image).toBeInTheDocument();
     expect(image).toHaveAttribute('alt', 'Modern Sofa');
   });
@@ -63,29 +62,34 @@ describe('ProductCard Component', () => {
       discountPercentage: 20,
     };
     render(<ProductCard {...defaultProps} product={discountedProduct} />);
-    
+
     // Should display discount badge
     expect(screen.getByText('20% OFF')).toBeInTheDocument();
-    
+
     // Should display discounted price
     expect(screen.getByText(/₹40,000/)).toBeInTheDocument();
-    
+
     // Should display original price with strikethrough
     expect(screen.getByText(/₹50,000/)).toBeInTheDocument();
+
+    // Should display savings amount
+    expect(screen.getByText(/Save ₹10,000/)).toBeInTheDocument();
   });
 
   it('does not display discount badge when product has no discount', () => {
     render(<ProductCard {...defaultProps} />);
-    
+
     // Should not display discount badge
     expect(screen.queryByText(/OFF/)).not.toBeInTheDocument();
-    
+
     // Should only display regular price
     expect(screen.getByText(/₹50,000/)).toBeInTheDocument();
   });
 
   it('displays rating when product has ratings', () => {
     render(<ProductCard {...defaultProps} />);
+    // New compact rating badge shows "4.5" and "(10)"
+    expect(screen.getByText('4.5')).toBeInTheDocument();
     expect(screen.getByText('(10)')).toBeInTheDocument();
   });
 
@@ -122,5 +126,10 @@ describe('ProductCard Component', () => {
     render(<ProductCard {...defaultProps} product={outOfStockProduct} />);
     const button = screen.getByText('Add to Cart');
     expect(button).toBeDisabled();
+  });
+
+  it('shows EMI information', () => {
+    render(<ProductCard {...defaultProps} />);
+    expect(screen.getByText(/EMI from/)).toBeInTheDocument();
   });
 });

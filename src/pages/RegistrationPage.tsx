@@ -2,10 +2,13 @@ import { useState } from 'react';
 import type { FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { authService } from '../services/AuthService';
+import { usePageMeta } from '../hooks/usePageMeta';
 import type { RegistrationData } from '../models/types';
 
 const RegistrationPage = () => {
   const navigate = useNavigate();
+
+  usePageMeta('REGISTER');
   const [formData, setFormData] = useState<RegistrationData>({
     email: '',
     password: '',
@@ -89,14 +92,20 @@ const RegistrationPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        {/* Brand icon */}
+        <div className="w-14 h-14 mx-auto rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
+          <svg className="w-7 h-7 text-[#c17d3c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+          </svg>
+        </div>
+        <h2 className="text-center text-3xl font-bold text-gray-900">
           Create your account
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
           Already have an account?{' '}
           <Link
             to="/login"
-            className="font-medium text-amber-600 hover:text-amber-500"
+            className="font-medium text-[#c17d3c] hover:text-[#a86830]"
           >
             Sign in
           </Link>
@@ -104,11 +113,11 @@ const RegistrationPage = () => {
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+        <div className="bg-white py-8 px-4 shadow-card rounded-xl sm:px-10">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             {error && (
               <div
-                className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded relative"
+                className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg relative text-sm"
                 role="alert"
               >
                 <span className="block sm:inline">{error}</span>
@@ -116,112 +125,71 @@ const RegistrationPage = () => {
             )}
 
             <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700">
                 Full Name <span className="text-red-500">*</span>
               </label>
               <div className="mt-1">
                 <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
+                  id="name" name="name" type="text" autoComplete="name" required
+                  value={formData.name} onChange={handleChange}
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
                   placeholder="John Doe"
                 />
               </div>
             </div>
 
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email address <span className="text-red-500">*</span>
               </label>
               <div className="mt-1">
                 <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
+                  id="email" name="email" type="email" autoComplete="email" required
+                  value={formData.email} onChange={handleChange}
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
                   placeholder="you@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label
-                htmlFor="phone"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
                 Phone Number
               </label>
               <div className="mt-1">
                 <input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  autoComplete="tel"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
+                  id="phone" name="phone" type="tel" autoComplete="tel"
+                  value={formData.phone} onChange={handleChange}
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
                   placeholder="+91 9876543210"
                 />
               </div>
             </div>
 
             <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
                 Password <span className="text-red-500">*</span>
               </label>
               <div className="mt-1">
                 <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="new-password"
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
+                  id="password" name="password" type="password" autoComplete="new-password" required
+                  value={formData.password} onChange={handleChange}
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
                   placeholder="At least 6 characters"
                 />
               </div>
-              <p className="mt-1 text-xs text-gray-500">
-                Must be at least 6 characters long
-              </p>
+              <p className="mt-1 text-xs text-gray-500">Must be at least 6 characters long</p>
             </div>
 
             <div>
-              <label
-                htmlFor="confirmPassword"
-                className="block text-sm font-medium text-gray-700"
-              >
+              <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
                 Confirm Password <span className="text-red-500">*</span>
               </label>
               <div className="mt-1">
                 <input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type="password"
-                  autoComplete="new-password"
-                  required
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-amber-500 focus:border-amber-500 sm:text-sm"
+                  id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password" required
+                  value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
                   placeholder="Re-enter your password"
                 />
               </div>
@@ -231,7 +199,7 @@ const RegistrationPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#c17d3c] hover:bg-[#a86830] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#c17d3c] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? 'Creating account...' : 'Create account'}
               </button>

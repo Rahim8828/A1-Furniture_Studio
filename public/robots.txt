@@ -1,0 +1,9 @@
+# Robots.txt for A1 Furniture Studio
+User-agent: *
+Allow: /
+Disallow: /cart
+Disallow: /checkout
+Disallow: /login
+Disallow: /register
+
+Sitemap: https://a1furniturestudio.com/sitemap.xml

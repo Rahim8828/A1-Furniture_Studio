@@ -3,7 +3,9 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import BackToTop from './components/BackToTop';
 import ErrorBoundary from './components/ErrorBoundary';
+import ScrollToTop from './components/ScrollToTop';
 import LoadingSpinner from './components/LoadingSpinner';
 import { cartService } from './services/CartService';
 import { wishlistService } from './services/WishlistService';
@@ -24,6 +26,11 @@ const CustomFurniturePage = lazy(() => import('./pages/CustomFurniturePage'));
 const RepairPolishPage = lazy(() => import('./pages/RepairPolishPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
+const ShippingPolicyPage = lazy(() => import('./pages/ShippingPolicyPage'));
+const ReturnPolicyPage = lazy(() => import('./pages/ReturnPolicyPage'));
+const WarrantyPage = lazy(() => import('./pages/WarrantyPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 function AppContent() {
   const navigate = useNavigate();
@@ -67,6 +74,7 @@ function AppContent() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
       <Navigation
         cartItemCount={cartItemCount}
         wishlistItemCount={wishlistItemCount}
@@ -75,7 +83,11 @@ function AppContent() {
         onSearch={handleSearch}
       />
       <main className="flex-grow">
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={
+          <div className="flex items-center justify-center min-h-[60vh]">
+            <LoadingSpinner size="lg" />
+          </div>
+        }>
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/product/:productId" element={<ProductDetail />} />
@@ -90,12 +102,17 @@ function AppContent() {
             <Route path="/repair-polish" element={<RepairPolishPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            {/* Additional routes will be added as pages are implemented */}
+            <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
+            <Route path="/return-policy" element={<ReturnPolicyPage />} />
+            <Route path="/warranty" element={<WarrantyPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </main>
       <Footer />
       <WhatsAppButton />
+      <BackToTop />
     </div>
   );
 }

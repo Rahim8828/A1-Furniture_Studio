@@ -92,7 +92,9 @@ describe('ProductDetail', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText('Premium L-Shape Sofa')).toBeInTheDocument();
+      // Name appears in breadcrumb and h1, so use getAllByText
+      const nameElements = screen.getAllByText('Premium L-Shape Sofa');
+      expect(nameElements.length).toBeGreaterThan(0);
     });
   });
 
@@ -124,7 +126,9 @@ describe('ProductDetail', () => {
     await waitFor(() => {
       expect(screen.getByText('₹38,000')).toBeInTheDocument();
       expect(screen.getByText('₹45,000')).toBeInTheDocument();
-      expect(screen.getByText('15% OFF')).toBeInTheDocument();
+      // "15% OFF" appears on image badge and price section, use getAllByText
+      const offElements = screen.getAllByText(/15% OFF/);
+      expect(offElements.length).toBeGreaterThan(0);
     });
   });
 
@@ -138,9 +142,11 @@ describe('ProductDetail', () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByText(/Teak Wood/)).toBeInTheDocument();
-      expect(screen.getByText(/Premium Fabric/)).toBeInTheDocument();
-      expect(screen.getByText(/Natural Wood Finish/)).toBeInTheDocument();
+      // Materials appear in quick-highlight cards; use getAllByText because
+      // the Description tab also duplicates them.
+      expect(screen.getAllByText(/Teak Wood/).length).toBeGreaterThan(0);
+      expect(screen.getAllByText(/Premium Fabric/).length).toBeGreaterThan(0);
+      expect(screen.getAllByText(/Natural Wood Finish/).length).toBeGreaterThan(0);
     });
   });
 
@@ -158,7 +164,7 @@ describe('ProductDetail', () => {
     });
   });
 
-  it('should display specifications', async () => {
+  it('should display specifications in Specifications tab', async () => {
     vi.mocked(productService.getProductById).mockResolvedValue(mockProduct);
 
     render(
@@ -166,6 +172,12 @@ describe('ProductDetail', () => {
         <ProductDetail />
       </BrowserRouter>
     );
+
+    // Wait for product to load, then switch to Specifications tab
+    await waitFor(() => {
+      expect(screen.getByText('Specifications')).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByText('Specifications'));
 
     await waitFor(() => {
       expect(screen.getByText(/3-5 persons/)).toBeInTheDocument();
@@ -174,7 +186,7 @@ describe('ProductDetail', () => {
     });
   });
 
-  it('should display delivery information', async () => {
+  it('should display delivery information in Delivery tab', async () => {
     vi.mocked(productService.getProductById).mockResolvedValue(mockProduct);
 
     render(
@@ -182,6 +194,12 @@ describe('ProductDetail', () => {
         <ProductDetail />
       </BrowserRouter>
     );
+
+    // Wait for product to load, then switch to Delivery & Warranty tab
+    await waitFor(() => {
+      expect(screen.getByText('Delivery & Warranty')).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByText('Delivery & Warranty'));
 
     await waitFor(() => {
       expect(
@@ -190,7 +208,7 @@ describe('ProductDetail', () => {
     });
   });
 
-  it('should display warranty information', async () => {
+  it('should display warranty information in Delivery tab', async () => {
     vi.mocked(productService.getProductById).mockResolvedValue(mockProduct);
 
     render(
@@ -198,6 +216,12 @@ describe('ProductDetail', () => {
         <ProductDetail />
       </BrowserRouter>
     );
+
+    // Wait for product to load, then switch to Delivery & Warranty tab
+    await waitFor(() => {
+      expect(screen.getByText('Delivery & Warranty')).toBeInTheDocument();
+    });
+    fireEvent.click(screen.getByText('Delivery & Warranty'));
 
     await waitFor(() => {
       expect(screen.getByText(/2 years manufacturing warranty/)).toBeInTheDocument();
@@ -266,6 +290,22 @@ describe('ProductDetail', () => {
       const images = screen.getAllByRole('img');
       expect(images.length).toBeGreaterThan(0);
     });
+  });
+
+  it('should display loading skeleton initially', () => {
+    vi.mocked(productService.getProductById).mockImplementation(
+      () => new Promise(() => {}) // Never resolves
+    );
+
+    render(
+      <BrowserRouter>
+        <ProductDetail />
+      </BrowserRouter>
+    );
+
+    // Skeleton loading should be present
+    const skeletons = document.querySelectorAll('.animate-pulse');
+    expect(skeletons.length).toBeGreaterThan(0);
   });
 
   describe('Buy Now functionality', () => {
