@@ -44,7 +44,7 @@ const ContactPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-500 mb-8">
-        <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+        <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-gray-800 font-medium">Contact</span>
       </nav>
@@ -65,16 +65,16 @@ const ContactPage: React.FC = () => {
           <div className="space-y-6">
             {/* Phone */}
             <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <Phone className="w-6 h-6 text-[#c17d3c]" />
+              <div className="flex-shrink-0 w-12 h-12 bg-[#C6A75E]/10 rounded-xl flex items-center justify-center mr-4">
+                <Phone className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
-                <a href="tel:+919876543210" className="text-[#c17d3c] hover:underline">
+                <a href="tel:+919876543210" className="text-[#C6A75E] hover:underline">
                   +91 98765 43210
                 </a>
                 <br />
-                <a href="tel:+912212345678" className="text-[#c17d3c] hover:underline">
+                <a href="tel:+912212345678" className="text-[#C6A75E] hover:underline">
                   +91 22 1234 5678
                 </a>
               </div>
@@ -82,16 +82,16 @@ const ContactPage: React.FC = () => {
 
             {/* Email */}
             <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <Mail className="w-6 h-6 text-[#c17d3c]" />
+              <div className="flex-shrink-0 w-12 h-12 bg-[#C6A75E]/10 rounded-xl flex items-center justify-center mr-4">
+                <Mail className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-                <a href="mailto:info@a1furniture.com" className="text-[#c17d3c] hover:underline">
+                <a href="mailto:info@a1furniture.com" className="text-[#C6A75E] hover:underline">
                   info@a1furniture.com
                 </a>
                 <br />
-                <a href="mailto:sales@a1furniture.com" className="text-[#c17d3c] hover:underline">
+                <a href="mailto:sales@a1furniture.com" className="text-[#C6A75E] hover:underline">
                   sales@a1furniture.com
                 </a>
               </div>
@@ -99,8 +99,8 @@ const ContactPage: React.FC = () => {
 
             {/* Address */}
             <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <MapPin className="w-6 h-6 text-[#c17d3c]" />
+              <div className="flex-shrink-0 w-12 h-12 bg-[#C6A75E]/10 rounded-xl flex items-center justify-center mr-4">
+                <MapPin className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
@@ -115,8 +115,8 @@ const ContactPage: React.FC = () => {
 
             {/* WhatsApp */}
             <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <MessageCircle className="w-6 h-6 text-[#c17d3c]" />
+              <div className="flex-shrink-0 w-12 h-12 bg-[#C6A75E]/10 rounded-xl flex items-center justify-center mr-4">
+                <MessageCircle className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-1">WhatsApp</h3>
@@ -124,7 +124,7 @@ const ContactPage: React.FC = () => {
                   href="https://wa.me/919876543210?text=Hello%20A1%20Furniture%20Studio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#c17d3c] hover:underline"
+                  className="text-[#C6A75E] hover:underline"
                 >
                   Chat with us on WhatsApp
                 </a>
@@ -133,8 +133,8 @@ const ContactPage: React.FC = () => {
 
             {/* Business Hours */}
             <div className="flex items-start">
-              <div className="flex-shrink-0 w-12 h-12 bg-[#c17d3c]/10 rounded-xl flex items-center justify-center mr-4">
-                <Clock className="w-6 h-6 text-[#c17d3c]" />
+              <div className="flex-shrink-0 w-12 h-12 bg-[#C6A75E]/10 rounded-xl flex items-center justify-center mr-4">
+                <Clock className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Business Hours</h3>
@@ -175,7 +175,7 @@ const ContactPage: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] transition-colors"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] transition-colors"
                   placeholder="Your name"
                 />
               </div>
@@ -191,7 +191,7 @@ const ContactPage: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] transition-colors"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -206,7 +206,7 @@ const ContactPage: React.FC = () => {
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] transition-colors"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] transition-colors"
                   placeholder="+91 98765 43210"
                 />
               </div>
@@ -221,7 +221,7 @@ const ContactPage: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] transition-colors"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] transition-colors"
                 >
                   <option value="">Select a subject</option>
                   <option value="general">General Inquiry</option>
@@ -244,14 +244,14 @@ const ContactPage: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] transition-colors resize-none"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] transition-colors resize-none"
                   placeholder="Tell us how we can help you..."
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#c17d3c] text-white py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
+                className="w-full bg-[#C6A75E] text-white py-3 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors"
               >
                 Send Message
               </button>
@@ -264,16 +264,16 @@ const ContactPage: React.FC = () => {
       <section className="mb-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Visit Our Showroom</h2>
         <div className="bg-gray-100 rounded-xl overflow-hidden" style={{ height: '400px' }}>
-          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#fdf8f0] to-[#f5ebe0]">
+          <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#F5EFE6] to-[#EDE4D6]">
             <div className="text-center">
-              <Map className="w-16 h-16 text-[#c17d3c] mx-auto mb-4" />
+              <Map className="w-16 h-16 text-[#C6A75E] mx-auto mb-4" />
               <p className="text-gray-700 font-medium">A1 Furniture Studio</p>
               <p className="text-gray-600">123 Furniture Lane, Andheri West, Mumbai</p>
               <a
                 href="https://maps.google.com/?q=Andheri+West+Mumbai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 text-[#c17d3c] hover:underline font-medium"
+                className="inline-block mt-4 text-[#C6A75E] hover:underline font-medium"
               >
                 Open in Google Maps <ArrowRight className="w-4 h-4 inline ml-1" />
               </a>
@@ -283,7 +283,7 @@ const ContactPage: React.FC = () => {
       </section>
 
       {/* Additional Info */}
-      <section className="bg-[#fdf8f0] rounded-xl p-8 text-center">
+      <section className="bg-[#F5EFE6] rounded-xl p-8 text-center">
         <h3 className="text-xl font-bold text-gray-900 mb-3">Need Immediate Assistance?</h3>
         <p className="text-gray-700 mb-4">
           For urgent inquiries or immediate support, please call us or reach out via WhatsApp
@@ -291,7 +291,7 @@ const ContactPage: React.FC = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="tel:+919876543210"
-            className="bg-[#2d1b0e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#1a0e08] transition-colors"
+            className="bg-[#4A2F24] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#3A2119] transition-colors"
           >
             <Phone className="w-4 h-4 inline mr-1" /> Call Now
           </a>

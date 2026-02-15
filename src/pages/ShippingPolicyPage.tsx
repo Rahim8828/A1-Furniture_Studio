@@ -9,7 +9,7 @@ const ShippingPolicyPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-500 mb-8">
-        <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+        <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-gray-800 font-medium">Shipping Policy</span>
       </nav>
@@ -24,13 +24,13 @@ const ShippingPolicyPage: React.FC = () => {
 
       <div className="max-w-4xl mx-auto space-y-10">
         {/* Delivery Highlights */}
-        <section className="bg-[#fdf8f0] rounded-2xl p-8">
+        <section className="bg-[#F5EFE6] rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: <Truck className="w-7 h-7 text-[#c17d3c]" />, title: 'Free Delivery', desc: 'On orders above ₹9,999' },
-              { icon: <Package className="w-7 h-7 text-[#c17d3c]" />, title: 'Safe Packaging', desc: 'Multi-layer protection' },
-              { icon: <Clock className="w-7 h-7 text-[#c17d3c]" />, title: '7–14 Days', desc: 'Standard delivery time' },
-              { icon: <Home className="w-7 h-7 text-[#c17d3c]" />, title: 'Room Placement', desc: 'We set it up for you' },
+              { icon: <Truck className="w-7 h-7 text-[#C6A75E]" />, title: 'Free Delivery', desc: 'On orders above ₹9,999' },
+              { icon: <Package className="w-7 h-7 text-[#C6A75E]" />, title: 'Safe Packaging', desc: 'Multi-layer protection' },
+              { icon: <Clock className="w-7 h-7 text-[#C6A75E]" />, title: '7–14 Days', desc: 'Standard delivery time' },
+              { icon: <Home className="w-7 h-7 text-[#C6A75E]" />, title: 'Room Placement', desc: 'We set it up for you' },
             ].map((item) => (
               <div key={item.title} className="text-center">
                 <span className="flex justify-center mb-2">{item.icon}</span>
@@ -46,8 +46,8 @@ const ShippingPolicyPage: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Delivery Coverage</h2>
           <div className="bg-white rounded-xl shadow-card p-6 space-y-4">
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 text-[#c17d3c]" />
+              <div className="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Mumbai Metropolitan Region</h3>
@@ -55,8 +55,8 @@ const ShippingPolicyPage: React.FC = () => {
               </div>
             </div>
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <Map className="w-5 h-5 text-[#c17d3c]" />
+              <div className="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center flex-shrink-0">
+                <Map className="w-5 h-5 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Maharashtra (Rest of State)</h3>
@@ -64,8 +64,8 @@ const ShippingPolicyPage: React.FC = () => {
               </div>
             </div>
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <Globe className="w-5 h-5 text-[#c17d3c]" />
+              <div className="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center flex-shrink-0">
+                <Globe className="w-5 h-5 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Pan-India Delivery</h3>
@@ -73,8 +73,8 @@ const ShippingPolicyPage: React.FC = () => {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <Wrench className="w-5 h-5 text-[#c17d3c]" />
+              <div className="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center flex-shrink-0">
+                <Wrench className="w-5 h-5 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Assembly & Installation</h3>
@@ -101,7 +101,7 @@ const ShippingPolicyPage: React.FC = () => {
                 'Delivered — Furniture placed and assembled in your room.',
               ].map((step, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#c17d3c] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">{i + 1}</span>
+                  <span className="w-6 h-6 rounded-full bg-[#C6A75E] text-white flex items-center justify-center flex-shrink-0 text-xs font-bold">{i + 1}</span>
                   <span className="text-gray-700 text-sm">{step}</span>
                 </li>
               ))}
@@ -125,7 +125,7 @@ const ShippingPolicyPage: React.FC = () => {
                 'Fragile items packed with additional bubble wrap',
               ].map((item, i) => (
                 <li key={i} className="flex items-start gap-3">
-                  <span className="text-[#c17d3c]">✓</span>
+                  <span className="text-[#C6A75E]">✓</span>
                   <span className="text-gray-700 text-sm">{item}</span>
                 </li>
               ))}
@@ -136,7 +136,7 @@ const ShippingPolicyPage: React.FC = () => {
         {/* Important Notes */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Important Notes</h2>
-          <div className="bg-[#fdf8f0] rounded-xl p-6 space-y-3">
+          <div className="bg-[#F5EFE6] rounded-xl p-6 space-y-3">
             <p className="text-gray-700 text-sm">
               <strong>Delivery Attempts:</strong> Our delivery team will make up to 2 attempts. If both attempts fail due to unavailability, re-delivery charges may apply.
             </p>
@@ -157,7 +157,7 @@ const ShippingPolicyPage: React.FC = () => {
           <p className="text-gray-600 mb-4">Have questions about delivery?</p>
           <Link
             to="/contact"
-            className="inline-block bg-[#2d1b0e] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1a1008] transition-colors"
+            className="inline-block bg-[#4A2F24] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A2119] transition-colors"
           >
             Contact Us
           </Link>

@@ -168,8 +168,8 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                 onClick={() => setActiveCategory(index)}
                 className={`w-full flex items-center gap-3 px-5 py-3 text-left text-sm transition-all duration-200 ${
                   activeCategory === index
-                    ? 'bg-white text-[#c17d3c] font-semibold border-r-2 border-[#c17d3c] shadow-sm'
-                    : 'text-gray-700 hover:bg-white hover:text-[#c17d3c]'
+                    ? 'bg-white text-[#C6A75E] font-semibold border-r-2 border-[#C6A75E] shadow-sm'
+                    : 'text-gray-700 hover:bg-white hover:text-[#C6A75E]'
                 }`}
               >
                 <span className="text-lg flex items-center">{cat.icon}</span>
@@ -181,7 +181,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                 )}
                 <svg
                   className={`w-4 h-4 transition-colors ${
-                    activeCategory === index ? 'text-[#c17d3c]' : 'text-gray-400'
+                    activeCategory === index ? 'text-[#C6A75E]' : 'text-gray-400'
                   }`}
                   fill="none"
                   stroke="currentColor"
@@ -204,7 +204,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
               <Link
                 to={activeItem.path}
                 onClick={onClose}
-                className="text-lg font-semibold text-gray-900 hover:text-[#c17d3c] transition-colors"
+                className="text-lg font-semibold text-gray-900 hover:text-[#C6A75E] transition-colors"
               >
                 All {activeItem.label} <ArrowRight className="w-4 h-4 inline ml-1" />
               </Link>
@@ -216,9 +216,9 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                   key={sub.path}
                   to={sub.path}
                   onClick={onClose}
-                  className="text-sm text-gray-600 hover:text-[#c17d3c] hover:translate-x-1 transition-all duration-200 py-1.5 flex items-center gap-2 group"
+                  className="text-sm text-gray-600 hover:text-[#C6A75E] hover:translate-x-1 transition-all duration-200 py-1.5 flex items-center gap-2 group"
                 >
-                  <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-[#c17d3c] transition-colors" />
+                  <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-[#C6A75E] transition-colors" />
                   {sub.label}
                 </Link>
               ))}
@@ -230,14 +230,14 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
                 <Link
                   to={activeItem.path}
                   onClick={onClose}
-                  className="text-xs font-semibold text-white bg-[#c17d3c] px-4 py-2 rounded hover:bg-[#a86830] transition-colors"
+                  className="text-xs font-semibold text-white bg-[#C6A75E] px-4 py-2 rounded hover:bg-[#B0914A] transition-colors"
                 >
                   Shop All {activeItem.label}
                 </Link>
                 <Link
                   to="/custom-furniture"
                   onClick={onClose}
-                  className="text-xs font-semibold text-[#c17d3c] border border-[#c17d3c] px-4 py-2 rounded hover:bg-[#c17d3c] hover:text-white transition-colors"
+                  className="text-xs font-semibold text-[#C6A75E] border border-[#C6A75E] px-4 py-2 rounded hover:bg-[#C6A75E] hover:text-white transition-colors"
                 >
                   Customize
                 </Link>
@@ -276,7 +276,7 @@ const MegaMenu = ({ onClose }: MegaMenuProps) => {
 
               {/* Offer Banner */}
               {activeItem.highlight && (
-                <div className="mt-4 bg-gradient-to-r from-[#c17d3c] to-[#e09b5a] text-white p-4 rounded-lg text-center">
+                <div className="mt-4 bg-gradient-to-r from-[#C6A75E] to-[#D4BC7E] text-white p-4 rounded-lg text-center">
                   <p className="text-lg font-bold">{activeItem.highlight}</p>
                   <p className="text-xs opacity-80 mt-1">on {activeItem.label}</p>
                 </div>

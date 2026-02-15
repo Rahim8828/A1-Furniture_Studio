@@ -109,7 +109,7 @@ const ProductCard = ({
               addedToCart
                 ? 'bg-green-500 text-white'
                 : product.inStock
-                  ? 'bg-[#c17d3c] text-white hover:bg-[#a86830] active:scale-[0.98]'
+                  ? 'bg-[#C6A75E] text-white hover:bg-[#B0914A] active:scale-[0.98]'
                   : 'bg-gray-300 text-gray-500 cursor-not-allowed'
             }`}
           >
@@ -130,7 +130,7 @@ const ProductCard = ({
       {/* Product Info */}
       <div className="p-4">
         {/* Product Name */}
-        <h3 className="text-sm font-medium text-gray-800 mb-1.5 line-clamp-2 leading-snug group-hover:text-[#c17d3c] transition-colors">
+        <h3 className="text-sm font-medium text-gray-800 mb-1.5 line-clamp-2 leading-snug group-hover:text-[#C6A75E] transition-colors">
           {product.name}
         </h3>
 

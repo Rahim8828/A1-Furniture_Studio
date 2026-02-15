@@ -58,9 +58,9 @@ const rooms = [
 // ─── Budget Range Data ──────────────────────────────────────────────
 const budgetRanges = [
   { label: 'Under ₹10K', range: 'Budget Friendly', link: '/category/sofa-sets', color: 'from-emerald-500 to-emerald-700' },
-  { label: '₹10K – ₹25K', range: 'Best Value', link: '/category/sofa-sets', color: 'from-[#c17d3c] to-[#a86830]' },
+  { label: '₹10K – ₹25K', range: 'Best Value', link: '/category/sofa-sets', color: 'from-[#C6A75E] to-[#B0914A]' },
   { label: '₹25K – ₹50K', range: 'Premium', link: '/category/sofa-sets', color: 'from-purple-500 to-purple-700' },
-  { label: '₹50K+', range: 'Luxury', link: '/category/sofa-sets', color: 'from-[#2d1b0e] to-[#1a0e08]' },
+  { label: '₹50K+', range: 'Luxury', link: '/category/sofa-sets', color: 'from-[#4A2F24] to-[#3A2119]' },
 ];
 
 // ─── Testimonial Data ───────────────────────────────────────────────
@@ -169,7 +169,7 @@ const Homepage = () => {
               <div className="container mx-auto px-4 sm:px-8">
                 <div className="max-w-xl">
                   {banner.tag && (
-                    <span className="inline-block bg-[#c17d3c] text-white text-xs font-bold px-3 py-1 rounded mb-4 uppercase tracking-wider">
+                    <span className="inline-block bg-[#C6A75E] text-white text-xs font-bold px-3 py-1 rounded mb-4 uppercase tracking-wider">
                       {banner.tag}
                     </span>
                   )}
@@ -184,7 +184,7 @@ const Homepage = () => {
                   </p>
                   <Link
                     to={banner.ctaLink}
-                    className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm hover:bg-[#c17d3c] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group"
+                    className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 sm:px-8 py-3 rounded-lg font-semibold text-sm hover:bg-[#C6A75E] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl group"
                   >
                     {banner.cta}
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -210,14 +210,14 @@ const Homepage = () => {
       </section>
 
       {/* ═══ SECTION 2: TRUST/SERVICE STRIP ═══ */}
-      <section className="bg-[#fdf8f0] border-y border-[#f0e6d6]">
+      <section className="bg-[#F5EFE6] border-y border-[#E5DCD0]">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#e8d8c4]">
             {[
-              { icon: <Truck className="w-6 h-6 text-[#c17d3c]" />, title: 'Free Delivery', desc: 'Across Mumbai' },
-              { icon: <Wrench className="w-6 h-6 text-[#c17d3c]" />, title: 'Expert Assembly', desc: 'Free Installation' },
-              { icon: <Shield className="w-6 h-6 text-[#c17d3c]" />, title: '5-Year Warranty', desc: 'On all furniture' },
-              { icon: <RotateCcw className="w-6 h-6 text-[#c17d3c]" />, title: 'Easy Returns', desc: '7-day return policy' },
+              { icon: <Truck className="w-6 h-6 text-[#C6A75E]" />, title: 'Free Delivery', desc: 'Across Mumbai' },
+              { icon: <Wrench className="w-6 h-6 text-[#C6A75E]" />, title: 'Expert Assembly', desc: 'Free Installation' },
+              { icon: <Shield className="w-6 h-6 text-[#C6A75E]" />, title: '5-Year Warranty', desc: 'On all furniture' },
+              { icon: <RotateCcw className="w-6 h-6 text-[#C6A75E]" />, title: 'Easy Returns', desc: '7-day return policy' },
             ].map((item) => (
               <div key={item.title} className="flex items-center gap-3 py-4 px-4 md:px-6 justify-center">
                 <span className="flex-shrink-0">{item.icon}</span>
@@ -259,10 +259,10 @@ const Homepage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link to="/custom-furniture" className="group relative overflow-hidden rounded-xl h-48 md:h-56 block">
               <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=700&h=350&fit=crop" alt="Custom Furniture" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#2d1b0e]/90 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#4A2F24]/90 to-transparent" />
               <div className="absolute inset-0 flex items-center p-6 md:p-8">
                 <div>
-                  <span className="text-[#c17d3c] text-xs font-bold uppercase tracking-widest">Bespoke</span>
+                  <span className="text-[#C6A75E] text-xs font-bold uppercase tracking-widest">Bespoke</span>
                   <h3 className="text-white text-2xl md:text-3xl font-bold mt-1 mb-2">Custom Furniture</h3>
                   <p className="text-white/70 text-sm mb-4 max-w-xs">Design your dream piece. Free consultation & 3D preview.</p>
                   <span className="inline-flex items-center gap-1 text-white text-sm font-semibold group-hover:gap-2 transition-all">
@@ -302,7 +302,7 @@ const Homepage = () => {
       </section>
 
       {/* ═══ SECTION 6: SHOP BY ROOM ═══ */}
-      <section className="py-12 md:py-16 bg-[#fdf8f0]">
+      <section className="py-12 md:py-16 bg-[#F5EFE6]">
         <div className="container mx-auto px-4">
           <SectionHeader title="Shop by Room" subtitle="Find the perfect furniture for every space in your home" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -354,7 +354,7 @@ const Homepage = () => {
       </section>
 
       {/* ═══ SECTION 9: WHY CHOOSE US ═══ */}
-      <section className="py-12 md:py-16 bg-[#2d1b0e] text-white">
+      <section className="py-12 md:py-16 bg-[#4A2F24] text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-3">Why Choose A1 Furniture Studio</h2>
@@ -369,7 +369,7 @@ const Homepage = () => {
               { icon: <Shield className="w-7 h-7" />, title: '5-Year Warranty', desc: 'Quality guaranteed' },
             ].map((item) => (
               <div key={item.title} className="text-center group">
-                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#c17d3c]/30 transition-colors">{item.icon}</div>
+                <div className="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-[#C6A75E]/30 transition-colors">{item.icon}</div>
                 <h3 className="font-semibold mb-1 text-sm md:text-base">{item.title}</h3>
                 <p className="text-white/50 text-xs">{item.desc}</p>
               </div>
@@ -393,9 +393,9 @@ const Homepage = () => {
                   ))}
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">"{t.text}"</p>
-                <div className="text-xs text-[#c17d3c] font-medium mb-3">Purchased: {t.product}</div>
+                <div className="text-xs text-[#C6A75E] font-medium mb-3">Purchased: {t.product}</div>
                 <div className="flex items-center gap-3 pt-3 border-t border-gray-200">
-                  <div className="w-9 h-9 rounded-full bg-[#c17d3c] flex items-center justify-center text-white text-xs font-bold">{t.avatar}</div>
+                  <div className="w-9 h-9 rounded-full bg-[#C6A75E] flex items-center justify-center text-white text-xs font-bold">{t.avatar}</div>
                   <div>
                     <p className="font-semibold text-gray-800 text-sm">{t.name}</p>
                     <p className="text-xs text-gray-400">{t.location}</p>
@@ -408,14 +408,14 @@ const Homepage = () => {
       </section>
 
       {/* ═══ SECTION 11: NEWSLETTER ═══ */}
-      <section className="py-12 md:py-16 bg-gradient-to-r from-[#c17d3c] to-[#e09b5a]">
+      <section className="py-12 md:py-16 bg-gradient-to-r from-[#C6A75E] to-[#D4BC7E]">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Get Exclusive Offers & Updates</h2>
             <p className="text-white/80 text-sm mb-6">Subscribe for 10% off your first order, new arrivals, and special deals</p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
               <input type="email" placeholder="Enter your email address" className="flex-1 px-4 py-3 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-white/50 placeholder:text-gray-400" required />
-              <button type="submit" className="bg-[#2d1b0e] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#1a0e08] transition-colors whitespace-nowrap">Subscribe</button>
+              <button type="submit" className="bg-[#4A2F24] text-white px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#3A2119] transition-colors whitespace-nowrap">Subscribe</button>
             </form>
             <p className="text-white/50 text-xs mt-3">No spam, unsubscribe anytime. We respect your privacy.</p>
           </div>
@@ -433,7 +433,7 @@ const SectionHeader = ({ title, subtitle, ctaText, ctaLink }: { title: string; s
       {subtitle && <p className="text-gray-500 text-sm">{subtitle}</p>}
     </div>
     {ctaText && ctaLink && (
-      <Link to={ctaLink} className="hidden sm:inline-flex items-center gap-1 text-[#c17d3c] font-semibold text-sm hover:text-[#a86830] transition-colors whitespace-nowrap group">
+      <Link to={ctaLink} className="hidden sm:inline-flex items-center gap-1 text-[#C6A75E] font-semibold text-sm hover:text-[#B0914A] transition-colors whitespace-nowrap group">
         {ctaText}
         <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
       </Link>

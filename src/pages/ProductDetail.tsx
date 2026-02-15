@@ -121,7 +121,7 @@ export default function ProductDetail() {
           </div>
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Product Not Found</h2>
           <p className="text-gray-500 mb-6">The product you're looking for doesn't exist or has been removed.</p>
-          <button onClick={() => navigate('/')} className="bg-[#c17d3c] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors">
+          <button onClick={() => navigate('/')} className="bg-[#C6A75E] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors">
             Return to Homepage
           </button>
         </div>
@@ -146,9 +146,9 @@ export default function ProductDetail() {
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-500 overflow-x-auto whitespace-nowrap">
-            <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
             <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <Link to={`/category/${product.category.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-[#c17d3c] transition-colors">{product.category}</Link>
+            <Link to={`/category/${product.category.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-[#C6A75E] transition-colors">{product.category}</Link>
             <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <span className="text-gray-800 font-medium truncate">{product.name}</span>
           </nav>
@@ -201,7 +201,7 @@ export default function ProductDetail() {
                     key={index}
                     onClick={() => setSelectedImageIndex(index)}
                     className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      selectedImageIndex === index ? 'border-[#c17d3c] shadow-md' : 'border-gray-200 hover:border-gray-400'
+                      selectedImageIndex === index ? 'border-[#C6A75E] shadow-md' : 'border-gray-200 hover:border-gray-400'
                     }`}
                   >
                     <LazyImage src={image.url} alt={image.alt} className="w-full h-full object-cover" />
@@ -215,7 +215,7 @@ export default function ProductDetail() {
           <div className="lg:sticky lg:top-4 lg:self-start space-y-5">
             {/* Subcategory badge */}
             {product.subcategory && (
-              <span className="inline-block text-[11px] font-semibold text-[#c17d3c] bg-[#c17d3c]/10 px-2.5 py-1 rounded uppercase tracking-wider">
+              <span className="inline-block text-[11px] font-semibold text-[#C6A75E] bg-[#C6A75E]/10 px-2.5 py-1 rounded uppercase tracking-wider">
                 {product.subcategory}
               </span>
             )}
@@ -272,13 +272,13 @@ export default function ProductDetail() {
                 </div>
               )}
               {product.materials.fabric && (
-                <div className="bg-[#fdf8f0] rounded-lg p-3 text-center">
-                  <Scissors className="w-5 h-5 text-[#c17d3c] mx-auto" />
+                <div className="bg-[#F5EFE6] rounded-lg p-3 text-center">
+                  <Scissors className="w-5 h-5 text-[#C6A75E] mx-auto" />
                   <p className="text-xs font-semibold text-gray-800 mt-1">{product.materials.fabric}</p>
                 </div>
               )}
               {product.materials.polish && (
-                <div className="bg-orange-50 rounded-lg p-3 text-center">
+                <div className="bg-[#F5EFE6] rounded-lg p-3 text-center">
                   <Sparkles className="w-5 h-5 text-orange-600 mx-auto" />
                   <p className="text-xs font-semibold text-gray-800 mt-1">{product.materials.polish}</p>
                 </div>
@@ -338,7 +338,7 @@ export default function ProductDetail() {
                   addedToCart
                     ? 'bg-green-500 text-white'
                     : product.inStock
-                      ? 'bg-[#c17d3c] text-white hover:bg-[#a86830] active:scale-[0.98]'
+                      ? 'bg-[#C6A75E] text-white hover:bg-[#B0914A] active:scale-[0.98]'
                       : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 }`}
               >
@@ -349,7 +349,7 @@ export default function ProductDetail() {
                 disabled={!product.inStock}
                 className={`flex-1 py-3.5 rounded-lg font-semibold text-sm transition-all ${
                   product.inStock
-                    ? 'bg-[#2d1b0e] text-white hover:bg-[#1a0e08] active:scale-[0.98]'
+                    ? 'bg-[#4A2F24] text-white hover:bg-[#3A2119] active:scale-[0.98]'
                     : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 }`}
               >
@@ -373,10 +373,10 @@ export default function ProductDetail() {
             {/* Service Highlights */}
             <div className="grid grid-cols-2 gap-3">
               {[
-                { icon: <Truck className="w-4 h-4 text-[#c17d3c]" />, text: 'Free Delivery in Mumbai' },
-                { icon: <Wrench className="w-4 h-4 text-[#c17d3c]" />, text: 'Free Assembly' },
-                { icon: <RotateCcw className="w-4 h-4 text-[#c17d3c]" />, text: '7-day Easy Returns' },
-                { icon: <Shield className="w-4 h-4 text-[#c17d3c]" />, text: 'Warranty Included' },
+                { icon: <Truck className="w-4 h-4 text-[#C6A75E]" />, text: 'Free Delivery in Mumbai' },
+                { icon: <Wrench className="w-4 h-4 text-[#C6A75E]" />, text: 'Free Assembly' },
+                { icon: <RotateCcw className="w-4 h-4 text-[#C6A75E]" />, text: '7-day Easy Returns' },
+                { icon: <Shield className="w-4 h-4 text-[#C6A75E]" />, text: 'Warranty Included' },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2 bg-gray-50 rounded-lg px-3 py-2.5">
                   <span className="flex-shrink-0">{item.icon}</span>
@@ -397,13 +397,13 @@ export default function ProductDetail() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex-1 sm:flex-initial px-6 py-4 text-sm font-semibold transition-colors relative ${
                   activeTab === tab.id
-                    ? 'text-[#c17d3c]'
+                    ? 'text-[#C6A75E]'
                     : 'text-gray-500 hover:text-gray-700'
                 }`}
               >
                 {tab.label}
                 {activeTab === tab.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#c17d3c]" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C6A75E]" />
                 )}
               </button>
             ))}
@@ -425,13 +425,13 @@ export default function ProductDetail() {
                     </div>
                   )}
                   {product.materials.fabric && (
-                    <div className="bg-[#fdf8f0] rounded-lg p-4">
+                    <div className="bg-[#F5EFE6] rounded-lg p-4">
                       <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Fabric</p>
                       <p className="font-semibold text-gray-800">{product.materials.fabric}</p>
                     </div>
                   )}
                   {product.materials.polish && (
-                    <div className="bg-orange-50 rounded-lg p-4">
+                    <div className="bg-[#F5EFE6] rounded-lg p-4">
                       <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Polish</p>
                       <p className="font-semibold text-gray-800">{product.materials.polish}</p>
                     </div>
@@ -465,14 +465,14 @@ export default function ProductDetail() {
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <Truck className="w-5 h-5 text-[#c17d3c]" /> Delivery Information
+                    <Truck className="w-5 h-5 text-[#C6A75E]" /> Delivery Information
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{product.deliveryInfo}</p>
                 </div>
                 <hr className="border-gray-200" />
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <Shield className="w-5 h-5 text-[#c17d3c]" /> Warranty
+                    <Shield className="w-5 h-5 text-[#C6A75E]" /> Warranty
                   </h3>
                   <p className="text-gray-700 leading-relaxed">{product.warrantyInfo}</p>
                 </div>

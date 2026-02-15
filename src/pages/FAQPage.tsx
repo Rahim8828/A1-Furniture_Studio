@@ -127,11 +127,11 @@ const AccordionItem: React.FC<{ item: FAQItem; isOpen: boolean; onToggle: () => 
   <div className="border-b border-gray-100 last:border-b-0">
     <button
       onClick={onToggle}
-      className="w-full flex items-center justify-between py-4 px-1 text-left hover:text-[#c17d3c] transition-colors"
+      className="w-full flex items-center justify-between py-4 px-1 text-left hover:text-[#C6A75E] transition-colors"
       aria-expanded={isOpen}
     >
       <span className="font-medium text-gray-900 pr-4">{item.question}</span>
-      <span className={`text-[#c17d3c] text-xl flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}>
+      <span className={`text-[#C6A75E] text-xl flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}>
         +
       </span>
     </button>
@@ -185,7 +185,7 @@ const FAQPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-500 mb-8">
-        <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+        <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-gray-800 font-medium">FAQ</span>
       </nav>
@@ -200,14 +200,14 @@ const FAQPage: React.FC = () => {
 
       <div className="max-w-4xl mx-auto space-y-8">
         {/* Quick Nav */}
-        <section className="bg-[#fdf8f0] rounded-2xl p-6">
+        <section className="bg-[#F5EFE6] rounded-2xl p-6">
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Jump to a topic</h2>
           <div className="flex flex-wrap gap-3">
             {faqData.map((cat) => (
               <a
                 key={cat.title}
                 href={`#faq-${cat.title.toLowerCase().replace(/\s+/g, '-')}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm text-sm font-medium text-gray-700 hover:shadow-card hover:text-[#c17d3c] transition-all"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm text-sm font-medium text-gray-700 hover:shadow-card hover:text-[#C6A75E] transition-all"
               >
                 <span>{cat.icon}</span>
                 {cat.title}
@@ -241,7 +241,7 @@ const FAQPage: React.FC = () => {
 
         {/* Still have questions */}
         <section className="text-center py-8">
-          <div className="bg-[#fdf8f0] rounded-2xl p-8">
+          <div className="bg-[#F5EFE6] rounded-2xl p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-3">Still have questions?</h2>
             <p className="text-gray-600 mb-6">
               Can't find what you're looking for? Our support team is happy to help.
@@ -249,7 +249,7 @@ const FAQPage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="inline-block bg-[#2d1b0e] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1a1008] transition-colors"
+                className="inline-block bg-[#4A2F24] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A2119] transition-colors"
               >
                 Contact Us
               </Link>

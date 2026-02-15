@@ -153,7 +153,7 @@ const SearchBarEnhanced = ({
           onKeyDown={handleKeyDown}
           onFocus={handleFocus}
           placeholder={placeholder}
-          className="w-full pl-10 pr-20 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/40 focus:border-[#c17d3c] focus:bg-white transition-all placeholder:text-gray-400"
+          className="w-full pl-10 pr-20 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/40 focus:border-[#C6A75E] focus:bg-white transition-all placeholder:text-gray-400"
           autoComplete="off"
         />
 
@@ -173,7 +173,7 @@ const SearchBarEnhanced = ({
           )}
           <button
             type="submit"
-            className="bg-[#c17d3c] hover:bg-[#a86830] text-white px-3 py-1.5 rounded-md text-xs font-medium transition-colors"
+            className="bg-[#C6A75E] hover:bg-[#B0914A] text-white px-3 py-1.5 rounded-md text-xs font-medium transition-colors"
             aria-label="Search"
           >
             Search
@@ -187,7 +187,7 @@ const SearchBarEnhanced = ({
           {/* Loading */}
           {isLoading && query.trim().length >= 2 && (
             <div className="px-4 py-3 text-sm text-gray-500 flex items-center gap-2">
-              <div className="w-4 h-4 border-2 border-gray-300 border-t-[#c17d3c] rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-gray-300 border-t-[#C6A75E] rounded-full animate-spin" />
               Searching...
             </div>
           )}
@@ -203,8 +203,8 @@ const SearchBarEnhanced = ({
                   key={product.id}
                   to={`/product/${product.id}`}
                   onClick={() => handleSuggestionClick(product)}
-                  className={`flex items-center gap-3 px-4 py-2.5 hover:bg-orange-50 transition-colors ${
-                    highlightIndex === index ? 'bg-orange-50' : ''
+                  className={`flex items-center gap-3 px-4 py-2.5 hover:bg-[#F5EFE6] transition-colors ${
+                    highlightIndex === index ? 'bg-[#F5EFE6]' : ''
                   }`}
                 >
                   <img
@@ -217,7 +217,7 @@ const SearchBarEnhanced = ({
                       {product.name}
                     </p>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-semibold text-[#c17d3c]">
+                      <span className="text-sm font-semibold text-[#C6A75E]">
                         ₹{(product.discountPrice ?? product.price).toLocaleString()}
                       </span>
                       {product.discountPrice && (
@@ -236,7 +236,7 @@ const SearchBarEnhanced = ({
                     onSearch(query.trim());
                     setShowDropdown(false);
                   }}
-                  className="w-full px-4 py-2.5 text-sm text-[#c17d3c] font-medium hover:bg-orange-50 transition-colors border-t text-center"
+                  className="w-full px-4 py-2.5 text-sm text-[#C6A75E] font-medium hover:bg-[#F5EFE6] transition-colors border-t text-center"
                 >
                   View all results for "{query.trim()}"
                 </button>
@@ -262,7 +262,7 @@ const SearchBarEnhanced = ({
                 <button
                   key={term}
                   onClick={() => handleTrendingClick(term)}
-                  className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 transition-colors text-left"
+                  className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-gray-700 hover:bg-[#F5EFE6] transition-colors text-left"
                 >
                   <svg
                     className="w-4 h-4 text-gray-400 flex-shrink-0"

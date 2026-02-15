@@ -93,8 +93,8 @@ const RegistrationPage = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         {/* Brand icon */}
-        <div className="w-14 h-14 mx-auto rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-          <svg className="w-7 h-7 text-[#c17d3c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-14 h-14 mx-auto rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+          <svg className="w-7 h-7 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
         </div>
@@ -105,7 +105,7 @@ const RegistrationPage = () => {
           Already have an account?{' '}
           <Link
             to="/login"
-            className="font-medium text-[#c17d3c] hover:text-[#a86830]"
+            className="font-medium text-[#C6A75E] hover:text-[#B0914A]"
           >
             Sign in
           </Link>
@@ -132,7 +132,7 @@ const RegistrationPage = () => {
                 <input
                   id="name" name="name" type="text" autoComplete="name" required
                   value={formData.name} onChange={handleChange}
-                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] sm:text-sm transition-colors"
                   placeholder="John Doe"
                 />
               </div>
@@ -146,7 +146,7 @@ const RegistrationPage = () => {
                 <input
                   id="email" name="email" type="email" autoComplete="email" required
                   value={formData.email} onChange={handleChange}
-                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] sm:text-sm transition-colors"
                   placeholder="you@example.com"
                 />
               </div>
@@ -160,7 +160,7 @@ const RegistrationPage = () => {
                 <input
                   id="phone" name="phone" type="tel" autoComplete="tel"
                   value={formData.phone} onChange={handleChange}
-                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] sm:text-sm transition-colors"
                   placeholder="+91 9876543210"
                 />
               </div>
@@ -174,7 +174,7 @@ const RegistrationPage = () => {
                 <input
                   id="password" name="password" type="password" autoComplete="new-password" required
                   value={formData.password} onChange={handleChange}
-                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] sm:text-sm transition-colors"
                   placeholder="At least 6 characters"
                 />
               </div>
@@ -189,7 +189,7 @@ const RegistrationPage = () => {
                 <input
                   id="confirmPassword" name="confirmPassword" type="password" autoComplete="new-password" required
                   value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}
-                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] sm:text-sm transition-colors"
                   placeholder="Re-enter your password"
                 />
               </div>
@@ -199,7 +199,7 @@ const RegistrationPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#c17d3c] hover:bg-[#a86830] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#c17d3c] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#C6A75E] hover:bg-[#B0914A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C6A75E] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? 'Creating account...' : 'Create account'}
               </button>

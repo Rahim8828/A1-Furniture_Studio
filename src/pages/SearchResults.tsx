@@ -110,7 +110,7 @@ const SearchResults = () => {
           <p className="text-gray-500 mb-6">Enter a search term to find furniture, décor, and more.</p>
           <button
             onClick={() => navigate('/')}
-            className="bg-[#c17d3c] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
+            className="bg-[#C6A75E] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors"
           >
             Back to Home
           </button>
@@ -125,7 +125,7 @@ const SearchResults = () => {
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <span className="text-gray-800 font-medium">Search: "{query}"</span>
           </nav>
@@ -152,7 +152,7 @@ const SearchResults = () => {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as SortOption)}
-              className="text-sm font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] bg-white"
+              className="text-sm font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] bg-white"
             >
               <option value="relevance">Relevance</option>
               <option value="price-low">Price: Low to High</option>
@@ -185,7 +185,7 @@ const SearchResults = () => {
               </div>
               <button
                 onClick={() => navigate('/')}
-                className="bg-[#c17d3c] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#a86830] transition-colors"
+                className="bg-[#C6A75E] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B0914A] transition-colors"
               >
                 Browse Categories
               </button>

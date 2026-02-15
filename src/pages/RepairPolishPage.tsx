@@ -95,7 +95,7 @@ export default function RepairPolishPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#fdf8f0] to-[#f5ebe0] rounded-xl p-8 mb-8">
+      <div className="bg-gradient-to-r from-[#F5EFE6] to-[#EDE4D6] rounded-xl p-8 mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           Furniture Repair & Polish Services
         </h1>
@@ -108,7 +108,7 @@ export default function RepairPolishPage() {
       {/* Services Overview */}
       <div className="grid md:grid-cols-3 gap-6 mb-12">
         <div className="bg-white rounded-lg shadow-md p-6">
-          <Wrench className="w-10 h-10 text-[#c17d3c] mx-auto mb-4" />
+          <Wrench className="w-10 h-10 text-[#C6A75E] mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 mb-3">Repair Services</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>• Structural repairs and reinforcement</li>
@@ -121,7 +121,7 @@ export default function RepairPolishPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
-          <Sparkles className="w-10 h-10 text-[#c17d3c] mx-auto mb-4" />
+          <Sparkles className="w-10 h-10 text-[#C6A75E] mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 mb-3">Polish Services</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>• Complete refinishing</li>
@@ -134,7 +134,7 @@ export default function RepairPolishPage() {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6">
-          <Palette className="w-10 h-10 text-[#c17d3c] mx-auto mb-4" />
+          <Palette className="w-10 h-10 text-[#C6A75E] mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 mb-3">Restoration</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
             <li>• Antique furniture restoration</li>
@@ -345,7 +345,7 @@ export default function RepairPolishPage() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-transparent ${
                   errors.name ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Enter your full name"
@@ -365,7 +365,7 @@ export default function RepairPolishPage() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-transparent ${
                   errors.email ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="your.email@example.com"
@@ -385,7 +385,7 @@ export default function RepairPolishPage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-transparent ${
                   errors.phone ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="10-digit mobile number"
@@ -404,7 +404,7 @@ export default function RepairPolishPage() {
                 name="serviceType"
                 value={formData.serviceType}
                 onChange={handleChange}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-transparent ${
                   errors.serviceType ? 'border-red-500' : 'border-gray-300'
                 }`}
               >
@@ -431,7 +431,7 @@ export default function RepairPolishPage() {
                 value={formData.furnitureDetails}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-transparent ${
+                className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-transparent ${
                   errors.furnitureDetails ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="Please describe:&#10;- Type of furniture (sofa, table, chair, etc.)&#10;- Current condition and issues&#10;- Approximate age&#10;- Material (wood, fabric, leather, etc.)&#10;- Any specific concerns or requirements"
@@ -443,7 +443,7 @@ export default function RepairPolishPage() {
 
             <button
               type="submit"
-              className="w-full bg-[#c17d3c] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
+              className="w-full bg-[#C6A75E] text-white py-3 px-6 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors"
             >
               Request Quote
             </button>
@@ -462,28 +462,28 @@ export default function RepairPolishPage() {
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
           <div className="text-center">
-            <div className="text-3xl mb-3"><UserCog className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
+            <div className="text-3xl mb-3"><UserCog className="w-8 h-8 text-[#C6A75E] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Expert Craftsmen</h3>
             <p className="text-sm text-gray-600">
               20+ years of experience in furniture repair and restoration
             </p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-3"><Star className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
+            <div className="text-3xl mb-3"><Star className="w-8 h-8 text-[#C6A75E] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Premium Quality</h3>
             <p className="text-sm text-gray-600">
               Only the finest materials and finishes for lasting results
             </p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-3"><Truck className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
+            <div className="text-3xl mb-3"><Truck className="w-8 h-8 text-[#C6A75E] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Pickup & Delivery</h3>
             <p className="text-sm text-gray-600">
               Free pickup and delivery within Mumbai for your convenience
             </p>
           </div>
           <div className="text-center">
-            <div className="text-3xl mb-3"><CheckCircle className="w-8 h-8 text-[#c17d3c] mx-auto" /></div>
+            <div className="text-3xl mb-3"><CheckCircle className="w-8 h-8 text-[#C6A75E] mx-auto" /></div>
             <h3 className="font-semibold text-gray-900 mb-2">Satisfaction Guaranteed</h3>
             <p className="text-sm text-gray-600">
               6-month warranty on all repair and polish work
@@ -498,11 +498,11 @@ export default function RepairPolishPage() {
           Need Immediate Assistance?
         </h3>
         <div className="flex flex-wrap justify-center gap-6 text-gray-700">
-          <a href="tel:+919876543210" className="flex items-center hover:text-[#c17d3c]">
+          <a href="tel:+919876543210" className="flex items-center hover:text-[#C6A75E]">
             <Phone className="w-4 h-4 mr-2" />
             <span>+91 98765 43210</span>
           </a>
-          <a href="mailto:service@a1furniture.com" className="flex items-center hover:text-[#c17d3c]">
+          <a href="mailto:service@a1furniture.com" className="flex items-center hover:text-[#C6A75E]">
             <Mail className="w-4 h-4 mr-2" />
             <span>service@a1furniture.com</span>
           </a>
@@ -510,7 +510,7 @@ export default function RepairPolishPage() {
             href="https://wa.me/919876543210?text=I need furniture repair/polish service"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center hover:text-[#c17d3c]"
+            className="flex items-center hover:text-[#C6A75E]"
           >
             <MessageCircle className="w-4 h-4 mr-2" />
             <span>WhatsApp Us</span>

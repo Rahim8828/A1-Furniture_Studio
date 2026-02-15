@@ -49,8 +49,8 @@ const LoginPage = () => {
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         {/* Brand icon */}
-        <div className="w-14 h-14 mx-auto rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-          <svg className="w-7 h-7 text-[#c17d3c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="w-14 h-14 mx-auto rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+          <svg className="w-7 h-7 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
           </svg>
         </div>
@@ -61,7 +61,7 @@ const LoginPage = () => {
           Or{' '}
           <Link
             to="/register"
-            className="font-medium text-[#c17d3c] hover:text-[#a86830]"
+            className="font-medium text-[#C6A75E] hover:text-[#B0914A]"
           >
             create a new account
           </Link>
@@ -96,7 +96,7 @@ const LoginPage = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] sm:text-sm transition-colors"
                   placeholder="you@example.com"
                 />
               </div>
@@ -118,7 +118,7 @@ const LoginPage = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] sm:text-sm transition-colors"
+                  className="appearance-none block w-full px-3.5 py-2.5 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] sm:text-sm transition-colors"
                   placeholder="Enter your password"
                 />
               </div>
@@ -128,7 +128,7 @@ const LoginPage = () => {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#c17d3c] hover:bg-[#a86830] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#c17d3c] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-[#C6A75E] hover:bg-[#B0914A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#C6A75E] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {isLoading ? 'Signing in...' : 'Sign in'}
               </button>

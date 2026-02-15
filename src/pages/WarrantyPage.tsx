@@ -9,7 +9,7 @@ const WarrantyPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-500 mb-8">
-        <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+        <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-gray-800 font-medium">Warranty Information</span>
       </nav>
@@ -24,12 +24,12 @@ const WarrantyPage: React.FC = () => {
 
       <div className="max-w-4xl mx-auto space-y-10">
         {/* Warranty Highlights */}
-        <section className="bg-[#fdf8f0] rounded-2xl p-8">
+        <section className="bg-[#F5EFE6] rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: <Shield className="w-7 h-7 text-[#c17d3c]" />, title: '5-Year Warranty', desc: 'On all solid wood furniture' },
-              { icon: <Wrench className="w-7 h-7 text-[#c17d3c]" />, title: 'Free Repairs', desc: 'Manufacturing defects covered' },
-              { icon: <ClipboardList className="w-7 h-7 text-[#c17d3c]" />, title: 'Easy Claims', desc: 'Simple warranty claim process' },
+              { icon: <Shield className="w-7 h-7 text-[#C6A75E]" />, title: '5-Year Warranty', desc: 'On all solid wood furniture' },
+              { icon: <Wrench className="w-7 h-7 text-[#C6A75E]" />, title: 'Free Repairs', desc: 'Manufacturing defects covered' },
+              { icon: <ClipboardList className="w-7 h-7 text-[#C6A75E]" />, title: 'Easy Claims', desc: 'Simple warranty claim process' },
             ].map((item) => (
               <div key={item.title} className="text-center">
                 <span className="flex justify-center mb-2">{item.icon}</span>
@@ -47,7 +47,7 @@ const WarrantyPage: React.FC = () => {
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="bg-[#2d1b0e] text-white">
+                  <tr className="bg-[#4A2F24] text-white">
                     <th className="text-left px-6 py-3 font-semibold">Product Category</th>
                     <th className="text-left px-6 py-3 font-semibold">Warranty Period</th>
                     <th className="text-left px-6 py-3 font-semibold">Coverage</th>
@@ -65,7 +65,7 @@ const WarrantyPage: React.FC = () => {
                   ].map((row, i) => (
                     <tr key={i} className={i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                       <td className="px-6 py-3 font-medium text-gray-900">{row.category}</td>
-                      <td className="px-6 py-3 text-[#c17d3c] font-semibold">{row.period}</td>
+                      <td className="px-6 py-3 text-[#C6A75E] font-semibold">{row.period}</td>
                       <td className="px-6 py-3 text-gray-600">{row.coverage}</td>
                     </tr>
                   ))}
@@ -133,7 +133,7 @@ const WarrantyPage: React.FC = () => {
                 { title: 'Resolution', desc: 'Based on the assessment, we\'ll repair, replace the affected part, or provide a full replacement within 7–14 business days.' },
               ].map((step, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="w-8 h-8 rounded-full bg-[#c17d3c] text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">{i + 1}</span>
+                  <span className="w-8 h-8 rounded-full bg-[#C6A75E] text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">{i + 1}</span>
                   <div>
                     <h3 className="font-semibold text-gray-900">{step.title}</h3>
                     <p className="text-gray-600 text-sm">{step.desc}</p>
@@ -147,7 +147,7 @@ const WarrantyPage: React.FC = () => {
         {/* Tips */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Furniture Care Tips</h2>
-          <div className="bg-[#fdf8f0] rounded-xl p-6">
+          <div className="bg-[#F5EFE6] rounded-xl p-6">
             <p className="text-gray-700 text-sm mb-4">Extend the life of your furniture with these simple care tips:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
@@ -159,7 +159,7 @@ const WarrantyPage: React.FC = () => {
                 'Use furniture polish every 3–6 months',
               ].map((tip, i) => (
                 <div key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                  <Lightbulb className="w-4 h-4 text-[#c17d3c] flex-shrink-0" />
+                  <Lightbulb className="w-4 h-4 text-[#C6A75E] flex-shrink-0" />
                   {tip}
                 </div>
               ))}
@@ -172,7 +172,7 @@ const WarrantyPage: React.FC = () => {
           <p className="text-gray-600 mb-4">Need to file a warranty claim?</p>
           <Link
             to="/contact"
-            className="inline-block bg-[#2d1b0e] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1a1008] transition-colors"
+            className="inline-block bg-[#4A2F24] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A2119] transition-colors"
           >
             Contact Support
           </Link>

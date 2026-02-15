@@ -63,7 +63,7 @@ const MobileDrawer = ({
         }`}
       >
         {/* Header */}
-        <div className="bg-[#2d1b0e] text-white p-5">
+        <div className="bg-[#4A2F24] text-white p-5">
           <div className="flex items-center justify-between mb-4">
             <Link to="/" onClick={onClose} className="text-lg font-bold tracking-wide">
               A1 Furniture Studio
@@ -104,7 +104,7 @@ const MobileDrawer = ({
               <Link
                 to="/register"
                 onClick={onClose}
-                className="flex-1 text-center py-2 bg-[#c17d3c] rounded text-sm font-medium hover:bg-[#a86830] transition-colors"
+                className="flex-1 text-center py-2 bg-[#C6A75E] rounded text-sm font-medium hover:bg-[#B0914A] transition-colors"
               >
                 Sign Up
               </Link>
@@ -117,7 +117,7 @@ const MobileDrawer = ({
           <Link
             to="/cart"
             onClick={onClose}
-            className="flex flex-col items-center py-4 text-gray-600 hover:text-[#c17d3c] transition-colors relative"
+            className="flex flex-col items-center py-4 text-gray-600 hover:text-[#C6A75E] transition-colors relative"
           >
             <svg className="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -132,7 +132,7 @@ const MobileDrawer = ({
           <Link
             to="/wishlist"
             onClick={onClose}
-            className="flex flex-col items-center py-4 text-gray-600 hover:text-[#c17d3c] transition-colors border-x border-gray-100 relative"
+            className="flex flex-col items-center py-4 text-gray-600 hover:text-[#C6A75E] transition-colors border-x border-gray-100 relative"
           >
             <svg className="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -147,7 +147,7 @@ const MobileDrawer = ({
           <Link
             to="/contact"
             onClick={onClose}
-            className="flex flex-col items-center py-4 text-gray-600 hover:text-[#c17d3c] transition-colors"
+            className="flex flex-col items-center py-4 text-gray-600 hover:text-[#C6A75E] transition-colors"
           >
             <svg className="w-5 h-5 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -186,7 +186,7 @@ const MobileDrawer = ({
                 key={item.path}
                 to={item.path}
                 onClick={onClose}
-                className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-orange-50 hover:text-[#c17d3c] transition-colors"
+                className="flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:bg-[#F5EFE6] hover:text-[#C6A75E] transition-colors"
               >
                 <span>{item.icon}</span>
                 <span>{item.label}</span>
@@ -202,9 +202,9 @@ const MobileDrawer = ({
                 type="text"
                 placeholder="Enter Pincode"
                 maxLength={6}
-                className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-[#c17d3c]"
+                className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-[#C6A75E]"
               />
-              <button className="px-3 py-2 bg-[#c17d3c] text-white text-xs font-medium rounded hover:bg-[#a86830] transition-colors">
+              <button className="px-3 py-2 bg-[#C6A75E] text-white text-xs font-medium rounded hover:bg-[#B0914A] transition-colors">
                 Check
               </button>
             </div>
@@ -231,7 +231,7 @@ const MobileCategory = ({
         <Link
           to={category.path}
           onClick={onClose}
-          className="flex-1 flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:text-[#c17d3c] transition-colors"
+          className="flex-1 flex items-center gap-3 px-5 py-3 text-sm text-gray-700 hover:text-[#C6A75E] transition-colors"
         >
           <span>{category.icon}</span>
           <span className="font-medium">{category.label}</span>
@@ -244,7 +244,7 @@ const MobileCategory = ({
         {category.subcategories && category.subcategories.length > 0 && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="px-4 py-3 text-gray-400 hover:text-[#c17d3c] transition-colors"
+            className="px-4 py-3 text-gray-400 hover:text-[#C6A75E] transition-colors"
             aria-label={`Expand ${category.label}`}
           >
             <svg
@@ -274,7 +274,7 @@ const MobileCategory = ({
               key={sub.path}
               to={sub.path}
               onClick={onClose}
-              className="block pl-14 pr-5 py-2 text-sm text-gray-500 hover:text-[#c17d3c] transition-colors"
+              className="block pl-14 pr-5 py-2 text-sm text-gray-500 hover:text-[#C6A75E] transition-colors"
             >
               {sub.label}
             </Link>

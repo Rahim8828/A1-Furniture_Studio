@@ -68,7 +68,7 @@ const Navigation = ({
               {/* Mobile Hamburger */}
               <button
                 onClick={() => setIsMobileDrawerOpen(true)}
-                className="lg:hidden text-gray-700 hover:text-[#c17d3c] transition-colors p-1"
+                className="lg:hidden text-gray-700 hover:text-[#C6A75E] transition-colors p-1"
                 aria-label="Open menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ const Navigation = ({
 
               {/* Logo */}
               <Link to="/" className="flex items-center gap-2 group">
-                <div className="w-9 h-9 bg-[#2d1b0e] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#c17d3c] transition-colors">
+                <div className="w-9 h-9 bg-[#4A2F24] rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-[#C6A75E] transition-colors">
                   <span className="text-white font-bold text-sm">A1</span>
                 </div>
                 <div className="hidden sm:block">
@@ -102,7 +102,7 @@ const Navigation = ({
               {/* Mobile Search Toggle */}
               <button
                 onClick={() => setShowMobileSearch(!showMobileSearch)}
-                className="md:hidden text-gray-600 hover:text-[#c17d3c] transition-colors p-2"
+                className="md:hidden text-gray-600 hover:text-[#C6A75E] transition-colors p-2"
                 aria-label="Search"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -111,7 +111,7 @@ const Navigation = ({
               </button>
 
               {/* Pincode Checker (Desktop) */}
-              <div className="hidden xl:flex items-center gap-1.5 text-gray-600 hover:text-[#c17d3c] cursor-pointer transition-colors px-2 py-1 rounded-md hover:bg-orange-50 group">
+              <div className="hidden xl:flex items-center gap-1.5 text-gray-600 hover:text-[#C6A75E] cursor-pointer transition-colors px-2 py-1 rounded-md hover:bg-[#F5EFE6] group">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -129,7 +129,7 @@ const Navigation = ({
               {isAuthenticated ? (
                 <Link
                   to="/account"
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#c17d3c] transition-colors p-2 rounded-md hover:bg-orange-50"
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#C6A75E] transition-colors p-2 rounded-md hover:bg-[#F5EFE6]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -146,7 +146,7 @@ const Navigation = ({
               ) : (
                 <Link
                   to="/login"
-                  className="flex items-center gap-2 text-gray-600 hover:text-[#c17d3c] transition-colors p-2 rounded-md hover:bg-orange-50"
+                  className="flex items-center gap-2 text-gray-600 hover:text-[#C6A75E] transition-colors p-2 rounded-md hover:bg-[#F5EFE6]"
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -158,7 +158,7 @@ const Navigation = ({
               {/* Wishlist */}
               <Link
                 to="/wishlist"
-                className="relative text-gray-600 hover:text-[#c17d3c] transition-colors p-2 rounded-md hover:bg-orange-50"
+                className="relative text-gray-600 hover:text-[#C6A75E] transition-colors p-2 rounded-md hover:bg-[#F5EFE6]"
                 aria-label="Wishlist"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,14 +177,14 @@ const Navigation = ({
               {/* Cart */}
               <Link
                 to="/cart"
-                className="relative text-gray-600 hover:text-[#c17d3c] transition-colors p-2 rounded-md hover:bg-orange-50"
+                className="relative text-gray-600 hover:text-[#C6A75E] transition-colors p-2 rounded-md hover:bg-[#F5EFE6]"
                 aria-label="Cart"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 {cartItemCount > 0 && (
-                  <span className="absolute top-0.5 right-0.5 bg-[#c17d3c] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
+                  <span className="absolute top-0.5 right-0.5 bg-[#C6A75E] text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-bold">
                     {cartItemCount > 9 ? '9+' : cartItemCount}
                   </span>
                 )}
@@ -216,8 +216,8 @@ const Navigation = ({
                   onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
                   className={`flex items-center gap-2 text-sm font-semibold px-4 h-11 transition-colors ${
                     isMegaMenuOpen
-                      ? 'text-[#c17d3c] bg-orange-50'
-                      : 'text-gray-700 hover:text-[#c17d3c] hover:bg-orange-50'
+                      ? 'text-[#C6A75E] bg-[#F5EFE6]'
+                      : 'text-gray-700 hover:text-[#C6A75E] hover:bg-[#F5EFE6]'
                   }`}
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -245,7 +245,7 @@ const Navigation = ({
                 <Link
                   key={cat.path}
                   to={cat.path}
-                  className="text-sm text-gray-600 hover:text-[#c17d3c] px-3 h-11 flex items-center transition-colors whitespace-nowrap font-medium hover:bg-orange-50"
+                  className="text-sm text-gray-600 hover:text-[#C6A75E] px-3 h-11 flex items-center transition-colors whitespace-nowrap font-medium hover:bg-[#F5EFE6]"
                 >
                   {cat.label}
                 </Link>
@@ -257,13 +257,13 @@ const Navigation = ({
               {/* Highlight Links */}
               <Link
                 to="/custom-furniture"
-                className="text-sm font-semibold text-[#c17d3c] hover:text-[#a86830] px-3 h-11 flex items-center gap-1 transition-colors"
+                className="text-sm font-semibold text-[#C6A75E] hover:text-[#B0914A] px-3 h-11 flex items-center gap-1 transition-colors"
               >
                 <Sparkles className="w-4 h-4" /> Custom Furniture
               </Link>
               <Link
                 to="/repair-polish"
-                className="text-sm font-medium text-gray-600 hover:text-[#c17d3c] px-3 h-11 flex items-center gap-1 transition-colors"
+                className="text-sm font-medium text-gray-600 hover:text-[#C6A75E] px-3 h-11 flex items-center gap-1 transition-colors"
               >
                 <Wrench className="w-4 h-4" /> Repair & Polish
               </Link>

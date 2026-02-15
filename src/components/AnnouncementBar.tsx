@@ -22,7 +22,7 @@ const AnnouncementBar = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-[#2d1b0e] text-white text-xs sm:text-sm relative overflow-hidden">
+    <div className="bg-[#4A2F24] text-white text-xs sm:text-sm relative overflow-hidden">
       <div className="container mx-auto px-4 py-2 flex items-center justify-center">
         {/* Previous Arrow */}
         <button

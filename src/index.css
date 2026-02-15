@@ -6,29 +6,29 @@
 
 :root {
   /* Brand palette */
-  --color-primary: #c17d3c;
-  --color-primary-dark: #a86830;
-  --color-primary-light: #e09b5a;
-  --color-secondary: #2d1b0e;
-  --color-secondary-dark: #1a0e08;
+  --color-primary: #C6A75E;
+  --color-primary-dark: #B0914A;
+  --color-primary-light: #D4BC7E;
+  --color-secondary: #4A2F24;
+  --color-secondary-dark: #3A2119;
 
   /* Semantic */
-  --color-accent: #f59e0b;
+  --color-accent: #C6A75E;
   --color-success: #10b981;
   --color-error: #ef4444;
   --color-warning: #f59e0b;
 
   /* Neutrals */
-  --color-text: #1e293b;
+  --color-text: #2E2E2E;
   --color-text-light: #64748b;
-  --color-bg: #ffffff;
+  --color-bg: #FAF8F5;
   --color-bg-gray: #f8fafc;
-  --color-bg-warm: #fdf8f0;
+  --color-bg-warm: #F5EFE6;
   --color-border: #e2e8f0;
 
   /* Warm tones */
-  --color-warm-50: #fdf8f0;
-  --color-warm-100: #f5ebe0;
+  --color-warm-50: #F5EFE6;
+  --color-warm-100: #EDE4D6;
 
   /* Radius system */
   --radius-sm: 0.375rem;

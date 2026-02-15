@@ -9,7 +9,7 @@ const AboutPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-500 mb-8">
-        <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+        <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-gray-800 font-medium">About Us</span>
       </nav>
@@ -47,13 +47,13 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="mb-12 bg-[#fdf8f0] py-12 -mx-4 px-4 rounded-2xl">
+      <section className="mb-12 bg-[#F5EFE6] py-12 -mx-4 px-4 rounded-2xl">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <Target className="w-6 h-6 text-[#c17d3c]" />
+              <div className="w-12 h-12 rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Quality First</h3>
               <p className="text-gray-600">
@@ -63,8 +63,8 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <IndianRupee className="w-6 h-6 text-[#c17d3c]" />
+              <div className="w-12 h-12 rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+                <IndianRupee className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Factory Direct Pricing</h3>
               <p className="text-gray-600">
@@ -74,8 +74,8 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-[#c17d3c]" />
+              <div className="w-12 h-12 rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+                <Sparkles className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Custom Solutions</h3>
               <p className="text-gray-600">
@@ -85,8 +85,8 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <Truck className="w-6 h-6 text-[#c17d3c]" />
+              <div className="w-12 h-12 rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+                <Truck className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Reliable Delivery</h3>
               <p className="text-gray-600">
@@ -96,8 +96,8 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <Wrench className="w-6 h-6 text-[#c17d3c]" />
+              <div className="w-12 h-12 rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+                <Wrench className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Complete Care</h3>
               <p className="text-gray-600">
@@ -107,8 +107,8 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-card hover:shadow-card-hover transition-shadow">
-              <div className="w-12 h-12 rounded-full bg-[#c17d3c]/10 flex items-center justify-center mb-4">
-                <Handshake className="w-6 h-6 text-[#c17d3c]" />
+              <div className="w-12 h-12 rounded-full bg-[#C6A75E]/10 flex items-center justify-center mb-4">
+                <Handshake className="w-6 h-6 text-[#C6A75E]" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Customer Trust</h3>
               <p className="text-gray-600">
@@ -125,7 +125,7 @@ const AboutPage: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">What We Offer</h2>
           <div className="space-y-6">
-            <div className="border-l-4 border-[#c17d3c] pl-6">
+            <div className="border-l-4 border-[#C6A75E] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Premium Furniture Collection</h3>
               <p className="text-gray-700">
                 Browse our extensive catalog featuring sofas, beds, dining tables, wardrobes, and 
@@ -133,7 +133,7 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="border-l-4 border-[#c17d3c] pl-6">
+            <div className="border-l-4 border-[#C6A75E] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Custom Manufacturing</h3>
               <p className="text-gray-700">
                 Work with our design team to create bespoke furniture pieces that perfectly match 
@@ -141,7 +141,7 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="border-l-4 border-[#c17d3c] pl-6">
+            <div className="border-l-4 border-[#C6A75E] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Repair & Polish Services</h3>
               <p className="text-gray-700">
                 Restore and rejuvenate your existing furniture with our professional repair and 
@@ -149,7 +149,7 @@ const AboutPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="border-l-4 border-[#c17d3c] pl-6">
+            <div className="border-l-4 border-[#C6A75E] pl-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Office Solutions</h3>
               <p className="text-gray-700">
                 Complete office furniture solutions for businesses of all sizes, from startups to 
@@ -161,7 +161,7 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="text-center bg-[#2d1b0e] text-white py-12 -mx-4 px-4 rounded-2xl">
+      <section className="text-center bg-[#4A2F24] text-white py-12 -mx-4 px-4 rounded-2xl">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-4">Ready to Transform Your Space?</h2>
           <p className="text-xl mb-8 text-white/80">
@@ -170,13 +170,13 @@ const AboutPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/"
-              className="bg-[#c17d3c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
+              className="bg-[#C6A75E] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors"
             >
               Browse Collection
             </a>
             <a
               href="/contact"
-              className="bg-transparent border-2 border-white/50 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#2d1b0e] transition-colors"
+              className="bg-transparent border-2 border-white/50 text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#4A2F24] transition-colors"
             >
               Contact Us
             </a>

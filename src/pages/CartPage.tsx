@@ -92,7 +92,7 @@ const CartPage = () => {
         <div className="bg-white border-b">
           <div className="container mx-auto px-4 py-3">
             <nav className="flex items-center gap-2 text-sm text-gray-500">
-              <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+              <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               <span className="text-gray-800 font-medium">Shopping Cart</span>
             </nav>
@@ -101,8 +101,8 @@ const CartPage = () => {
 
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-lg mx-auto text-center">
-            <div className="w-32 h-32 bg-[#c17d3c]/10 rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg className="w-16 h-16 text-[#c17d3c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-32 h-32 bg-[#C6A75E]/10 rounded-full flex items-center justify-center mx-auto mb-8">
+              <svg className="w-16 h-16 text-[#C6A75E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
             </div>
@@ -112,7 +112,7 @@ const CartPage = () => {
             </p>
             <Link
               to="/"
-              className="inline-block bg-[#c17d3c] text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
+              className="inline-block bg-[#C6A75E] text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors"
             >
               Continue Shopping
             </Link>
@@ -137,7 +137,7 @@ const CartPage = () => {
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <span className="text-gray-800 font-medium">Shopping Cart</span>
           </nav>
@@ -173,7 +173,7 @@ const CartPage = () => {
 
                   {/* Details */}
                   <div className="flex-grow min-w-0">
-                    <Link to={`/product/${item.productId}`} className="text-base font-semibold text-gray-800 hover:text-[#c17d3c] transition-colors line-clamp-2">
+                    <Link to={`/product/${item.productId}`} className="text-base font-semibold text-gray-800 hover:text-[#C6A75E] transition-colors line-clamp-2">
                       {item.product.name}
                     </Link>
                     <p className="text-xs text-gray-500 mt-1">{item.product.category}</p>
@@ -278,11 +278,11 @@ const CartPage = () => {
                     value={couponCode}
                     onChange={(e) => setCouponCode(e.target.value)}
                     placeholder="Coupon code"
-                    className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#c17d3c]/40 focus:border-[#c17d3c] outline-none"
+                    className="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C6A75E]/40 focus:border-[#C6A75E] outline-none"
                   />
                   <button
                     onClick={handleApplyCoupon}
-                    className="px-4 py-2 text-sm font-semibold text-[#c17d3c] border border-[#c17d3c] rounded-lg hover:bg-[#c17d3c]/5 transition-colors"
+                    className="px-4 py-2 text-sm font-semibold text-[#C6A75E] border border-[#C6A75E] rounded-lg hover:bg-[#C6A75E]/5 transition-colors"
                   >
                     Apply
                   </button>
@@ -295,14 +295,14 @@ const CartPage = () => {
               {/* CTA */}
               <button
                 onClick={handleProceedToCheckout}
-                className="w-full bg-[#c17d3c] text-white py-3.5 rounded-lg font-semibold hover:bg-[#a86830] active:scale-[0.98] transition-all text-sm"
+                className="w-full bg-[#C6A75E] text-white py-3.5 rounded-lg font-semibold hover:bg-[#B0914A] active:scale-[0.98] transition-all text-sm"
               >
                 Proceed to Checkout
               </button>
 
               <Link
                 to="/"
-                className="block text-center text-[#c17d3c] hover:text-[#a86830] font-medium text-sm transition-colors"
+                className="block text-center text-[#C6A75E] hover:text-[#B0914A] font-medium text-sm transition-colors"
               >
                 Continue Shopping
               </Link>

@@ -163,7 +163,7 @@ const CategoryPage = () => {
           <p className="text-gray-500 mb-6">The category you're looking for doesn't exist or may have been removed.</p>
           <button
             onClick={() => navigate('/')}
-            className="bg-[#c17d3c] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
+            className="bg-[#C6A75E] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors"
           >
             Back to Home
           </button>
@@ -186,7 +186,7 @@ const CategoryPage = () => {
                 name="price"
                 checked={selectedPriceRange === index}
                 onChange={() => setSelectedPriceRange(selectedPriceRange === index ? null : index)}
-                className="w-4 h-4 text-[#c17d3c] border-gray-300 focus:ring-[#c17d3c]"
+                className="w-4 h-4 text-[#C6A75E] border-gray-300 focus:ring-[#C6A75E]"
               />
               <span className="text-sm text-gray-600 group-hover:text-gray-900">{range.label}</span>
             </label>
@@ -202,7 +202,7 @@ const CategoryPage = () => {
             type="checkbox"
             checked={inStockOnly}
             onChange={() => setInStockOnly(!inStockOnly)}
-            className="w-4 h-4 text-[#c17d3c] border-gray-300 rounded focus:ring-[#c17d3c]"
+            className="w-4 h-4 text-[#C6A75E] border-gray-300 rounded focus:ring-[#C6A75E]"
           />
           <span className="text-sm text-gray-600 group-hover:text-gray-900">In Stock Only</span>
         </label>
@@ -210,7 +210,7 @@ const CategoryPage = () => {
 
       {/* Clear Filters */}
       {activeFilterCount > 0 && (
-        <button onClick={clearFilters} className="text-sm text-[#c17d3c] hover:text-[#a86830] font-medium underline underline-offset-2">
+        <button onClick={clearFilters} className="text-sm text-[#C6A75E] hover:text-[#B0914A] font-medium underline underline-offset-2">
           Clear all filters
         </button>
       )}
@@ -223,7 +223,7 @@ const CategoryPage = () => {
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <span className="text-gray-800 font-medium">{category.name}</span>
           </nav>
@@ -253,7 +253,7 @@ const CategoryPage = () => {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg>
               Filters
               {activeFilterCount > 0 && (
-                <span className="bg-[#c17d3c] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{activeFilterCount}</span>
+                <span className="bg-[#C6A75E] text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">{activeFilterCount}</span>
               )}
             </button>
 
@@ -263,7 +263,7 @@ const CategoryPage = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="text-sm font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] bg-white"
+                className="text-sm font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] bg-white"
               >
                 <option value="relevance">Relevance</option>
                 <option value="price-low">Price: Low to High</option>
@@ -326,11 +326,11 @@ const CategoryPage = () => {
                       : 'This category is currently empty. Check back soon!'}
                   </p>
                   {activeFilterCount > 0 ? (
-                    <button onClick={clearFilters} className="bg-[#c17d3c] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#a86830] transition-colors">
+                    <button onClick={clearFilters} className="bg-[#C6A75E] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B0914A] transition-colors">
                       Clear Filters
                     </button>
                   ) : (
-                    <button onClick={() => navigate('/')} className="bg-[#c17d3c] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#a86830] transition-colors">
+                    <button onClick={() => navigate('/')} className="bg-[#C6A75E] text-white px-5 py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B0914A] transition-colors">
                       Browse Other Categories
                     </button>
                   )}
@@ -372,7 +372,7 @@ const CategoryPage = () => {
               <FilterPanel />
             </div>
             <div className="p-4 border-t">
-              <button onClick={() => setMobileFiltersOpen(false)} className="w-full bg-[#c17d3c] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#a86830]">
+              <button onClick={() => setMobileFiltersOpen(false)} className="w-full bg-[#C6A75E] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#B0914A]">
                 Apply Filters ({filteredProducts.length} products)
               </button>
             </div>

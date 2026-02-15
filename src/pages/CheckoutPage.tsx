@@ -193,7 +193,7 @@ const CheckoutPage = () => {
         <div className="bg-white border-b">
           <div className="container mx-auto px-4 py-3">
             <nav className="flex items-center gap-2 text-sm text-gray-500">
-              <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+              <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
               <span className="text-gray-800 font-medium">Order Confirmed</span>
             </nav>
@@ -217,7 +217,7 @@ const CheckoutPage = () => {
               <div className="bg-gray-50 rounded-xl p-6 mb-8 text-left">
                 <div className="text-center mb-5">
                   <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Order Number</p>
-                  <p className="text-2xl font-bold text-[#c17d3c]">{confirmedOrder.orderId}</p>
+                  <p className="text-2xl font-bold text-[#C6A75E]">{confirmedOrder.orderId}</p>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
@@ -264,7 +264,7 @@ const CheckoutPage = () => {
 
               <button
                 onClick={() => navigate('/')}
-                className="bg-[#c17d3c] text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-[#a86830] transition-colors"
+                className="bg-[#C6A75E] text-white px-8 py-3.5 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors"
               >
                 Continue Shopping
               </button>
@@ -298,7 +298,7 @@ const CheckoutPage = () => {
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={`w-full px-4 py-2.5 text-sm border rounded-lg outline-none transition-colors focus:ring-2 focus:ring-[#c17d3c]/30 focus:border-[#c17d3c] ${
+        className={`w-full px-4 py-2.5 text-sm border rounded-lg outline-none transition-colors focus:ring-2 focus:ring-[#C6A75E]/30 focus:border-[#C6A75E] ${
           error ? 'border-red-400 bg-red-50/50' : 'border-gray-300'
         }`}
         placeholder={placeholder}
@@ -314,9 +314,9 @@ const CheckoutPage = () => {
       <div className="bg-white border-b">
         <div className="container mx-auto px-4 py-3">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+            <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-            <Link to="/cart" className="hover:text-[#c17d3c] transition-colors">Cart</Link>
+            <Link to="/cart" className="hover:text-[#C6A75E] transition-colors">Cart</Link>
             <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
             <span className="text-gray-800 font-medium">Checkout</span>
           </nav>
@@ -336,7 +336,7 @@ const CheckoutPage = () => {
               >
                 <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
                   currentStep >= step.num
-                    ? 'bg-[#c17d3c] text-white'
+                    ? 'bg-[#C6A75E] text-white'
                     : 'bg-gray-200 text-gray-500'
                 }`}>
                   {currentStep > step.num ? (
@@ -345,12 +345,12 @@ const CheckoutPage = () => {
                     step.num
                   )}
                 </div>
-                <span className={`text-xs font-medium ${currentStep >= step.num ? 'text-[#c17d3c]' : 'text-gray-400'}`}>
+                <span className={`text-xs font-medium ${currentStep >= step.num ? 'text-[#C6A75E]' : 'text-gray-400'}`}>
                   {step.label}
                 </span>
               </button>
               {index < steps.length - 1 && (
-                <div className={`h-0.5 flex-1 mx-1 -mt-5 ${currentStep > step.num ? 'bg-[#c17d3c]' : 'bg-gray-200'}`} />
+                <div className={`h-0.5 flex-1 mx-1 -mt-5 ${currentStep > step.num ? 'bg-[#C6A75E]' : 'bg-gray-200'}`} />
               )}
             </div>
           ))}
@@ -365,7 +365,7 @@ const CheckoutPage = () => {
                 {/* Delivery Address */}
                 <div className="bg-white rounded-xl border border-gray-100 p-6">
                   <h2 className="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
-                    <span className="w-7 h-7 bg-[#c17d3c] text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                    <span className="w-7 h-7 bg-[#C6A75E] text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
                     Delivery Address
                   </h2>
 
@@ -397,7 +397,7 @@ const CheckoutPage = () => {
                 {/* Contact Information */}
                 <div className="bg-white rounded-xl border border-gray-100 p-6">
                   <h2 className="text-lg font-bold text-gray-900 mb-5 flex items-center gap-2">
-                    <span className="w-7 h-7 bg-[#c17d3c] text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                    <span className="w-7 h-7 bg-[#C6A75E] text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
                     Contact Information
                   </h2>
 
@@ -413,7 +413,7 @@ const CheckoutPage = () => {
 
                 <button
                   onClick={() => setCurrentStep(2)}
-                  className="w-full sm:w-auto bg-[#c17d3c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors text-sm"
+                  className="w-full sm:w-auto bg-[#C6A75E] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors text-sm"
                 >
                   Continue to Payment <ArrowRight className="w-4 h-4 inline ml-1" />
                 </button>
@@ -428,10 +428,10 @@ const CheckoutPage = () => {
 
                   <div className="space-y-3">
                     <label className={`flex items-start gap-4 p-5 border-2 rounded-xl cursor-pointer transition-all ${
-                      paymentMethod === 'COD' ? 'border-[#c17d3c] bg-[#c17d3c]/5' : 'border-gray-200 hover:border-gray-300'
+                      paymentMethod === 'COD' ? 'border-[#C6A75E] bg-[#C6A75E]/5' : 'border-gray-200 hover:border-gray-300'
                     }`}>
                       <input type="radio" name="paymentMethod" value="COD" checked={paymentMethod === 'COD'}
-                        onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)} className="mt-0.5 accent-[#c17d3c]" />
+                        onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)} className="mt-0.5 accent-[#C6A75E]" />
                       <div>
                         <p className="font-semibold text-gray-800">Cash on Delivery (COD)</p>
                         <p className="text-sm text-gray-500 mt-0.5">Pay with cash when your order is delivered</p>
@@ -439,10 +439,10 @@ const CheckoutPage = () => {
                     </label>
 
                     <label className={`flex items-start gap-4 p-5 border-2 rounded-xl cursor-pointer transition-all ${
-                      paymentMethod === 'ONLINE' ? 'border-[#c17d3c] bg-[#c17d3c]/5' : 'border-gray-200 hover:border-gray-300'
+                      paymentMethod === 'ONLINE' ? 'border-[#C6A75E] bg-[#C6A75E]/5' : 'border-gray-200 hover:border-gray-300'
                     }`}>
                       <input type="radio" name="paymentMethod" value="ONLINE" checked={paymentMethod === 'ONLINE'}
-                        onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)} className="mt-0.5 accent-[#c17d3c]" />
+                        onChange={(e) => setPaymentMethod(e.target.value as PaymentMethod)} className="mt-0.5 accent-[#C6A75E]" />
                       <div>
                         <p className="font-semibold text-gray-800">Online Payment</p>
                         <p className="text-sm text-gray-500 mt-0.5">Pay securely using UPI, Cards, or Net Banking</p>
@@ -460,7 +460,7 @@ const CheckoutPage = () => {
                   </button>
                   <button
                     onClick={() => setCurrentStep(3)}
-                    className="bg-[#c17d3c] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#a86830] transition-colors text-sm"
+                    className="bg-[#C6A75E] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#B0914A] transition-colors text-sm"
                   >
                     Review Order <ArrowRight className="w-4 h-4 inline ml-1" />
                   </button>
@@ -475,7 +475,7 @@ const CheckoutPage = () => {
                 <div className="bg-white rounded-xl border border-gray-100 p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-lg font-bold text-gray-900">Delivery Address</h2>
-                    <button onClick={() => setCurrentStep(1)} className="text-[#c17d3c] text-sm font-medium hover:underline">Edit</button>
+                    <button onClick={() => setCurrentStep(1)} className="text-[#C6A75E] text-sm font-medium hover:underline">Edit</button>
                   </div>
                   <div className="text-sm text-gray-600 leading-relaxed">
                     <p className="font-semibold text-gray-800">{deliveryAddress.fullName}</p>
@@ -490,7 +490,7 @@ const CheckoutPage = () => {
                 <div className="bg-white rounded-xl border border-gray-100 p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h2 className="text-lg font-bold text-gray-900">Payment Method</h2>
-                    <button onClick={() => setCurrentStep(2)} className="text-[#c17d3c] text-sm font-medium hover:underline">Edit</button>
+                    <button onClick={() => setCurrentStep(2)} className="text-[#C6A75E] text-sm font-medium hover:underline">Edit</button>
                   </div>
                   <p className="text-sm text-gray-700 font-medium">
                     {paymentMethod === 'COD' ? <><Banknote className="w-4 h-4 inline mr-1" /> Cash on Delivery</> : <><CreditCard className="w-4 h-4 inline mr-1" /> Online Payment</>}
@@ -513,7 +513,7 @@ const CheckoutPage = () => {
                   <button
                     onClick={handleSubmitOrder}
                     disabled={submitting}
-                    className="flex-1 bg-[#2d1b0e] text-white py-3.5 rounded-lg font-semibold hover:bg-[#1a0e08] active:scale-[0.98] transition-all text-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
+                    className="flex-1 bg-[#4A2F24] text-white py-3.5 rounded-lg font-semibold hover:bg-[#3A2119] active:scale-[0.98] transition-all text-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
                   >
                     {submitting ? (
                       <span className="flex items-center justify-center gap-2">

@@ -9,7 +9,7 @@ const ReturnPolicyPage: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Breadcrumb */}
       <nav className="text-sm text-gray-500 mb-8">
-        <Link to="/" className="hover:text-[#c17d3c] transition-colors">Home</Link>
+        <Link to="/" className="hover:text-[#C6A75E] transition-colors">Home</Link>
         <span className="mx-2">/</span>
         <span className="text-gray-800 font-medium">Return &amp; Refund Policy</span>
       </nav>
@@ -24,12 +24,12 @@ const ReturnPolicyPage: React.FC = () => {
 
       <div className="max-w-4xl mx-auto space-y-10">
         {/* Highlights */}
-        <section className="bg-[#fdf8f0] rounded-2xl p-8">
+        <section className="bg-[#F5EFE6] rounded-2xl p-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: <RefreshCw className="w-7 h-7 text-[#c17d3c]" />, title: '7-Day Returns', desc: 'Easy returns within 7 days of delivery' },
-              { icon: <CreditCard className="w-7 h-7 text-[#c17d3c]" />, title: 'Full Refund', desc: 'Get 100% refund on eligible returns' },
-              { icon: <Phone className="w-7 h-7 text-[#c17d3c]" />, title: 'Free Pickup', desc: 'We pick up from your doorstep' },
+              { icon: <RefreshCw className="w-7 h-7 text-[#C6A75E]" />, title: '7-Day Returns', desc: 'Easy returns within 7 days of delivery' },
+              { icon: <CreditCard className="w-7 h-7 text-[#C6A75E]" />, title: 'Full Refund', desc: 'Get 100% refund on eligible returns' },
+              { icon: <Phone className="w-7 h-7 text-[#C6A75E]" />, title: 'Free Pickup', desc: 'We pick up from your doorstep' },
             ].map((item) => (
               <div key={item.title} className="text-center">
                 <span className="flex justify-center mb-2">{item.icon}</span>
@@ -103,7 +103,7 @@ const ReturnPolicyPage: React.FC = () => {
                 { title: 'Resolution', desc: 'You\'ll receive a replacement or full refund based on your preference within 5–7 business days.' },
               ].map((step, i) => (
                 <li key={i} className="flex items-start gap-4">
-                  <span className="w-8 h-8 rounded-full bg-[#c17d3c] text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">{i + 1}</span>
+                  <span className="w-8 h-8 rounded-full bg-[#C6A75E] text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">{i + 1}</span>
                   <div>
                     <h3 className="font-semibold text-gray-900">{step.title}</h3>
                     <p className="text-gray-600 text-sm">{step.desc}</p>
@@ -119,8 +119,8 @@ const ReturnPolicyPage: React.FC = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Refund Information</h2>
           <div className="bg-white rounded-xl shadow-card p-6 space-y-4">
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <CreditCard className="w-5 h-5 text-[#c17d3c]" />
+              <div className="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center flex-shrink-0">
+                <CreditCard className="w-5 h-5 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Online Payments</h3>
@@ -128,8 +128,8 @@ const ReturnPolicyPage: React.FC = () => {
               </div>
             </div>
             <div className="flex items-start gap-4 pb-4 border-b border-gray-100">
-              <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <Landmark className="w-5 h-5 text-[#c17d3c]" />
+              <div className="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center flex-shrink-0">
+                <Landmark className="w-5 h-5 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Cash on Delivery</h3>
@@ -137,8 +137,8 @@ const ReturnPolicyPage: React.FC = () => {
               </div>
             </div>
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-[#c17d3c]/10 flex items-center justify-center flex-shrink-0">
-                <RefreshCw className="w-5 h-5 text-[#c17d3c]" />
+              <div className="w-10 h-10 rounded-full bg-[#C6A75E]/10 flex items-center justify-center flex-shrink-0">
+                <RefreshCw className="w-5 h-5 text-[#C6A75E]" />
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900">Exchanges</h3>
@@ -151,7 +151,7 @@ const ReturnPolicyPage: React.FC = () => {
         {/* Cancellation */}
         <section>
           <h2 className="text-2xl font-bold text-gray-900 mb-4">Order Cancellation</h2>
-          <div className="bg-[#fdf8f0] rounded-xl p-6 space-y-3">
+          <div className="bg-[#F5EFE6] rounded-xl p-6 space-y-3">
             <p className="text-gray-700 text-sm">
               <strong>Before Dispatch:</strong> Orders can be cancelled free of charge before dispatch. Full refund will be processed within 3–5 business days.
             </p>
@@ -169,7 +169,7 @@ const ReturnPolicyPage: React.FC = () => {
           <p className="text-gray-600 mb-4">Need to return a product or have questions?</p>
           <Link
             to="/contact"
-            className="inline-block bg-[#2d1b0e] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1a1008] transition-colors"
+            className="inline-block bg-[#4A2F24] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#3A2119] transition-colors"
           >
             Contact Support
           </Link>
